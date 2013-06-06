@@ -1,0 +1,5 @@
+.DS_Store
+caches/
+backups/
+link/.ssh/
+!link/.ssh/config
