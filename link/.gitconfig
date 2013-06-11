@@ -14,7 +14,9 @@
 	# show tags and any tag annotation (tito adds tag annotations for example)
 	tags = tag -n1 -l
 	# add and commit
-	ac = !git add . && git commit
+	a = add . -v
+	c = commit -m
+	ac = !git add . -v && git commit -m
 
 [mergetool]
 	keepBackup = true
