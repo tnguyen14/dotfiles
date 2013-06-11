@@ -133,22 +133,21 @@ if [[ ! "$(type -P gcc)" && "$OSTYPE" =~ ^darwin ]]; then
   exit 1
 fi
 
+# Install Homebrew
+if [[ ! "$(type -P brew)" ]]; then
+  e_header "Installing Homebrew"
+  true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+else
+  e_header "Updating Homebrew"
+  brew update
+fi
+
 # If Git is not installed...
 if [[ ! "$(type -P git)" ]]; then
   # OSX
   if [[ "$OSTYPE" =~ ^darwin ]]; then
-    # It's easiest to get Git via Homebrew, so get that first.
-    if [[ ! "$(type -P brew)" ]]; then
-      e_header "Installing Homebrew"
-      true | /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-    fi
-    # If Homebrew was installed, install Git.
-    if [[ "$(type -P brew)" ]]; then
-      e_header "Updating Homebrew"
-      brew update
-      e_header "Installing Git"
-      brew install git
-    fi
+    e_header "Installing Git"
+    brew install git
   # Ubuntu.
   elif [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]]; then
     # Git is fairly easy.
