@@ -202,7 +202,7 @@ backup=
 
 # Don't need init for now. In the future if it's necessary, look it up here https://github.com/cowboy/dotfiles/tree/master/init
 # do_stuff "init"
-# do_stuff "copy"
+do_stuff "copy"
 do_stuff "link"
 
 # Alert if backups were made.
