@@ -17,6 +17,7 @@
 	a = add . -v
 	c = commit -m
 	ac = !git add . -v && git commit -m
+	au = add -uv
 
 [mergetool]
 	keepBackup = true
