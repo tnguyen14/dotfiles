@@ -76,7 +76,11 @@ function copy_test() {
 }
 function copy_do() {
   e_success "Copying ~/$1."
-  cp "$2" ~/
+  if [[ -L "$2" ]]; then
+    cp `readlink $2` ~/
+  else
+    cp "$2" ~/
+  fi
 }
 
 # Link files.
