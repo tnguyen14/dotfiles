@@ -76,6 +76,7 @@ function copy_test() {
 }
 function copy_do() {
   e_success "Copying ~/$1."
+  # somehow `cp` is not following symlinks. this is a temporary solution to solve this. Is there a better way?
   if [[ -L "$2" ]]; then
     cp `readlink $2` ~/
   else
