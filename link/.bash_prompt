@@ -1,5 +1,6 @@
 # Shamelessly copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt
 
+# COLORS!
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -39,9 +40,13 @@ export ORANGE
 export GREEN
 export PURPLE
 export WHITE
+export BLUE="\033[1;34m"
 export BOLD
 export RESET
 
+DEFAULT_USER='tringuyen'
+
+# Git info
 function parse_git_dirty() {
 	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
 }
@@ -50,5 +55,12 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+
+# include this if want to display more information about user
+USER="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in"
+
+# Interaction prompt
+export PS1="\[$BLUE\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n \[$PURPLE\]❯ \[$RESET\]"
+
+# Continuation interaction prompt
 export PS2="\[$ORANGE\]→ \[$RESET\]"
