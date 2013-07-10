@@ -6,8 +6,8 @@ A lot of inspiration (and forking) from [Ben Almen's dotfiles](https://github.co
 ## What to do
 
 ### OS X
-- Download [XCode Command Line Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools)
-- `bash -c "$(curl -fsSL https://raw.github.com/cowboy/dotfiles/master/bin/dotfiles)" && source ~/.bashrc`
+1. Download [XCode Command Line Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools)
+2. `bash -c "$(curl -fsSL https://raw.github.com/tnguyen14/dotfiles/master/bin/dotfiles)" && source ~/.bashrc`
 
 ### Ubuntu
 - `sudo apt-get -qq update && sudo apt-get -qq upgrade && sudo apt-get -qq install curl && echo &&
