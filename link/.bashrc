@@ -6,7 +6,7 @@ unset file
 
 export CLICOLOR=1
 export LSCOLORS=CxFxBxDxCxegedabagacad
-export PATH=$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Applications/MAMP/Library/bin:.
+export PATH=/usr/local/share/npm/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:.
 
 alias ll='ls -al'
 alias desktop='cd ~/Desktop'
