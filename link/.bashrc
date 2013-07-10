@@ -18,7 +18,9 @@ alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-da
 alias git=hub
 
 # rbenv
-eval "$(rbenv init -)"
+if [[ "$(type -P rbenv)" ]]; then
+	eval "$(rbenv init -)"
+fi
 
 # navigate to development directory
 function dev() {
