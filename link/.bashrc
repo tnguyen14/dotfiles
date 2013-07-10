@@ -10,6 +10,8 @@ export PATH=$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/l
 
 alias ll='ls -al'
 alias desktop='cd ~/Desktop'
+# Sublime shortcut
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 # extend git with hub tools https://github.com/defunkt/hub
 alias git=hub
