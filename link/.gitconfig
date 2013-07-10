@@ -56,6 +56,7 @@
 	# Use `origin` as the default remote on the `master` branch in all cases
 	remote = origin
 	merge = refs/heads/master
-
+[remote "origin"]
+	push = HEAD
 [push]
 	default = simple
