@@ -169,7 +169,7 @@ fi
 
 # A few Homebrew recipes to install
 if [[ "$(type -P brew)" ]]; then
-  recipes=(node hub nmap tree rbenv)
+  recipes=(node hub nmap tree rbenv ruby-build)
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
   if [[ "$list" ]]; then
