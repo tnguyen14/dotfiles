@@ -167,6 +167,18 @@ if [[ ! "$(type -P git)" ]]; then
   exit 1
 fi
 
+# A few Homebrew recipes to install
+if [[ "$(type -P brew)" ]]; then
+  recipes=(hub nmap tree rbenv)
+
+  list="$(to_install "${recipes[*]}" "$(brew list)")"
+  if [[ "$list" ]]; then
+    e_header "Installing Homebrew recipes: $list"
+    brew install $list
+  fi
+
+fi
+
 # Update existing sudo time stamp if set, otherwise do nothing.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
