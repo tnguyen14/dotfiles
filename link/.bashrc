@@ -10,6 +10,8 @@ export PATH=/usr/local/share/npm/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/b
 
 alias ll='ls -al'
 alias desktop='cd ~/Desktop'
+alias ..='cd ..'
+alias ~='cd ~'
 # Sublime shortcut
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 #Add spacer to Dock
