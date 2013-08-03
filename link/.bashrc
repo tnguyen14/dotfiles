@@ -6,7 +6,7 @@ unset file
 
 export CLICOLOR=1
 export LSCOLORS=CxFxBxDxCxegedabagacad
-export PATH=/usr/local/share/npm/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:.
+export PATH=/usr/local/share/npm/bin:$HOME/.rbenv/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:.
 
 alias ll='ls -al'
 alias desktop='cd ~/Desktop'
@@ -17,7 +17,9 @@ alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 #Add spacer to Dock
 alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 # extend git with hub tools https://github.com/defunkt/hub
-alias git=hub
+if [[ "$(type -P rbenv)" ]]; then
+	alias git=hub
+fi
 
 # rbenv
 if [[ "$(type -P rbenv)" ]]; then
