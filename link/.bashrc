@@ -14,8 +14,13 @@ alias ..='cd ..'
 alias ~='cd ~'
 # Sublime shortcut
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-#Add spacer to Dock
+# Add spacer to Dock
 alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
+# Show/hide desktop icons
+# By @jvlahos https://gist.github.com/jvlahos/6662210
+alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; killall Finder'
+alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
+
 # extend git with hub tools https://github.com/defunkt/hub
 if [[ "$(type -P rbenv)" ]]; then
 	alias git=hub
@@ -28,7 +33,7 @@ fi
 
 # navigate to development directory
 function dev() {
-	local DEV_DIR=~/Dropbox/Development/vhosts
+	local DEV_DIR=~/Dropbox/Development
 	cd $DEV_DIR
 	# if there is argument passed in, try to find that directory
 	# if child directory exists, cd into that dir
