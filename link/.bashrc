@@ -6,7 +6,7 @@ unset file
 
 export CLICOLOR=1
 export LSCOLORS=CxFxBxDxCxegedabagacad
-export PATH=./bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:.
+export PATH=./bin:/usr/local/heroku/bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:.
 
 alias ll='ls -al'
 alias desktop='cd ~/Desktop'
@@ -63,5 +63,3 @@ function path_remove() {
 	# output the new array
 	echo "${t[*]}"
 }
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
