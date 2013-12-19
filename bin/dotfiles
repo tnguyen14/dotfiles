@@ -187,7 +187,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
   e_header "#quick-look extensions for OS X"
   e_header "brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r"
   e_header "#other apps"
-  e_header "brew cask install google-chrome-canary"
+  e_header "brew cask install iterm2-beta sublime-text-3 google-chrome-canary firefox-aurora"
 fi
 
 # Update existing sudo time stamp if set, otherwise do nothing.

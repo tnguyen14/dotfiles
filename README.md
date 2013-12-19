@@ -7,7 +7,9 @@ A lot of inspiration (and forking) from [Ben Almen's dotfiles](https://github.co
 
 ### OS X
 1. Download [XCode Command Line Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools)
+
 If on Mavericks (10.9) and above, run `xcode-select --install`
+
 2. `bash -c "$(curl -fsSL https://raw.github.com/tnguyen14/dotfiles/master/bin/dotfiles)" && source ~/.bashrc`
 
 ### Ubuntu
