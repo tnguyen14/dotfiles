@@ -167,20 +167,28 @@ if [[ ! "$(type -P git)" ]]; then
   exit 1
 fi
 
-# A few Homebrew recipes to install
-if [[ "$(type -P brew)" ]]; then
-  recipes=(node hub nmap tree rbenv ruby-build)
+# Brew for OS X
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  # A few Homebrew recipes to install
+  if [[ "$(type -P brew)" ]]; then
+    recipes=(node hub nmap tree rbenv ruby-build)
 
-  list="$(to_install "${recipes[*]}" "$(brew list)")"
-  if [[ "$list" ]]; then
-    e_header "Installing Homebrew recipes: $list"
-    brew install $list
+    list="$(to_install "${recipes[*]}" "$(brew list)")"
+    if [[ "$list" ]]; then
+      e_header "Installing Homebrew recipes: $list"
+      brew install $list
+    fi
   fi
-fi
 
-# Brew cask
-brew tap phinze/homebrew-cask
-brew install brew-cask
+  # Brew cask
+  brew tap phinze/homebrew-cask
+  brew install brew-cask
+  e_header "Here are some `brew cask` commands to install a few useful applications"
+  e_header "#quick-look extensions for OS X"
+  e_header "brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r"
+  e_header "#other apps"
+  e_header "brew cask install google-chrome-canary"
+fi
 
 # Update existing sudo time stamp if set, otherwise do nothing.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
