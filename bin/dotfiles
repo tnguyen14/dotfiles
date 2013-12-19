@@ -176,8 +176,11 @@ if [[ "$(type -P brew)" ]]; then
     e_header "Installing Homebrew recipes: $list"
     brew install $list
   fi
-
 fi
+
+# Brew cask
+brew tap phinze/homebrew-cask
+brew install brew-cask
 
 # Update existing sudo time stamp if set, otherwise do nothing.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
