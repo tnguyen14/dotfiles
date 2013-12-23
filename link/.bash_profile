@@ -3,6 +3,6 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # load bash_local finally to override anything else
-if [ -f ~/.bash_local]; then
+if [ -f ~/.bash_local ]; then
 	source ~/.bash_local
 fi
