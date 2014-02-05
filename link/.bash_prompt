@@ -1,4 +1,7 @@
-# Inpsired from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt and https://github.com/sindresorhus/pure/blob/master/pure.zsh
+# Inpsired from
+# https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt
+# https://github.com/sindresorhus/pure/blob/master/pure.zsh
+# https://github.com/sapegin/dotfiles/blob/master/includes/bash_prompt.bash
 
 # COLORS!
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -49,15 +52,20 @@ export RESET
 export YELLOW=$(tput setaf 3)
 export RED=$(tput setaf 1)
 
-# Git info
-git_clean="☀"
+
+# Symbols
+prompt_symbol="❯"
+prompt_continue_symbol="→"
+git_clean_symbol="☀"
+git_dirty_symbol="☂"
+
 function parse_git_dirty() {
-	local git_state=$git_clean
+	local git_state=$git_clean_symbol
 	# check if we're in a git repo
 	command git rev-parse --is-inside-work-tree &>/dev/null || return
 	# check if it's dirty
 	command git diff --quiet --ignore-submodules HEAD &>/dev/null
-	(($? == 1)) && git_state="☂"
+	(($? == 1)) && git_state=$git_dirty_symbol
 	echo $git_state
 }
 
@@ -72,7 +80,7 @@ function parse_git_branch() {
 		local state=$(parse_git_dirty)
 
 		# Format Git info
-		if [ "$state" != $git_clean ]; then
+		if [ $state != $git_clean_symbol ]; then
 			echo "$RED$branch $state$NOCOLOR"
 		else
 			echo "$GREEN$branch $state$NOCOLOR"
@@ -82,10 +90,6 @@ function parse_git_branch() {
 
 function prompt_command() {
 	local exit_code=$?
-
-	# Symbols
-	prompt_symbol="❯"
-	prompt_continue_symbol="→"
 
 	# User color
 	case $(id -u) in
@@ -104,9 +108,6 @@ function prompt_command() {
 	# Show delimiter if user or host visible
 	local login_delimiter=
 	[ -n "$user_prompt" ] || [ -n "$host_prompt" ] && login_delimiter=":"
-
-	# include this if want to display more information about user
-	# USER="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in"
 
 	# Interaction prompt
 	first_line="$user_prompt$host_prompt$login_delimiter$BLUE\w$WHITE\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \" )$PURPLE\$(parse_git_branch)"
