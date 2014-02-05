@@ -6,10 +6,27 @@ unset file
 
 export CLICOLOR=1
 export LSCOLORS=CxFxBxDxCxegedabagacad
-export PATH=./bin:/usr/local/heroku/bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:.
+
+# Prepend $PATH without duplicates
+function _prepend_path() {
+	if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
+		PATH="$1:$PATH"
+	fi
+}
+# Construct $PATH
+PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:.'
+[ -d /usr/local/heroku/bin ] && _prepend_path "/usr/local/heroku/bin"
+[ -d /usr/local/opt/ruby/bin ] && _prepend_path "/usr/local/opt/ruby/bin"
+command -v rbenv >/dev/null 2>&1 && _prepend_path "$HOME/.rbenv/bin"
+[ -d /usr/local/share/npm/bin ] && _prepend_path "/usr/local/share/npm/bin"
+command -v brew >/dev/null 2>&1 && _prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
+[ -d ~/dotfiles/bin ] && _prepend_path "$HOME/dotfiles/bin"
+[ -d ~/bin ] && _prepend_path "$HOME/bin"
+[ -d ./bin ] && _prepend_path "./bin"
+export PATH
 
 alias ll='ls -al'
-alias desktop='cd ~/Desktop'
+alias dt='cd ~/Desktop'
 alias ..='cd ..'
 alias ~='cd ~'
 # Sublime shortcut
@@ -68,3 +85,12 @@ function path_remove() {
 	# output the new array
 	echo "${t[*]}"
 }
+
+# If possible, add tab completion for many commands
+[ -f /etc/bash_completion ] && source /etc/bash_completion
+
+# Grunt completion
+command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
+
+# Bash completion (installed via Homebrew; source after `brew` is added to PATH)
+command -v brew >/dev/null 2>&1 && [ -r "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"

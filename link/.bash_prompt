@@ -1,4 +1,4 @@
-# Shamelessly copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt
+# Inpsired from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt and https://github.com/sindresorhus/pure/blob/master/pure.zsh
 
 # COLORS!
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -46,24 +46,76 @@ export WHITE
 export BLUE="\e[1;34m"
 export BOLD
 export RESET
-
-DEFAULT_USER='tringuyen'
+export YELLOW=$(tput setaf 3)
+export RED=$(tput setaf 1)
 
 # Git info
+git_clean="☀"
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+	local git_state=$git_clean
+	# check if we're in a git repo
+	command git rev-parse --is-inside-work-tree &>/dev/null || return
+	# check if it's dirty
+	command git diff --quiet --ignore-submodules HEAD &>/dev/null
+	(($? == 1)) && git_state="☂"
+	echo $git_state
 }
 
 function parse_git_branch() {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+	# git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+	if [[ "true" = "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]]; then
+		# Branch name
+		local branch="$(git symbolic-ref HEAD 2>/dev/null)"
+		branch="${branch##refs/heads/}"
+
+		# Working tree status (red when dirty)
+		local state=$(parse_git_dirty)
+
+		# Format Git info
+		if [ "$state" != $git_clean ]; then
+			echo "$RED$branch $state$NOCOLOR"
+		else
+			echo "$GREEN$branch $state$NOCOLOR"
+		fi
+	fi
 }
 
+function prompt_command() {
+	local exit_code=$?
 
-# include this if want to display more information about user
-USER="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in"
+	# Symbols
+	prompt_symbol="❯"
+	prompt_continue_symbol="→"
 
-# Interaction prompt
-export PS1="\[$BLUE\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \" )\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n \[$PURPLE\]❯ \[$RESET\]"
+	# User color
+	case $(id -u) in
+		0) user_color="$RED" ;;  # root
+		*) user_color="$GREEN" ;;
+	esac
 
-# Continuation interaction prompt
-export PS2="\[$ORANGE\]→ \[$RESET\]"
+	# Only show username if not default
+	local user_prompt=
+	[[ "$USER" != "$local_username" ]] && user_prompt="$user_color$USER$NOCOLOR"
+
+	# Show hostname inside SSH session
+	local host_prompt=
+	[ -n "$remote" ] && host_prompt="@$YELLOW$HOSTNAME$NOCOLOR"
+
+	# Show delimiter if user or host visible
+	local login_delimiter=
+	[ -n "$user_prompt" ] || [ -n "$host_prompt" ] && login_delimiter=":"
+
+	# include this if want to display more information about user
+	# USER="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in"
+
+	# Interaction prompt
+	first_line="$user_prompt$host_prompt$login_delimiter$BLUE\w$WHITE\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \" )$PURPLE\$(parse_git_branch)"
+	# Text (commands) inside \[...\] does not impact line length calculation which fixes stange bug when looking through the history
+	second_line="\`if [ $exit_code == 0 ]; then echo \[\$GREEN\]; else echo \[\$RED\]; fi\`$prompt_symbol \[\$RESET\]"
+	export PS1="$first_line\n$second_line"
+
+	# Continuation interaction prompt
+	export PS2="\[$ORANGE\]$prompt_continue_symbol \[$RESET\]"
+}
+
+PROMPT_COMMAND=prompt_command
