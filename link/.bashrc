@@ -31,7 +31,6 @@ alias ..='cd ..'
 alias ~='cd ~'
 # Editor shortcut
 alias subl='~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias atom='/Applications/Atom.app/Contents/Resources/app/atom.sh'
 # Add spacer to Dock
 alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 # Show/hide desktop icons
