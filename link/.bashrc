@@ -1,5 +1,11 @@
+#!/usr/bin/env bash
+
 # Load the shell dotfiles, copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
-for file in ~/.{bash_prompt,private_vars}; do
+if [ ! -f ~/.git-completion.bash ]; then
+	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+fi
+
+for file in ~/.{bash_prompt,private_vars,git-completion.bash}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
