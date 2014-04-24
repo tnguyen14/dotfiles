@@ -5,7 +5,7 @@ if [ ! -f ~/.git-completion.bash ]; then
 	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
-for file in ~/.{bash_local,bash_prompt,private_vars,git-completion.bash}; do
+for file in ~/.{bash_local,bash_prompt,private_vars,git-completion.bash,travis/travis.sh}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -100,6 +100,3 @@ command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
 
 # Bash completion (installed via Homebrew; source after `brew` is added to PATH)
 command -v brew >/dev/null 2>&1 && [ -r "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
-
-# added by travis gem
-[ -f /Users/tri/.travis/travis.sh ] && source /Users/tri/.travis/travis.sh
