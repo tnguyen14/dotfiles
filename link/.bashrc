@@ -54,23 +54,7 @@ if [[ "$(type -P rbenv)" ]]; then
 	eval "$(rbenv init -)"
 fi
 
-# navigate to development directory
-function dev() {
-	local DEV_DIR=~/Dropbox/Development
-	cd $DEV_DIR
-	# if there is argument passed in, try to find that directory
-	# if child directory exists, cd into that dir
-	if [ $1 ]; then
-		if [ $1 == 'ups' ]; then
-			cd upstatement
-		fi
-		if [ -d $1 ]; then
-			cd $1
-		fi
-	fi
-}
-
-function theme() {
+function wptheme() {
 	cd wp-content/themes
 	if [ $1 ]; then
 		if [ -d $1 ]; then
