@@ -94,3 +94,6 @@ command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
 
 # Bash completion (installed via Homebrew; source after `brew` is added to PATH)
 command -v brew >/dev/null 2>&1 && [ -r "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
+
+# added by travis gem
+[ -f /Users/tri/.travis/travis.sh ] && source /Users/tri/.travis/travis.sh

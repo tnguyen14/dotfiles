@@ -46,3 +46,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 . ~/prompt.zsh
+# added by travis gem
+[ -f /Users/tri/.travis/travis.sh ] && source /Users/tri/.travis/travis.sh
