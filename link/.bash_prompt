@@ -93,8 +93,7 @@ function parse_git() {
 }
 
 function prompt_command() {
-	local exit_code
-	exit_code=$?
+	local exit_code=$?
 	# User color
 	case $(id -u) in
 		0) user_color="$RED" ;;  # root
