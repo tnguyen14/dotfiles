@@ -93,8 +93,8 @@ function parse_git() {
 }
 
 function prompt_command() {
-	local exit_code=$?
-
+	local exit_code
+	exit_code=$?
 	# User color
 	case $(id -u) in
 		0) user_color="$RED" ;;  # root
@@ -102,19 +102,19 @@ function prompt_command() {
 	esac
 
 	# Only show username if not default
-	local user_prompt=
+	local user_prompt
 	[[ "$USER" != "$local_username" ]] && user_prompt="$user_color$USER$NOCOLOR"
 
 	# Show hostname inside SSH session
-	local host_prompt=
+	local host_prompt
 	[ -n "$remote" ] && host_prompt="@$YELLOW$HOSTNAME$NOCOLOR"
 
 	# Show delimiter if user or host visible
-	local login_delimiter=
-	[ -n "$user_prompt" ] || [ -n "$host_prompt" ] && login_delimiter=":"
+	local login_delimiter
+	[ -n "$user_prompt" ] || [ -n "$host_prompt" ] && login_delimiter=" "
 
-	# Interaction prompt
-	first_line="$user_prompt$host_prompt$login_delimiter$BLUE\w$WHITE\$(parse_git)$RESET"
+	# Interaction prompt, if using emoji add two spaces after
+	first_line="$user_prompt$host_prompt$login_delimiter$user_emoji  $BLUE\w$WHITE\$(parse_git)$RESET"
 	# Text (commands) inside \[...\] does not impact line length calculation which fixes stange bug when looking through the history
 	second_line="\`if [ $exit_code == 0 ]; then echo \[\$GREEN\]$prompt_symbol; else echo \[\$RED\]$prompt_symbol\[\$GREEN\]$prompt_symbol; fi\` \[\$RESET\]"
 	export PS1="$first_line\n$second_line"
