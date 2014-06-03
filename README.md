@@ -41,6 +41,33 @@ It really isn't too crazy right now. This is not a full fork of Ben Almen's dotf
 - A new copy of `oh-my-zsh` is pulled down for each time `bin/dotfiles` is run. If `oh-my-zsh` already exists, it will be updated.
 - The `zsh` prompt is forked from [`pure`](https://github.com/sindresorhus/pure).
 
+#### OS X Config
+```
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+# Set standby delay to 24 hours (default is 1 hour)
+sudo pmset -a standbydelay 86400
+
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 4
+
+# Finder: show hidden files by default
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Use column view in all Finder windows by default
+# Four-letter codes for the view modes: `icnv` (icon view), `clmv` (column view), `Flwv` (cover flow view), `Nlsv` (list view)
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+# Check for software updates daily, not just once per week
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+```
+
 ## Future
 Some TODOs for this project going forward
 
