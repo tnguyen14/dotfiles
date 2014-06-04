@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Inpsired from
 # https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt
 # https://github.com/sindresorhus/pure/blob/master/pure.zsh
@@ -13,7 +15,7 @@ fi
 # A good way to see all 256 colors
 # for i in {0..255}; do tput setab $i; echo -n $i "    "; tput setab 0; done
 
-if tput setaf 1 &> /dev/null; then
+if tput setaf 1 &> /dev/null; theng
 	tput sgr0
 	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
 		MAGENTA=$(tput setaf 9)
