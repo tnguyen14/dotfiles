@@ -35,6 +35,7 @@ alias ll='ls -al'
 alias dt='cd ~/Desktop'
 alias ..='cd ..'
 alias ~='cd ~'
+alias pyserve='python -m SimpleHTTPServer'
 # Editor shortcut
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 # Add spacer to Dock
