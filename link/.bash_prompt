@@ -128,4 +128,8 @@ function prompt_command() {
 	echo -ne "\033]0;$title"; echo -ne "\007"
 }
 
-PROMPT_COMMAND=prompt_command
+ function powerline_prompt() {
+   export PS1="$(~/powerline-shell.py $? 2> /dev/null)"
+}
+
+PROMPT_COMMAND=powerline_prompt
