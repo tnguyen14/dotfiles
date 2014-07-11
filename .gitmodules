@@ -1,3 +1,3 @@
-[submodule "powerline-shell"]
-	path = powerline-shell
+[submodule "lib/powerline-shell"]
+	path = lib/powerline-shell
 	url = git@github.com:milkbikis/powerline-shell.git
