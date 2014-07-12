@@ -38,6 +38,7 @@ alias ~='cd ~'
 alias pyserve='python -m SimpleHTTPServer'
 # Editor shortcut
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias atom='/Applications/Atom.app/Contents/MacOS/Atom'
 # Add spacer to Dock
 alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 # Show/hide desktop icons
