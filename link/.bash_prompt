@@ -57,12 +57,12 @@ export RED=$(tput setaf 1)
 
 # Symbols
 prompt_symbol="❯"
-prompt_continue_symbol="→"
-git_clean_symbol="☀"
-git_dirty_symbol="☂"
-git_untracked_symbol="⚑"
-git_ahead_symbol="⇡"
-git_behind_symbol="⇣"
+prompt_continue_symbol="→ "
+git_clean_symbol="☀ "
+git_dirty_symbol="☂ "
+git_untracked_symbol="⚑ "
+git_ahead_symbol="⇡ "
+git_behind_symbol="⇣ "
 
 function parse_git_dirty() {
 	local git_state=$git_clean_symbol
@@ -103,7 +103,9 @@ function prompt_command() {
 
 	# If using emoji, add two spaces after
 	[ -n "$user_emoji" ] && emoji="$user_emoji  "
+
 	local git=$(parse_git)
+
 	# Interaction prompt
 		first_line="$user_prompt$host_prompt$login_delimiter$emoji$BLUE\w$WHITE$git$RESET"
 	# Text (commands) inside \[...\] does not impact line length calculation which fixes stange bug when looking through the history
