@@ -12,6 +12,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
+Plugin 'wincent/command-t'
 call vundle#end()
 
 colorscheme Tomorrow-Night
@@ -49,3 +50,6 @@ nnoremap gh <C-W><C-H>
 nnoremap gj <C-W><C-J>
 nnoremap gk <C-W><C-K>
 nnoremap gl <C-w><C-L>
+" Set split pane direction to be more natural
+set splitbelow
+set splitright
