@@ -1,9 +1,26 @@
+set nocompatible
+
+" Vundle
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle manage Vundle
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+
 colorscheme Tomorrow-Night
 " Allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
-filetype plugin on
 syntax on
 
+" File type based indentation
+filetype plugin indent on
 " Show what mode you're currently in
 set showmode
 " Show what commands you're typing
@@ -16,7 +33,8 @@ set ruler
 set title
 " Show line numbers
 set number
-
+" Always display the status line
+set laststatus=2
 " Highlight current line
 set cursorline
 " Highlight search results as we type
