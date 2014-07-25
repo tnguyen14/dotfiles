@@ -11,7 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'airblade/vim-gitgutter'
-
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 
 colorscheme Tomorrow-Night
