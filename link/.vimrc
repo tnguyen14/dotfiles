@@ -46,6 +46,13 @@ set ignorecase
 " ...except if we input a capital letter
 set smartcase
 
+" Tab stuff
+set tabstop=4
+set shiftwidth=4
+
+" vim-gitgutter stuff
+let g:gitgutter_max_signs = 1000
+
 " Navigate panes with g
 nnoremap gh <C-W><C-H>
 nnoremap gj <C-W><C-J>
