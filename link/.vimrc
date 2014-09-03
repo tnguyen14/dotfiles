@@ -13,6 +13,7 @@ Plugin 'tpope/vim-git'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-commentary'
 Plugin 'wincent/command-t'
+Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 
 colorscheme Tomorrow-Night
