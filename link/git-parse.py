@@ -54,7 +54,7 @@ def git_parse():
     status += '$GREEN ' + branch + ' $git_clean_symbol'
 
   if has_untracked_files:
-    status += ' $git_untracked_symbol'
+    status += ' $ORANGE$git_untracked_symbol'
 
   status += origin_position
   status += '$NOCOLOR'

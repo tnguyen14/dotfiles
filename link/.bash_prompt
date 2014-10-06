@@ -62,7 +62,7 @@ prompt_symbol="❯"
 prompt_continue_symbol="→ "
 git_clean_symbol="☀ "
 git_dirty_symbol="☂ "
-git_untracked_symbol="⚑ "
+git_untracked_symbol="☁ "
 git_ahead_symbol="⇡ "
 git_behind_symbol="⇣ "
 
