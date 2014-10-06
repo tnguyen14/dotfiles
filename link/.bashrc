@@ -48,7 +48,7 @@ alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; kill
 alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
 
 # extend git with hub tools https://github.com/defunkt/hub
-if [[ "$(type -P rbenv)" ]]; then
+if [[ "$(type -P hub)" ]]; then
 	alias git=hub
 fi
 

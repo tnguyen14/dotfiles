@@ -25,7 +25,7 @@
 	b = branch
 	bd = branch -d
 	cl = clone
-
+	
 [mergetool]
 	keepBackup = true
 
