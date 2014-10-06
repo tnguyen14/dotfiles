@@ -29,6 +29,7 @@ command -v brew >/dev/null 2>&1 && _prepend_path "$(brew --prefix coreutils)/lib
 [ -d ~/dotfiles/bin ] && _prepend_path "$HOME/dotfiles/bin"
 [ -d ~/bin ] && _prepend_path "$HOME/bin"
 [ -d ./bin ] && _prepend_path "./bin"
+[ -d ./node_modules/.bin ] && _prepend_path "./node_modules/.bin"
 export PATH
 
 alias ll='ls -al'
