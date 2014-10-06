@@ -23,7 +23,8 @@ def get_git_status():
       if origin_status[0][0] == 'ahead':
         origin_position += '$git_ahead_symbol'
 
-    if line.find('nothing to commit') >= 0:
+    # if there are untracked files, git status will report "nothing added to commit but..."
+    if line.find('nothing to commit') >= 0 or line.find('nothing added to commit') >= 0:
       has_pending_commits = False
     if line.find('Untracked files') >= 0:
       has_untracked_files = True
