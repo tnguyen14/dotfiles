@@ -15,6 +15,7 @@
 	tags = tag -n1 -l
 	# add and commit
 	a = add -v
+	ap = add -pv
 	aa = add -Av
 	au = add -uv
 	c = commit -m
@@ -23,6 +24,7 @@
 	cob = checkout -b
 	b = branch
 	bd = branch -d
+	cl = clone
 
 [mergetool]
 	keepBackup = true
