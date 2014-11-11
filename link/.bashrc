@@ -32,6 +32,9 @@ command -v brew >/dev/null 2>&1 && _prepend_path "$(brew --prefix coreutils)/lib
 [ -d ./node_modules/.bin ] && _prepend_path "./node_modules/.bin"
 export PATH
 
+# support for z.sh
+. `brew --prefix`/etc/profile.d/z.sh
+
 alias ll='ls -al'
 alias dt='cd ~/Desktop'
 alias ..='cd ..'
