@@ -20,16 +20,15 @@ function _prepend_path() {
 	fi
 }
 # Construct $PATH
-PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:.'
+PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
+[ -d ~/wordpress ] && _prepend_path "$HOME/wordpress"
 [ -d /usr/local/heroku/bin ] && _prepend_path "/usr/local/heroku/bin"
 [ -d /usr/local/opt/ruby/bin ] && _prepend_path "/usr/local/opt/ruby/bin"
-command -v rbenv >/dev/null 2>&1 && _prepend_path "$HOME/.rbenv/bin"
+command -v rbenv >/dev/null 2>&1 && _prepend_path "$HOME/.rbenv/shims"
 [ -d /usr/local/share/npm/bin ] && _prepend_path "/usr/local/share/npm/bin"
 command -v brew >/dev/null 2>&1 && _prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
 [ -d ~/dotfiles/bin ] && _prepend_path "$HOME/dotfiles/bin"
 [ -d ~/bin ] && _prepend_path "$HOME/bin"
-[ -d ./bin ] && _prepend_path "./bin"
-[ -d ./node_modules/.bin ] && _prepend_path "./node_modules/.bin"
 export PATH
 
 # support for z.sh
@@ -53,11 +52,6 @@ alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killa
 # extend git with hub tools https://github.com/defunkt/hub
 if [[ "$(type -P hub)" ]]; then
 	alias git=hub
-fi
-
-# rbenv
-if [[ "$(type -P rbenv)" ]]; then
-	eval "$(rbenv init -)"
 fi
 
 function wptheme() {
