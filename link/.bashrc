@@ -10,6 +10,13 @@ for file in ~/.{bash_local,bash_prompt,private_vars,git-completion.bash,travis/t
 done
 unset file
 
+# check for linux
+if [[ "$OSTYPE" =~ ^linux ]]; then
+	linux=1
+elif [[ "$OSTYPE" =~ ^darwin ]]; then
+	unix=1
+fi
+
 export CLICOLOR=1
 # export LSCOLORS=CxFxBxDxCxegedabagacad
 export LSCOLORS=CxFxExDxBxegedabagacad
@@ -33,7 +40,11 @@ command -v brew >/dev/null 2>&1 && _prepend_path "$(brew --prefix coreutils)/lib
 export PATH
 
 # support for z.sh
-. `brew --prefix`/etc/profile.d/z.sh
+if [ $unix ]; then
+	. `brew --prefix`/etc/profile.d/z.sh
+elif [ $linux ]; then
+	. ~/z.sh
+fi
 
 alias ll='ls -al'
 alias dt='cd ~/Desktop'
