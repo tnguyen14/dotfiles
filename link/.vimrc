@@ -50,6 +50,9 @@ set smartcase
 set tabstop=4
 set shiftwidth=4
 
+" Show invisible characters
+set list
+set listchars=tab:>-,trail:-,eol:$ 
 " vim-gitgutter stuff
 let g:gitgutter_max_signs = 1000
 
