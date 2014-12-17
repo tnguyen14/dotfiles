@@ -11,7 +11,8 @@ done
 unset file
 
 export CLICOLOR=1
-export LSCOLORS=CxFxBxDxCxegedabagacad
+# export LSCOLORS=CxFxBxDxCxegedabagacad
+export LSCOLORS=CxFxExDxBxegedabagacad
 
 # Prepend $PATH without duplicates
 function _prepend_path() {
