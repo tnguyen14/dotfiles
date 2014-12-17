@@ -41,6 +41,8 @@ export PATH
 # support for z.sh
 if [ $unix ]; then
 	. `brew --prefix`/etc/profile.d/z.sh
+elif [ $linux ]; then
+	. ~/z.sh
 fi
 
 alias ll='ls -al'
