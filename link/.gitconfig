@@ -25,6 +25,7 @@
 	b = branch
 	bd = branch -d
 	cl = clone
+	g = grep --break --heading
 	
 [mergetool]
 	keepBackup = true
@@ -79,3 +80,6 @@
 	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
+[grep]
+	extendRegexp = true
+	lineNumber = true
