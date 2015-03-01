@@ -15,7 +15,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'wincent/command-t'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'pangloss/vim-javascript'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
 colorscheme Tomorrow-Night
