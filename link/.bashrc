@@ -34,7 +34,6 @@ PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
 [ -d /usr/local/opt/ruby/bin ] && _prepend_path "/usr/local/opt/ruby/bin"
 command -v rbenv >/dev/null 2>&1 && _prepend_path "$HOME/.rbenv/shims"
 [ -d /usr/local/share/npm/bin ] && _prepend_path "/usr/local/share/npm/bin"
-command -v brew >/dev/null 2>&1 && _prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
 [ -d ~/dotfiles/bin ] && _prepend_path "$HOME/dotfiles/bin"
 [ -d ~/bin ] && _prepend_path "$HOME/bin"
 export PATH
