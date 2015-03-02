@@ -21,6 +21,13 @@ export CLICOLOR=1
 # export LSCOLORS=CxFxBxDxCxegedabagacad
 export LSCOLORS=CxFxExDxBxegedabagacad
 
+# Base16 Shell
+if [ ! -d $HOME/.config/base16-shell ]; then
+	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+fi
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 # Prepend $PATH without duplicates
 function _prepend_path() {
 	if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
