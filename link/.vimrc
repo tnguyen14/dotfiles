@@ -22,7 +22,9 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
 call vundle#end()
 
-" colorscheme Tomorrow-Night
+set background=dark
+let base16colorspace=256  " Access colors present in 256 colorspace"
+colorscheme base16-tomorrow
 " Allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
 syntax on
