@@ -8,6 +8,7 @@ call vundle#begin()
 
 " Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
+Plugin 'chriskempson/base16-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'airblade/vim-gitgutter'
@@ -20,7 +21,7 @@ Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
 " Allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
 syntax on
