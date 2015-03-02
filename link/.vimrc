@@ -19,6 +19,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
+Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
 
 " colorscheme Tomorrow-Night
