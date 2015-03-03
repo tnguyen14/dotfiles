@@ -99,6 +99,8 @@ function path_remove() {
 
 # Grunt completion
 command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
+# gulp completion
+command -v gulp >/dev/null 2>&1 && eval "$(gulp --completion=bash)"
 
 # Bash completion (installed via Homebrew; source after `brew` is added to PATH)
 command -v brew >/dev/null 2>&1 && [ -r "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
