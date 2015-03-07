@@ -113,7 +113,7 @@ function prompt_command() {
 	# Interaction prompt
 		first_line="$timestamp$user_prompt$host_prompt$login_delimiter$emoji$BLUE\w$WHITE$git$RESET"
 	# Text (commands) inside \[...\] does not impact line length calculation which fixes stange bug when looking through the history
-	second_line="\`if [ $exit_code == 0 ]; then echo \[\$GREEN\]$prompt_symbol; else echo \[\$RED\]$prompt_symbol\[\$GREEN\]$prompt_symbol; fi\` \[\$RESET\]"
+	second_line="\`if [ $exit_code == 0 ]; then echo \[\$GREEN\]':;'; else echo \[\$RED\]':'\[\$GREEN\]';'; fi\` \[\$RESET\]"
 	export PS1="$first_line\n$second_line"
 
 	# Continuation interaction prompt
