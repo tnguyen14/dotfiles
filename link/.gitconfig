@@ -25,7 +25,7 @@
 	b = branch
 	bd = branch -d
 	cl = clone
-	g = grep --break --heading
+	g = grep --break --heading --ignore-case
 	
 [mergetool]
 	keepBackup = true
