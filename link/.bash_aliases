@@ -19,3 +19,4 @@ alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; kill
 alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
 # File system usage
 alias dus='df -h'
+alias b2d='$(boot2docker shellinit)'
