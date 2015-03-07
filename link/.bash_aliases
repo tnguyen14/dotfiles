@@ -5,6 +5,9 @@ alias dt='cd ~/Desktop'
 alias ..='cd ..'
 alias ~='cd ~'
 alias pyserve='python -m SimpleHTTPServer'
+# Make basic commands verbose
+alias cp='cp -v'
+alias mv='mv -v'
 # Editor shortcut
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias atom='/Applications/Atom.app/Contents/MacOS/Atom'
