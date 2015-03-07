@@ -20,6 +20,7 @@ Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
+Plugin 'Yggdroot/indentLine'
 call vundle#end()
 
 set background=dark
