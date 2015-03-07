@@ -5,7 +5,7 @@ if [ ! -f ~/.git-completion.bash ]; then
 	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
-for file in ~/.{bash_local,bash_prompt,private_vars,git-completion.bash,travis/travis.sh}; do
+for file in ~/.{bash_local,bash_prompt,bash_aliases,private_vars,git-completion.bash,travis/travis.sh}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -51,21 +51,6 @@ if [ $unix ]; then
 elif [ $linux ]; then
 	[ -f ~.z.sh ] && . ~/z.sh
 fi
-
-alias ll='ls -al'
-alias dt='cd ~/Desktop'
-alias ..='cd ..'
-alias ~='cd ~'
-alias pyserve='python -m SimpleHTTPServer'
-# Editor shortcut
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias atom='/Applications/Atom.app/Contents/MacOS/Atom'
-# Add spacer to Dock
-alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
-# Show/hide desktop icons
-# By @jvlahos https://gist.github.com/jvlahos/6662210
-alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; killall Finder'
-alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
 
 # extend git with hub tools https://github.com/defunkt/hub
 if [[ "$(type -P hub)" ]]; then
