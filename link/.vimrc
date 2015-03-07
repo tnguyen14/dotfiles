@@ -70,6 +70,10 @@ nnoremap gh <C-W><C-H>
 nnoremap gj <C-W><C-J>
 nnoremap gk <C-W><C-K>
 nnoremap gl <C-w><C-L>
+" Alias capitalized commands, because : requries Shift
+command W w
+command Q q
+
 " Set split pane direction to be more natural
 set splitbelow
 set splitright
