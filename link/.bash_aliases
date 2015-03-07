@@ -17,3 +17,5 @@ alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-da
 # By @jvlahos https://gist.github.com/jvlahos/6662210
 alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; killall Finder'
 alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
+# File system usage
+alias dus='df -h'
