@@ -78,3 +78,6 @@ command Q q
 " Set split pane direction to be more natural
 set splitbelow
 set splitright
+
+" NERDTree
+let NERDTreeShowHidden=1
