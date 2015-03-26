@@ -5,7 +5,7 @@ if [ ! -f ~/.git-completion.bash ]; then
 	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
 
-for file in ~/.{bash_local,bash_prompt,bash_aliases,private_vars,git-completion.bash,nvm/nvm.sh,travis/travis.sh}; do
+for file in ~/.{bash_local,bash_prompt,bash_aliases,private_vars,git-completion.bash,travis/travis.sh}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
