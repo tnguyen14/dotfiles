@@ -67,10 +67,10 @@ set listchars=tab:→\ ,trail:·,eol:˧
 let g:gitgutter_max_signs = 1000
 
 " Navigate panes with g
-nnoremap gh <C-W><C-H>
-nnoremap gj <C-W><C-J>
-nnoremap gk <C-W><C-K>
-nnoremap gl <C-w><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
 " Alias capitalized commands, because : requries Shift
 command W w
 command Q q
@@ -78,6 +78,10 @@ command Q q
 " Set split pane direction to be more natural
 set splitbelow
 set splitright
+
+" Buffer navigation
+map gb :bnext<CR>
+map gB :bprev<CR>
 
 " NERDTree
 let NERDTreeShowHidden=1
