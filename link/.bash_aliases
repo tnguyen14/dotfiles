@@ -8,6 +8,8 @@ alias pyserve='python -m SimpleHTTPServer'
 # Make basic commands verbose
 alias cp='cp -v'
 alias mv='mv -v'
+# Interactive mode for rm
+alias rm='rm -i'
 # Editor shortcut
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias atom='/Applications/Atom.app/Contents/MacOS/Atom'
