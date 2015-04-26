@@ -15,7 +15,7 @@ for file in link/{.,}*; do
 			e_arrow "Skipping $base"
 			continue
 		fi
-		e_success $(ln -sfv $(pwd)/"$file" ~/"")
+		e_success $(ln -sfv $(pwd)/"$file" ~/"$base")
 	fi
 done
 
