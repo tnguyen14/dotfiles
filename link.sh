@@ -19,13 +19,17 @@ for file in link/{.,}*; do
 	fi
 done
 
-e_header "Setting up Sublime Text settings..."
-for file in sublime/*.sublime-settings; do
-	sublimePath=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-	base=$(basename "$file")
-	if [[ $file -ef "$sublimePath"/"$base" ]]; then
-		e_arrow "Skipping $base"
-		continue
-	fi
-	e_success $(ln -sfv $(pwd)/"$file" "$sublimePath"/"$base")
-done;
+sublimePath=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+if [[ -d $sublimePath ]]; then
+	e_header "Setting up Sublime Text settings..."
+	for file in sublime/*.sublime-settings; do
+		if [[ -f $file ]]; then
+			base=$(basename "$file")
+			if [[ $file -ef "$sublimePath"/"$base" ]]; then
+				e_arrow "Skipping $base"
+				continue
+			fi
+			e_success $(ln -sfv $(pwd)/"$file" "$sublimePath"/"$base")
+		fi
+	done;
+fi
