@@ -15,7 +15,8 @@ for file in link/{.,}*; do
 			e_arrow "Skipping $base"
 			continue
 		fi
-		e_success $(ln -sfv $(pwd)/"$file" ~/"$base")
+		e_success "Linking $base"
+		ln -sfv $(pwd)/"$file" ~/"$base"
 	fi
 done
 
@@ -29,7 +30,8 @@ if [[ -d $sublimePath ]]; then
 				e_arrow "Skipping $base"
 				continue
 			fi
-			e_success $(ln -sfv $(pwd)/"$file" "$sublimePath"/"$base")
+			e_success "Linking $base"
+			ln -sfv $(pwd)/"$file" "$sublimePath"/"$base"
 		fi
 	done;
 fi
