@@ -1,0 +1,23 @@
+{
+	"color_scheme": "Packages/Base16 Color Schemes/base16-tomorrow.dark.tmTheme",
+	"draw_white_space": "all",
+	"font_face": "Fira Mono",
+	"font_size": 12,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"show_full_path": true,
+	"status_bar_brighter": true,
+	"tabs_padding_small": true,
+	"tabs_small": true,
+	"theme": "Afterglow-orange.sublime-theme",
+	"trim_trailing_white_space_on_save": true
+}

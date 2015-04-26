@@ -1,0 +1,28 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Base16 Color Schemes",
+		"Color Highlighter",
+		"CSScomb",
+		"EditorConfig",
+		"FileDiffs",
+		"GitGutter",
+		"GitSavvy",
+		"Handlebars",
+		"Markdown Extended",
+		"Markdown Preview",
+		"Open Finder",
+		"Package Control",
+		"PackageResourceViewer",
+		"Sass",
+		"SideBarGit",
+		"Simple Print Function",
+		"Theme - Afterglow",
+		"Tomorrow Color Schemes",
+		"WebdriverIO"
+	]
+}
+
