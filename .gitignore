@@ -1,4 +1,1 @@
 .DS_Store
-link/.ssh/
-!link/.ssh/config
-link/.private_vars
