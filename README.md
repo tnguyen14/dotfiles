@@ -3,7 +3,7 @@
 
 ## Usage
 
-```sh
+```shell
 :; git clone git@github.com:tnguyen14/dotfiles.git ~/
 :; cd ~/dotfiles
 :; link.sh

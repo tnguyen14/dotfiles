@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # inspired/copied from https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 

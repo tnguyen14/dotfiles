@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Logging stuff.
 function e_header()   { echo -e "\n\033[1m$@\033[0m"; }
