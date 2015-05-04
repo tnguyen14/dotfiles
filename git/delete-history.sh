@@ -18,7 +18,9 @@ fi
  
 # remove all paths passed as arguments from the history of the repo
 files=$@
-git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch $files" HEAD
+git filter-branch --force --index-filter "git rm -rf --cached --ignore-unmatch $files" --prune-empty --tag-name-filter cat -- --all
  
 # remove the temporary history git-filter-branch otherwise leaves behind for a long time
-rm -rf .git/refs/original/ && git reflog expire --all &&  git gc --aggressive --prune
+git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+git reflog expire --expire=now --all
+git gc --prune=now
