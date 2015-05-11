@@ -10,18 +10,15 @@
 		"EditorConfig",
 		"FileDiffs",
 		"GitGutter",
-		"GitSavvy",
 		"Handlebars",
+		"JSHint Gutter",
 		"Markdown Extended",
 		"Markdown Preview",
-		"Open Finder",
 		"Package Control",
 		"PackageResourceViewer",
 		"Sass",
-		"SideBarGit",
+		"SideBarEnhancements",
 		"Simple Print Function",
-		"Theme - Afterglow",
-		"Tomorrow Color Schemes",
-		"WebdriverIO"
+		"Theme - Afterglow"
 	]
 }
