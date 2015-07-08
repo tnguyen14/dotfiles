@@ -22,6 +22,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
+Plugin 'wincent/terminus'
 call vundle#end()
 
 set background=dark
