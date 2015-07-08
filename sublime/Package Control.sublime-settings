@@ -5,6 +5,7 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
+		"Babel",
 		"Base16 Color Schemes",
 		"Color Highlighter",
 		"CSScomb",
@@ -13,7 +14,6 @@
 		"FileDiffs",
 		"GitGutter",
 		"Handlebars",
-		"JSHint Gutter",
 		"Markdown Extended",
 		"Markdown Preview",
 		"Package Control",
@@ -21,6 +21,9 @@
 		"Sass",
 		"SideBarEnhancements",
 		"Simple Print Function",
+		"SublimeLinter",
+		"SublimeLinter-jscs",
+		"SublimeLinter-jshint",
 		"TernJS",
 		"Theme - Afterglow"
 	]
