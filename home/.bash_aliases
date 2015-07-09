@@ -22,3 +22,4 @@ alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killa
 # File system usage
 alias dus='df -h'
 alias b2d='$(boot2docker shellinit)'
+alias gl='$HOME/.dotfiles/git/list.sh'
