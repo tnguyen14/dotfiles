@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# inspired by http://stackoverflow.com/questions/17359370/git-show-last-commit-date-and-message-for-each-file-in-directory-like-github
+
 # look in current working directory by default
 DIR="$PWD/"
 if [ -n "$1" ]; then
