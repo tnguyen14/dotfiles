@@ -22,7 +22,7 @@ function link_file() {
 }
 
 e_header "Linking files..."
-for file in home/{.,}*; do
+for file in $HOME/{.,}*; do
 	link_file ~ "$file"
 done
 
