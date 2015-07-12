@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-alias ll='ls -al'
+alias ll='ls -alF'
+alias la='ls -A'
 alias dt='cd ~/Desktop'
 alias ..='cd ..'
 alias ~='cd ~'
