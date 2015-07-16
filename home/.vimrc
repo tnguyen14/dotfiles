@@ -23,6 +23,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
 Plugin 'wincent/terminus'
+Plugin 'scrooloose/syntastic'
 call vundle#end()
 
 set background=dark
@@ -57,9 +58,15 @@ set ignorecase
 " ...except if we input a capital letter
 set smartcase
 
+" When a file has been detected to have been changed outside of Vim and
+" it has not been changed inside of Vim, automatically read it again.
+" When the file has been deleted this is not done.
+set autoread
+
 " Tab stuff
 set tabstop=4
 set shiftwidth=4
+set autoindent
 
 " Show invisible characters
 set list
@@ -86,3 +93,13 @@ map gB :bprev<CR>
 
 " NERDTree
 let NERDTreeShowHidden=1
+
+" Syntastic recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
