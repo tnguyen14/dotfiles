@@ -70,6 +70,17 @@ function wptheme() {
 	fi
 }
 
+# Set up env vars for docker-machine
+# accept an argument as the machine name
+function dm() {
+	if [ -z "$1" ]; then
+		machine="dev"
+	else
+		machine=$1
+	fi
+	eval "$(docker-machine env $machine)"
+}
+
 # From http://stackoverflow.com/questions/370047/#370255
 function path_remove() {
 	IFS=:
