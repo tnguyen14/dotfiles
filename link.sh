@@ -12,18 +12,18 @@ function e_arrow()    { echo -e " \033[1;34m➜\033[0m  $@"; }
 function link_file() {
 	if [[ -f "$2" ]]; then
 		base=$(basename "$2")
-		if [[ "$2" -ef "$1"/"$base" ]]; then
+		if [[ $2 -ef $1/$base ]]; then
 			e_arrow "Skipping $base"
 		else
 			e_success "Linking $base"
-			ln -sfv $(pwd)/"$2" "$1"/"$base"
+			ln -sfv "$2" "$1"/"$base"
 		fi
 	fi
 }
 
-e_header "Linking files..."
-for file in $HOME/{.,}*; do
-	link_file ~ "$file"
+e_header "Linking files in \$HOME..."
+for file in $(pwd)/home/{.,}*; do
+	link_file "$HOME" "$file"
 done
 
 sublimePath=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
