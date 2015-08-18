@@ -24,6 +24,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
 Plugin 'wincent/terminus'
 Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 set background=dark
