@@ -108,3 +108,7 @@ let g:syntastic_check_on_wq = 0
 " remap <Leader> key
 let mapleader = ','
 
+" make ESC key work for command-t
+if &term =~ "xterm" || &term =~ "screen"
+	let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+endif
