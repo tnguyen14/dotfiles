@@ -15,13 +15,13 @@ function link_file() {
 		if [[ $2 -ef $1/$base ]]; then
 			e_arrow "Skipping $base"
 		else
-			e_success "Linking $base"
 			ln -sfv "$2" "$1"/"$base"
+			e_success "Linking $base"
 		fi
 	fi
 }
 
-e_header "Linking files in \$HOME..."
+e_header "Setting up \$HOME dotfiles..."
 for file in $(pwd)/home/{.,}*; do
 	link_file "$HOME" "$file"
 done
@@ -29,7 +29,7 @@ done
 sublimePath=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 if [[ -d $sublimePath ]]; then
 	e_header "Setting up Sublime Text settings..."
-	for file in sublime/*.sublime-settings; do
+	for file in $(pwd)/sublime/*.sublime-settings; do
 		link_file "$sublimePath" "$file"
 	done;
 fi
