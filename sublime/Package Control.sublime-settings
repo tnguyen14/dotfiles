@@ -1,4 +1,5 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
@@ -8,10 +9,12 @@
 		"Babel",
 		"Base16 Color Schemes",
 		"Color Highlighter",
+		"ColorPicker",
 		"CSScomb",
 		"DashDoc",
 		"EditorConfig",
 		"Emmet",
+		"EsFormatter",
 		"FileDiffs",
 		"GitGutter",
 		"Handlebars",
@@ -20,6 +23,7 @@
 		"Package Control",
 		"PackageResourceViewer",
 		"Sass",
+		"Search in Project",
 		"Simple Print Function",
 		"SublimeLinter",
 		"SublimeLinter-jscs",
