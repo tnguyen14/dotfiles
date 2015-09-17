@@ -30,6 +30,7 @@
 	size-report = !bash "$HOME/.dotfiles/git/size-report.sh"
 	delete-history = !bash "$HOME/.dotfiles/git/delete-history.sh"
 	create-deploy-branch = !bash "$HOME/.dotfiles/git/create-deploy-branch.sh"
+	list = !bash "$HOME/.dotfiles/git/list.sh"
 
 [mergetool]
 	keepBackup = true
