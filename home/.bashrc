@@ -21,6 +21,8 @@ export CLICOLOR=1
 # export LSCOLORS=CxFxBxDxCxegedabagacad
 export LSCOLORS=CxFxExDxBxegedabagacad
 
+export EDITOR=/usr/local/bin/vim
+
 # Base16 Shell
 if [ ! -d $HOME/.config/base16-shell ]; then
 	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
