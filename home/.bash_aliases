@@ -12,8 +12,7 @@ alias mv='mv -v'
 # Interactive mode for rm
 alias rm='rm -i'
 # Editor shortcut
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias atom='/Applications/Atom.app/Contents/MacOS/Atom'
+alias subl='~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 # Add spacer to Dock
 alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 # Show/hide desktop icons
