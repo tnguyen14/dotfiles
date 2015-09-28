@@ -81,10 +81,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-" Alias capitalized commands, because : requries Shift
-command W w
-command Q q
-command Wq wq
+
+" remap : to ; to avoid pressing Shift
+nnoremap ; :
+vnoremap ; :
 
 " Set split pane direction to be more natural
 set splitbelow
