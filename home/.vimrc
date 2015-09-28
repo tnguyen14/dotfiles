@@ -84,6 +84,7 @@ nnoremap <C-L> <C-W><C-L>
 " Alias capitalized commands, because : requries Shift
 command W w
 command Q q
+command Wq wq
 
 " Set split pane direction to be more natural
 set splitbelow
