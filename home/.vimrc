@@ -104,8 +104,12 @@ map gB :bprev<CR>
 
 " NERDTree
 let NERDTreeShowHidden = 1
-" open NERDTree automatically on vim start
-autocmd vimenter * NERDTree
+let NERDTreeMapOpenSplit = '<C-x>'
+let NERDTreeMapOpenVSplit = '<C-v>'
+let NERDTreeMapOpenInTab = '<C-t>'
+" open NERDTree automatically on vim start, even if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open NERDTree with `Ctrl-n`
 map <C-n> :NERDTreeToggle<CR>
 
