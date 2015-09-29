@@ -61,6 +61,10 @@ set ignorecase
 " ...except if we input a capital letter
 set smartcase
 
+" hides buffer instead of closing them
+" http://usevim.com/2012/10/19/vim101-set-hidden/
+set hidden
+
 " When a file has been detected to have been changed outside of Vim and
 " it has not been changed inside of Vim, automatically read it again.
 " When the file has been deleted this is not done.
