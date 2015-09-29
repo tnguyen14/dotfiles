@@ -30,6 +30,7 @@ Plugin 'rking/ag.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
+Plugin 'elzr/vim-json'
 call vundle#end()
 
 set background=dark
@@ -132,3 +133,6 @@ let mapleader = ','
 if &term =~ "xterm" || &term =~ "screen"
 	let g:CommandTCancelMap = ['<ESC>', '<C-c>']
 endif
+
+" Disable JSON quote concealing
+let g:vim_json_syntax_conceal = 0
