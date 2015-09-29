@@ -101,7 +101,11 @@ map gb :bnext<CR>
 map gB :bprev<CR>
 
 " NERDTree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
+" open NERDTree automatically on vim start
+autocmd vimenter * NERDTree
+" open NERDTree with `Ctrl-n`
+map <C-n> :NERDTreeToggle<CR>
 
 " Syntastic recommended settings
 set statusline+=%#warningmsg#
