@@ -26,6 +26,7 @@ Plugin 'wincent/terminus'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rking/ag.vim'
+Plugin 'ap/vim-css-color'
 call vundle#end()
 
 set background=dark
