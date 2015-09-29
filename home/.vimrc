@@ -27,6 +27,8 @@ Plugin 'wincent/terminus'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rking/ag.vim'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
 call vundle#end()
 
