@@ -31,6 +31,8 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
 Plugin 'elzr/vim-json'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'tmux-plugins/vim-tmux'
 call vundle#end()
 
 set background=dark
