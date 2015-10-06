@@ -141,3 +141,8 @@ endif
 
 " Disable JSON quote concealing
 let g:vim_json_syntax_conceal = 0
+
+" ctrlp
+" show hidden files
+let g:ctrlp_show_hidden = 1
+
