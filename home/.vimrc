@@ -34,6 +34,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'elzr/vim-json'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 
 set background=dark
