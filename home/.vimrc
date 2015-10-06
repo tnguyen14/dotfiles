@@ -30,6 +30,7 @@ Plugin 'rking/ag.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'elzr/vim-json'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tmux-plugins/vim-tmux'
@@ -70,6 +71,8 @@ set smartcase
 " hides buffer instead of closing them
 " http://usevim.com/2012/10/19/vim101-set-hidden/
 set hidden
+
+set encoding=utf-8
 
 " When a file has been detected to have been changed outside of Vim and
 " it has not been changed inside of Vim, automatically read it again.
