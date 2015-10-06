@@ -146,3 +146,7 @@ let g:vim_json_syntax_conceal = 0
 " show hidden files
 let g:ctrlp_show_hidden = 1
 
+" ycm
+" <Enter>
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+
