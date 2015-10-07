@@ -113,6 +113,9 @@ set splitright
 map gb :bnext<CR>
 map gB :bprev<CR>
 
+" airline
+let g:airline#extensions#tabline#enabled = 1
+
 " NERDTree
 let NERDTreeShowHidden = 1
 let NERDTreeMapOpenSplit = '<C-x>'
