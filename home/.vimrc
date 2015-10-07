@@ -35,6 +35,7 @@ Plugin 'elzr/vim-json'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tpope/vim-surround'
+Plugin 'moll/vim-bbye'
 call vundle#end()
 
 set background=dark
@@ -100,6 +101,9 @@ nnoremap <C-L> <C-W><C-L>
 " remap : to ; to avoid pressing Shift
 nnoremap ; :
 vnoremap ; :
+
+" bbye remap to <Leader>q
+nnoremap <Leader>w :Bdelete<CR>
 
 " Set split pane direction to be more natural
 set splitbelow
