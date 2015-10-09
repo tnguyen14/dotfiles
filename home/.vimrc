@@ -102,8 +102,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap ; :
 vnoremap ; :
 
-" bbye remap to <Leader>q
-nnoremap <Leader>w :Bdelete<CR>
+" bbye remap to <Leader>w
+noremap <Leader>w :Bdelete<CR>
 
 " Set split pane direction to be more natural
 set splitbelow
