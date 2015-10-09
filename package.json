@@ -1,0 +1,37 @@
+{
+  "name": "@tridnguyen/dotfiles",
+  "version": "1.0.0",
+  "description": "Tri's personal dotfiles",
+  "main": "link.sh",
+  "dependencies": {
+    "cardinal": "^0.5.0",
+    "iron-node": "^1.5.32",
+    "localtunnel": "^1.7.0",
+    "modhelp": "^2.2.0",
+    "n": "^2.0.2",
+    "nodemon": "^1.7.1",
+    "npm-check-updates": "^2.3.0",
+    "psy": "^1.4.5",
+    "rpl": "^0.8.0",
+    "selenium-standalone": "^4.7.0",
+    "trash": "^2.0.0",
+    "vmd": "^1.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tnguyen14/dotfiles.git"
+  },
+  "keywords": [
+    "dotfiles"
+  ],
+  "author": "Tri Nguyen <tri@tridnguyen.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tnguyen14/dotfiles/issues"
+  },
+  "homepage": "https://github.com/tnguyen14/dotfiles#readme"
+}
