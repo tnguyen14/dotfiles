@@ -1,4 +1,8 @@
+" http://stackoverflow.com/questions/5845557/in-a-vimrc-is-set-nocompatible-completely-useless
 set nocompatible
+
+" remap <Leader> key
+let mapleader = "\<Space>"
 
 " Vundle
 filetype off
@@ -92,7 +96,7 @@ set listchars=tab:→\ ,trail:·,eol:˧
 " vim-gitgutter stuff
 let g:gitgutter_max_signs = 1000
 
-" Navigate panes with g
+" Navigate panes with control
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -110,11 +114,13 @@ set splitbelow
 set splitright
 
 " Buffer navigation
-map gb :bnext<CR>
-map gB :bprev<CR>
+noremap <Leader>] :bnext<CR>
+noremap <Leader>[ :bprev<CR>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " NERDTree
 let NERDTreeShowHidden = 1
@@ -138,9 +144,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
-
-" remap <Leader> key
-let mapleader = ','
 
 " make ESC key work for command-t
 if &term =~ "xterm" || &term =~ "screen"
