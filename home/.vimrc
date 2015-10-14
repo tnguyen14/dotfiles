@@ -118,6 +118,10 @@ set splitright
 noremap <Leader>] :bnext<CR>
 noremap <Leader>[ :bprev<CR>
 
+" Save and quit buffer
+noremap <Leader>s :write<CR>
+noremap <Leader>q :quit<CR>
+
 " airline
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
