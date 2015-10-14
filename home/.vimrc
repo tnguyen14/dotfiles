@@ -40,6 +40,7 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tpope/vim-surround'
 Plugin 'moll/vim-bbye'
+Plugin 'vim-scripts/gitignore'
 call vundle#end()
 
 set background=dark
