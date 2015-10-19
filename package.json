@@ -5,6 +5,7 @@
   "main": "link.sh",
   "dependencies": {
     "cardinal": "^0.5.0",
+    "dwupload": "bitbucket:demandware/dwupload",
     "iron-node": "^1.5.32",
     "localtunnel": "^1.7.0",
     "modhelp": "^2.2.0",
