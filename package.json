@@ -6,6 +6,7 @@
   "dependencies": {
     "cardinal": "^0.5.0",
     "dwupload": "bitbucket:demandware/dwupload",
+    "happiness": "^1.0.7",
     "iron-node": "^1.5.32",
     "json": "^9.0.3",
     "localtunnel": "^1.7.0",
@@ -16,8 +17,10 @@
     "psy": "^1.4.5",
     "rpl": "^0.8.0",
     "selenium-standalone": "^4.7.0",
+    "snazzy": "^2.0.1",
     "trash": "^2.0.0",
-    "vmd": "^1.11.0"
+    "vmd": "^1.11.0",
+    "xo": "^0.9.0"
   },
   "devDependencies": {},
   "scripts": {
