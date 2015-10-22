@@ -71,15 +71,6 @@ if [[ "$(type -P hub)" ]]; then
 	alias git=hub
 fi
 
-function wptheme() {
-	cd wp-content/themes
-	if [ $1 ]; then
-		if [ -d $1 ]; then
-			cd $1
-		fi
-	fi
-}
-
 # Set up env vars for docker-machine
 # accept an argument as the machine name
 function dm() {
@@ -91,7 +82,8 @@ function dm() {
 	eval "$(docker-machine env $machine)"
 }
 
-# From http://stackoverflow.com/questions/370047/#370255
+# Remove a path from $PATH
+# from http://stackoverflow.com/questions/370047/#370255
 function path_remove() {
 	IFS=:
 	# convert it to an array
@@ -104,7 +96,16 @@ function path_remove() {
 	echo "${t[*]}"
 }
 
-# If possible, add tab completion for many commands
+# https://github.com/herrbischoff/awesome-osx-command-line#show-current-ssid
+function ssid() {
+	airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
+}
+# https://github.com/herrbischoff/awesome-osx-command-line#show-wi-fi-network-passwords
+function wifipw() {
+	security find-generic-password -D "AirPort network password" -a "$1" -gw
+}
+
+# If possible, add bash completion for many commands (Linux)
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # Grunt completion

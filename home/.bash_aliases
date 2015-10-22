@@ -21,4 +21,4 @@ alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; kill
 alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
 # File system usage
 alias dus='df -h'
-
+alias airport=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport

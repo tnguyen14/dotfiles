@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # inspired/copied from https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+# and https://github.com/herrbischoff/awesome-osx-command-line
 
 # Ask for the administrator password upfront
 sudo -v
@@ -20,6 +21,9 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 # Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Set current folder as default search scope
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
