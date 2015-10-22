@@ -23,6 +23,15 @@ export LSCOLORS=CxFxExDxBxegedabagacad
 
 export EDITOR=/usr/local/bin/vim
 
+# LESS colors
+export LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+export LESS_TERMCAP_md=$(printf "\e[1;31m") \
+export LESS_TERMCAP_me=$(printf "\e[0m") \
+export LESS_TERMCAP_se=$(printf "\e[0m") \
+export LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+export LESS_TERMCAP_ue=$(printf "\e[0m") \
+export LESS_TERMCAP_us=$(printf "\e[1;32m") \
+
 # Base16 Shell
 if [ ! -d $HOME/.config/base16-shell ]; then
 	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell

@@ -21,18 +21,4 @@ alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; kill
 alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
 # File system usage
 alias dus='df -h'
-alias b2d='$(boot2docker shellinit)'
-alias gl='$HOME/.dotfiles/git/list.sh'
 
-man() {
-	env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-			man "$@"
-}
- 
