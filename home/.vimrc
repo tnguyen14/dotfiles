@@ -187,4 +187,4 @@ let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
 " Demandware
 au BufRead,BufNewFile *.isml setfiletype xml
-au BufRead,BufNewFile *.ds setfiletype javascript
+au BufRead,BufNewFile *.ds set filetype=javascript
