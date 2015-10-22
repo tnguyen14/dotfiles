@@ -41,6 +41,7 @@ Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tpope/vim-surround'
 Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/gitignore'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 
 set background=dark
@@ -121,6 +122,13 @@ noremap <Leader>[ :bprev<CR>
 " Save and quit buffer
 noremap <Leader>s :write<CR>
 noremap <Leader>q :quit<CR>
+
+" vim multiple cursor
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
