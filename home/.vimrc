@@ -1,7 +1,7 @@
+" Vundle {{{
 " http://stackoverflow.com/questions/5845557/in-a-vimrc-is-set-nocompatible-completely-useless
 set nocompatible
 
-" Vundle
 filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -40,12 +40,18 @@ Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/gitignore'
 Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
+" }}}
 
+" Theming {{{
 set background=dark
 let base16colorspace=256  " Access colors present in 256 colorspace"
 colorscheme base16-tomorrow
+" }}}
+"
+" Settings {{{
 " Allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
+
 syntax on
 
 " File type based indentation
@@ -96,7 +102,9 @@ set listchars=tab:→\ ,trail:·,eol:˧
 " Set split pane direction to be more natural
 set splitbelow
 set splitright
+"}}}
 
+" Mappings {{{
 " remap <Leader> key
 let mapleader = "\<Space>"
 
@@ -137,7 +145,9 @@ noremap <Leader>w :Bdelete<CR>
 
 " vim-commentary
 nnoremap <Leader>, :Commentary<CR>
+" }}}
 
+" Plugins {{{
 " vim-gitgutter stuff
 let g:gitgutter_max_signs = 1000
 
@@ -148,7 +158,7 @@ let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-" airline
+" airline {{{
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -163,8 +173,9 @@ endif
 let g:airline_symbols.branch = ''
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
+" }}}
 
-" NERDTree
+" NERDTree {{{
 let NERDTreeShowHidden = 1
 let NERDTreeMapOpenSplit = '<C-x>'
 let NERDTreeMapOpenVSplit = '<C-v>'
@@ -174,9 +185,10 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open NERDTree with `Ctrl-n`
 noremap <C-n> :NERDTreeToggle<CR>
+" }}}
+"
 
-
-" Syntastic recommended settings
+" Syntastic {{{
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -187,6 +199,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+" }}}
 
 " make ESC key work for command-t
 if &term =~ "xterm" || &term =~ "screen"
@@ -199,10 +212,13 @@ let g:vim_json_syntax_conceal = 0
 " ctrlp
 " show hidden files
 let g:ctrlp_show_hidden = 1
+" }}}
 
-" ycm
-" <Enter>
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+" add folding for vimscripts
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
 
 " Demandware
 au BufRead,BufNewFile *.isml setfiletype xml
