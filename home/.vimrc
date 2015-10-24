@@ -104,12 +104,26 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
+" shortcut to edit and source .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" shortcut to escape insert mode
+inoremap jk <esc>
+
+" shortcut for going to begining and end of line
+nnoremap H ^
+nnoremap L $
+
 " remap : to ; to avoid pressing Shift
 nnoremap ; :
 vnoremap ; :
 
 " bbye remap to <Leader>w
 noremap <Leader>w :Bdelete<CR>
+
+" vim-commentary
+nnoremap <Leader>, :Commentary<CR>
 
 " Set split pane direction to be more natural
 set splitbelow
@@ -155,7 +169,8 @@ let NERDTreeMapOpenInTab = '<C-t>'
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " open NERDTree with `Ctrl-n`
-map <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
+
 
 " Syntastic recommended settings
 set statusline+=%#warningmsg#
