@@ -1,9 +1,6 @@
 " http://stackoverflow.com/questions/5845557/in-a-vimrc-is-set-nocompatible-completely-useless
 set nocompatible
 
-" remap <Leader> key
-let mapleader = "\<Space>"
-
 " Vundle
 filetype off
 " set the runtime path to include Vundle and initialize
@@ -95,8 +92,19 @@ set autoindent
 " Show invisible characters
 set list
 set listchars=tab:→\ ,trail:·,eol:˧
-" vim-gitgutter stuff
-let g:gitgutter_max_signs = 1000
+
+" Set split pane direction to be more natural
+set splitbelow
+set splitright
+
+" remap <Leader> key
+let mapleader = "\<Space>"
+
+" shortcut to escape insert mode
+inoremap jk <esc>
+
+" inside parens
+onoremap p i(
 
 " Navigate panes with control
 nnoremap <C-H> <C-W><C-H>
@@ -108,9 +116,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" shortcut to escape insert mode
-inoremap jk <esc>
-
 " shortcut for going to begining and end of line
 nnoremap H ^
 nnoremap L $
@@ -119,16 +124,6 @@ nnoremap L $
 nnoremap ; :
 vnoremap ; :
 
-" bbye remap to <Leader>w
-noremap <Leader>w :Bdelete<CR>
-
-" vim-commentary
-nnoremap <Leader>, :Commentary<CR>
-
-" Set split pane direction to be more natural
-set splitbelow
-set splitright
-
 " Buffer navigation
 noremap <Leader>] :bnext<CR>
 noremap <Leader>[ :bprev<CR>
@@ -136,6 +131,15 @@ noremap <Leader>[ :bprev<CR>
 " Save and quit buffer
 noremap <Leader>s :write<CR>
 noremap <Leader>q :quit<CR>
+
+" bbye remap to <Leader>w
+noremap <Leader>w :Bdelete<CR>
+
+" vim-commentary
+nnoremap <Leader>, :Commentary<CR>
+
+" vim-gitgutter stuff
+let g:gitgutter_max_signs = 1000
 
 " vim multiple cursor
 let g:multi_cursor_use_default_mapping=0
