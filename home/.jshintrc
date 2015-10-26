@@ -1,7 +1,0 @@
-{
-	"strict": true,
-	"eqeqeq": true,
-	"node": true,
-	"browserify": true,
-	"esnext": true
-}

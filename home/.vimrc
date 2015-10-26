@@ -162,6 +162,9 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+let g:airline#extensions#syntastic#enabled = 1
+
 let g:airline_theme = 'base16'
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -198,7 +201,35 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+
+let g:syntastic_javascript_standard_exec = 'happiness'
+
+function! HasConfig(file, dir)
+    return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+endfunction
+
+function! HasConfigJs()
+	let checkers = []
+	if HasConfig('.eslintrc', expand('<amatch>:h'))
+		call add(checkers, 'eslint')
+	endif
+	if HasConfig('.jshintrc', expand('<amatch>:h'))
+		call add(checkers, 'jshint')
+	endif
+	if HasConfig('.jscsrc', expand('<amatch>:h'))
+		call add(checkers, 'jscs')
+	endif
+	" default to standard (happiness)
+	if !len(checkers)
+		call add(checkers, 'standard')
+	endif
+	return checkers
+endfunction
+
+augroup syntastic
+	autocmd BufNewFile,BufRead *.js  let b:syntastic_checkers = HasConfigJs()
+augroup END
 " }}}
 
 " make ESC key work for command-t
