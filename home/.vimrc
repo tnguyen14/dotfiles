@@ -192,6 +192,10 @@ augroup END
 noremap <C-n> :NERDTreeToggle<CR>
 " }}}
 "
+" delimitMate
+" auto expand carriage return <CR>
+let delimitMate_expand_cr = 2
+let delimitMate_expand_space = 1
 
 " Syntastic {{{
 set statusline+=%#warningmsg#
