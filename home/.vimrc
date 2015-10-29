@@ -184,8 +184,10 @@ let NERDTreeMapOpenSplit = '<C-x>'
 let NERDTreeMapOpenVSplit = '<C-v>'
 let NERDTreeMapOpenInTab = '<C-t>'
 " open NERDTree automatically on vim start, even if no file is specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+augroup open_nerdtree
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+augroup END
 " open NERDTree with `Ctrl-n`
 noremap <C-n> :NERDTreeToggle<CR>
 " }}}
@@ -201,7 +203,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute " ,"trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
 let g:syntastic_javascript_standard_exec = 'happiness'
 
@@ -228,7 +230,7 @@ function! HasConfigJs()
 endfunction
 
 augroup syntastic
-	autocmd BufNewFile,BufRead *.js  let b:syntastic_checkers = HasConfigJs()
+	autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers = HasConfigJs()
 augroup END
 " }}}
 
@@ -252,5 +254,9 @@ augroup filetype_vim
 augroup END
 
 " Demandware
-au BufRead,BufNewFile *.isml setfiletype xml
-au BufRead,BufNewFile *.ds set filetype=javascript
+augroup demandware
+	autocmd!
+	autocmd BufNewFile,BufRead *.isml setfiletype xml
+	autocmd BufNewFile,BufRead *.isml let g:syntastic_xml_xmllint_quiet_messages = { "regex": 'Extra content' }
+	autocmd BufNewFile,BufRead *.ds set filetype=javascript
+augroup END
