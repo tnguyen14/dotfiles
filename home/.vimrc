@@ -97,7 +97,7 @@ set autoindent
 
 " Show invisible characters
 set list
-set listchars=tab:→\ ,trail:·,eol:˧
+set listchars=tab:▸\ ,trail:·,eol:¬,extends:→,nbsp:･
 
 " Set split pane direction to be more natural
 set splitbelow
@@ -261,6 +261,6 @@ augroup END
 augroup demandware
 	autocmd!
 	autocmd BufNewFile,BufRead *.isml setfiletype xml
-	autocmd BufNewFile,BufRead *.isml let g:syntastic_xml_xmllint_quiet_messages = { "regex": 'Extra content' }
+	autocmd BufNewFile,BufRead *.isml let g:syntastic_xml_xmllint_quiet_messages = { "regex": ['Extra content', 'Double hyphen', 'Opening and ending tag'] }
 	autocmd BufNewFile,BufRead *.ds set filetype=javascript
 augroup END
