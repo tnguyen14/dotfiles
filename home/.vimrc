@@ -64,6 +64,8 @@ set showcmd
 set modeline
 " Show current line and column position in file
 set ruler
+
+set scrolloff=5
 " Show file title in terminal tab
 set title
 " Show line numbers
@@ -93,6 +95,7 @@ set autoread
 " Tab stuff
 set tabstop=4
 set shiftwidth=4
+set smarttab
 set autoindent
 
 " Show invisible characters
@@ -203,7 +206,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -268,3 +270,5 @@ augroup demandware
 	autocmd BufNewFile,BufRead *.isml let g:syntastic_xml_xmllint_quiet_messages = { "regex": ['Extra content', 'Double hyphen', 'Opening and ending tag'] }
 	autocmd BufNewFile,BufRead *.ds set filetype=javascript
 augroup END
+
+set secure
