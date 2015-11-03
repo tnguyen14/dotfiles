@@ -209,7 +209,9 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
 
+let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_standard_exec = 'happiness'
+let g:syntastic_javascript_standard_generic = 1
 
 function! HasConfig(file, dir)
     return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
@@ -234,8 +236,10 @@ function! HasConfigJs()
 endfunction
 
 augroup syntastic
-	autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers = HasConfigJs()
+	autocmd!
+	autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = HasConfigJs()
 augroup END
+
 " }}}
 
 " make ESC key work for command-t
