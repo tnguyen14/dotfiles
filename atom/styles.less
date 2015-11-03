@@ -1,0 +1,47 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed.
+ *
+ * If you are unfamiliar with LESS, you can read more about it here:
+ * http://www.lesscss.org
+ */
+
+.tree-view {
+
+}
+
+// style the background and foreground colors on the atom-text-editor-element
+// itself
+atom-text-editor {
+
+}
+
+// To style other content in the text editor's shadow DOM, use the ::shadow
+// expression
+atom-text-editor::shadow .cursor {
+
+}
+
+@whitespace-color: rgba(255, 255, 255, 0.2);
+// show leading whitespace more prominently
+atom-text-editor::shadow {
+    .leading-whitespace {
+        color: @whitespace-color;
+        // show tab character like sublime
+        // https://gist.github.com/timrwood/9242517
+        &.hard-tab {
+            position: relative;
+            color: transparent;
+            &:before {
+                position: absolute;
+                top: 45%;
+                left: 1px;
+                right: 1px;
+                content: "";
+                border-bottom: 1px solid @whitespace-color;
+            }
+        }
+    }
+}

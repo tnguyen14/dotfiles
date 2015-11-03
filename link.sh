@@ -33,3 +33,11 @@ if [[ -d $sublimePath ]]; then
 		link_file "$sublimePath" "$file"
 	done;
 fi
+
+atomPath=~/.atom
+if [[ -d $atomPath ]]; then
+	e_header "Setting up Atom settings..."
+	for file in $(pwd)/atom/*; do
+		link_file "$atomPath" "$file"
+	done;
+fi
