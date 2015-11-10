@@ -36,3 +36,4 @@
     onlyConfig: true
   "markdown-preview":
     useGitHubStyle: true
+  "vim-mode": {}
