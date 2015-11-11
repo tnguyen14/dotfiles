@@ -40,6 +40,6 @@ Thumbs.db
 
 # Custom
 # Vim
-*~
 *.swp
 *.swo
+*~
