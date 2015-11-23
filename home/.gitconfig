@@ -19,12 +19,16 @@
 	aa = add -Av
 	au = add -uv
 	c = commit -m
+	ca = commit --amend
+	cah = commit --amend -C HEAD
 	ac = !git add . -v && git commit -m
 	co = checkout
 	cob = checkout -b
 	b = branch
 	bd = branch -d
 	cl = clone
+	d = diff
+	dc = diff --cached
 	g = grep --break --heading --ignore-case
 	rc = rebase --continue
 	size-report = !bash "$HOME/.dotfiles/git/size-report.sh"
