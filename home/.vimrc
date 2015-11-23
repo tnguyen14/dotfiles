@@ -148,6 +148,10 @@ noremap <Leader>w :Bdelete<CR>
 
 " vim-commentary
 nnoremap <Leader>, :Commentary<CR>
+
+" lnext and lprevious
+nnoremap <Leader>l :lnext<CR>
+nnoremap <Leader>L :lprevious<CR>
 " }}}
 
 " Plugins {{{
