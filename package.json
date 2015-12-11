@@ -4,7 +4,7 @@
   "description": "Tri's personal dotfiles",
   "main": "link.sh",
   "dependencies": {
-    "cardinal": "^0.5.0",
+    "cardinal": "^0.6.0",
     "dwupload": "bitbucket:demandware/dwupload",
     "happiness": "^1.0.7",
     "iron-node": "^1.5.32",
@@ -13,14 +13,14 @@
     "modhelp": "^2.2.0",
     "n": "^2.0.2",
     "nodemon": "^1.8.1",
-    "npm-check-updates": "^2.3.4",
-    "psy": "^1.6.1",
+    "npm-check-updates": "^2.5.1",
+    "psy": "^1.6.2",
     "rpl": "^0.8.0",
-    "selenium-standalone": "^4.7.1",
+    "selenium-standalone": "^4.7.2",
     "snazzy": "^2.0.1",
-    "trash": "^3.2.0",
+    "trash": "^3.4.0",
     "vmd": "^1.13.0",
-    "xo": "^0.10.1"
+    "xo": "^0.11.2"
   },
   "devDependencies": {},
   "scripts": {
