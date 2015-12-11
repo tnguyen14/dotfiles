@@ -11,6 +11,8 @@ alias cp='cp -v'
 alias mv='mv -v'
 # Interactive mode for rm
 alias rm='rm -i'
+# Always show line numbers for less
+alias less='less -N'
 # Editor shortcut
 alias subl='~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 # Add spacer to Dock
