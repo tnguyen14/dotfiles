@@ -159,6 +159,9 @@ nnoremap <Leader>L :lprevious<CR>
 " vim-gitgutter stuff
 let g:gitgutter_max_signs = 1000
 
+" vim-jsx
+let g:jsx_ext_required = 0
+
 " vim multiple cursor
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-d>'
