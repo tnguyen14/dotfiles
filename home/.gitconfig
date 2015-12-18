@@ -99,3 +99,7 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[github]
+	user = tnguyen14
+[ghi]
+	token = !security find-internet-password -a tnguyen14 -s github.com -l 'ghi token' -w
