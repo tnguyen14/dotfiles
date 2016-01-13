@@ -147,8 +147,10 @@ noremap <Leader>[ :bprev<CR>
 noremap <Leader>s :write<CR>
 noremap <Leader>q :quit<CR>
 
-" bbye remap to <Leader>x
-noremap <Leader>x :Bdelete<CR>
+" bbye remap to <Leader>d
+noremap <Leader>d :Bdelete<CR>
+
+noremap <Leader>x :x<CR>
 
 " vim-commentary
 nnoremap <Leader>, :Commentary<CR>
