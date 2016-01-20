@@ -41,6 +41,7 @@ Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/gitignore'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/gv.vim'
+Plugin 'neovimhaskell/haskell-vim'
 call vundle#end()
 " }}}
 
