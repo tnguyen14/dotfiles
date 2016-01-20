@@ -40,6 +40,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'moll/vim-bbye'
 Plugin 'vim-scripts/gitignore'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'junegunn/gv.vim'
 call vundle#end()
 " }}}
 
