@@ -51,7 +51,6 @@ function _prepend_path() {
 # Construct $PATH
 PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
 [ -d $GOPATH ] && _prepend_path "$GOPATH"
-[ -d /usr/local/heroku/bin ] && _prepend_path "/usr/local/heroku/bin"
 [ -d /usr/local/opt/ruby/bin ] && _prepend_path "/usr/local/opt/ruby/bin"
 command -v rbenv >/dev/null 2>&1 && _prepend_path "$HOME/.rbenv/shims"
 [ -d /usr/local/share/npm/bin ] && _prepend_path "/usr/local/share/npm/bin"
