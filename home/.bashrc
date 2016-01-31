@@ -23,6 +23,9 @@ export LSCOLORS=CxFxExDxBxegedabagacad
 
 export EDITOR=/usr/local/bin/vim
 
+export TERM=xterm-256color
+[ -n "$TMUX"  ] && export TERM=screen-256color
+
 # LESS colors
 export LESS_TERMCAP_mb=$(printf "\e[1;31m") \
 export LESS_TERMCAP_md=$(printf "\e[1;31m") \
