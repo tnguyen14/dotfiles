@@ -23,7 +23,6 @@ export LSCOLORS=CxFxExDxBxegedabagacad
 
 export EDITOR=/usr/local/bin/vim
 
-export TERM=xterm-256color
 [ -n "$TMUX"  ] && export TERM=screen-256color
 
 # LESS colors
