@@ -51,7 +51,7 @@ function _prepend_path() {
 	fi
 }
 # Construct $PATH
-PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
+PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
 [ -d $GOPATH ] && _prepend_path "$GOPATH"
 [ -d /usr/local/opt/ruby/bin ] && _prepend_path "/usr/local/opt/ruby/bin"
 command -v rbenv >/dev/null 2>&1 && _prepend_path "$HOME/.rbenv/shims"
