@@ -1,28 +1,4 @@
 "*":
-  editor:
-    invisibles: {}
-    fontFamily: "Fira Mono, mono"
-    lineHeight: 1.6
-    showInvisibles: true
-    softTabs: false
-    tabLength: 4
-    showIndentGuide: true
-    fontSize: 13
-  core:
-    themes: [
-      "accents-ui"
-      "base16-tomorrow-dark-theme"
-    ]
-    projectHome: "/Users/tnguyen/dev"
-  "exception-reporting":
-    userId: "4cc8ed96-2f93-e487-2918-772f1b80f1ca"
-  welcome:
-    showOnStartup: false
-  "linter-jshint":
-    disableWhenNoJshintrcFileInPath: true
-  "linter-eslint":
-    disableWhenNoEslintrcFileInPath: true
-  "atom-ternjs": {}
   "accents-ui":
     accentColor:
       red: 243
@@ -30,10 +6,34 @@
       blue: 48
       alpha: 1
     hexColor: "#f38630"
+  "atom-ternjs": {}
+  core:
+    projectHome: "/Users/tnguyen/dev"
+    themes: [
+      "accents-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+  editor:
+    fontFamily: "Fira Mono, mono"
+    fontSize: 13
+    invisibles: {}
+    lineHeight: 1.6
+    showIndentGuide: true
+    showInvisibles: true
+    softTabs: false
+    tabLength: 4
+  "exception-reporting":
+    userId: "4cc8ed96-2f93-e487-2918-772f1b80f1ca"
+  "linter-eslint":
+    disableWhenNoEslintrcFileInPath: true
   "linter-js-standard":
     style: "happiness"
   "linter-jscs":
     onlyConfig: true
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
   "markdown-preview":
     useGitHubStyle: true
   "vim-mode": {}
+  welcome:
+    showOnStartup: false
