@@ -185,73 +185,79 @@ augroup END
 " }}}
 
 " Plugins {{{
-" vim-gitgutter stuff
-let g:gitgutter_max_signs = 1000
+" vim-gitgutter {{{
+augroup gitgutter
+	autocmd!
+	let g:gitgutter_max_signs = 1000
+augroup END
+" }}}
 
-" vim-jsx
-let g:jsx_ext_required = 0
+" vim-jsx {{{
+augroup jsx 
+	autocmd!
+	let g:jsx_ext_required = 0
+augroup END
+" }}}
 
-" vim multiple cursor
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+" vim multiple cursor {{{
+augroup multiple_cursor
+	autocmd!
+	let g:multi_cursor_use_default_mapping=0
+	let g:multi_cursor_next_key='<C-d>'
+	let g:multi_cursor_prev_key='<C-p>'
+	let g:multi_cursor_skip_key='<C-x>'
+	let g:multi_cursor_quit_key='<Esc>'
+augroup END
+" }}}
 
 " airline {{{
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
+augroup airline
+	autocmd!
+	let g:airline#extensions#tabline#enabled = 1
+	" Show just the filename
+	let g:airline#extensions#tabline#fnamemod = ':t'
 
-let g:airline#extensions#syntastic#enabled = 1
+	let g:airline#extensions#syntastic#enabled = 1
 
-let g:airline_theme = 'base16'
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
+	let g:airline_theme = 'base16'
+	let g:airline_left_sep = ''
+	let g:airline_left_alt_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_alt_sep = ''
+	if !exists('g:airline_symbols')
+		let g:airline_symbols = {}
+	endif
+	let g:airline_symbols.branch = ''
+	let g:airline#extensions#tabline#left_sep = ''
+	let g:airline#extensions#tabline#left_alt_sep = ''
+augroup END
 " }}}
 
 " NERDTree {{{
-let NERDTreeShowHidden = 1
-let NERDTreeMapOpenSplit = '<C-x>'
-let NERDTreeMapOpenVSplit = '<C-v>'
-let NERDTreeMapOpenInTab = '<C-t>'
-" open NERDTree automatically on vim start, even if no file is specified
-augroup open_nerdtree
+augroup nerdtree
+	autocmd!
+	let NERDTreeShowHidden = 1
+	let NERDTreeMapOpenSplit = '<C-x>'
+	let NERDTreeMapOpenVSplit = '<C-v>'
+	let NERDTreeMapOpenInTab = '<C-t>'
+	" open NERDTree with `Ctrl-n`
+	noremap <C-n> :NERDTreeToggle<CR>
+	" open NERDTree automatically on vim start, even if no file is specified
 	autocmd StdinReadPre * let s:std_in=1
 	autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 augroup END
-" open NERDTree with `Ctrl-n`
-noremap <C-n> :NERDTreeToggle<CR>
 " }}}
 "
-" delimitMate
-" auto expand carriage return <CR>
-let delimitMate_expand_cr = 2
-let delimitMate_expand_space = 1
+" delimitMate {{{
+augroup delimitMate
+	autocmd!
+	" auto expand carriage return <CR>
+	let delimitMate_expand_cr = 2
+	let delimitMate_expand_space = 1
+augroup END
+" }}}
 
 " Syntastic {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
-
-let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_javascript_standard_exec = 'happiness'
-let g:syntastic_javascript_standard_generic = 1
-
 function! HasConfig(file, dir)
     return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
 endfunction
@@ -276,22 +282,52 @@ endfunction
 
 augroup syntastic
 	autocmd!
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+
+	let g:syntastic_error_symbol = '✗'
+	let g:syntastic_warning_symbol = '⚠'
+
+	let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+
+	let g:syntastic_javascript_checkers = ['standard']
+	let g:syntastic_javascript_standard_exec = 'happiness'
+	let g:syntastic_javascript_standard_generic = 1
+
 	autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = HasConfigJs()
 augroup END
-
 " }}}
 
-" make ESC key work for command-t
-if &term =~ "xterm" || &term =~ "screen"
-	let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-endif
+" command-t {{{
+augroup command_t
+	autocmd!
+	" make ESC key work for command-t
+	if &term =~ "xterm" || &term =~ "screen"
+		let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+	endif
+augroup END
+" }}}
 
-" Disable JSON quote concealing
-let g:vim_json_syntax_conceal = 0
+" vim-json {{{
+augroup vim_json
+	autocmd!
+	" Disable JSON quote concealing
+	let g:vim_json_syntax_conceal = 0
+augroup END
+" }}}
 
-" ctrlp
-" show hidden files
-let g:ctrlp_show_hidden = 1
+" ctrlp {{{
+augroup ctrlp
+	autocmd!
+	" show hidden files
+	let g:ctrlp_show_hidden = 1
+augroup END
+" }}}
 " }}}
 
 " add folding for vimscripts
@@ -300,12 +336,13 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-" Demandware
+" Demandware {{{
 augroup demandware
 	autocmd!
 	autocmd BufNewFile,BufRead *.isml setfiletype xml
 	autocmd BufNewFile,BufRead *.isml let g:syntastic_xml_xmllint_quiet_messages = { "regex": ['Extra content', 'Double hyphen', 'Opening and ending tag'] }
 	autocmd BufNewFile,BufRead *.ds set filetype=javascript
 augroup END
+" }}}
 
 set secure
