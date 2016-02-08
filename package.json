@@ -22,8 +22,7 @@
     "trash": "^3.4.1",
     "vmd": "^1.15.1",
     "whoiam": "0.0.13",
-    "wifi-password": "^2.0.0",
-    "xo": "^0.12.1"
+    "wifi-password": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
