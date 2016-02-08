@@ -109,58 +109,79 @@ set listchars=tab:▸\ ,trail:·,eol:¬,extends:→,nbsp:･
 " Set split pane direction to be more natural
 set splitbelow
 set splitright
+
+" FastEscape
+" Speed up transition from modes
+if ! has('gui_running')
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
 "}}}
 
 " Mappings {{{
-" remap <Leader> key
-let mapleader = "\<Space>"
+augroup mappings
+	autocmd!
+	" remap <Leader> key
+	let mapleader = "\<Space>"
 
-" shortcut to escape insert mode
-inoremap jk <esc>
+	" shortcut to escape insert mode
+	inoremap jk <esc>
 
-" Shift tab to insert tab when expandtab is on
-inoremap <S-Tab> <C-V><Tab>
+	" Shift tab to insert tab when expandtab is on
+	inoremap <S-Tab> <C-V><Tab>
 
-" inside parens
-onoremap p i(
+	" inside parens
+	onoremap p i(
 
-" Navigate panes with control
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
+	" Navigate panes with control
+	nnoremap <C-H> <C-W><C-H>
+	nnoremap <C-J> <C-W><C-J>
+	nnoremap <C-K> <C-W><C-K>
+	nnoremap <C-L> <C-W><C-L>
 
-" shortcut to edit and source .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+	" Faster vsplit resizing (+,-)
+	" split resize can still be achieved with <C-W>+, <C-W>-
+	if bufwinnr(1)
+		nnoremap + <C-W>>
+		nnoremap - <C-W><
+	endif
 
-" shortcut for going to begining and end of line
-nnoremap H ^
-nnoremap L $
+	" shortcut to edit and source .vimrc
+	nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+	nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" remap : to ; to avoid pressing Shift
-nnoremap ; :
-vnoremap ; :
+	" shortcut for going to begining and end of line
+	nnoremap H ^
+	nnoremap L $
 
-" Buffer navigation
-noremap <Leader>] :bnext<CR>
-noremap <Leader>[ :bprev<CR>
+	" remap : to ; to avoid pressing Shift
+	nnoremap ; :
+	vnoremap ; :
 
-" Save and quit buffer
-noremap <Leader>s :write<CR>
-noremap <Leader>q :quit<CR>
+	" Buffer navigation
+	noremap <Leader>] :bnext<CR>
+	noremap <Leader>[ :bprev<CR>
 
-" bbye remap to <Leader>d
-noremap <Leader>d :Bdelete<CR>
+	" Save and quit buffer
+	noremap <Leader>s :write<CR>
+	noremap <Leader>q :quit<CR>
 
-noremap <Leader>x :x<CR>
+	" bbye remap to <Leader>d
+	noremap <Leader>d :Bdelete<CR>
 
-" vim-commentary
-nnoremap <Leader>, :Commentary<CR>
+	noremap <Leader>x :x<CR>
 
-" lnext and lprevious
-nnoremap <Leader>l :lnext<CR>
-nnoremap <Leader>L :lprevious<CR>
+	" vim-commentary
+	nnoremap <Leader>, :Commentary<CR>
+
+	" lnext and lprevious
+	nnoremap <Leader>l :lnext<CR>
+	nnoremap <Leader>L :lprevious<CR>
+augroup END
 " }}}
 
 " Plugins {{{
