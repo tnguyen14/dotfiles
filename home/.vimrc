@@ -211,7 +211,7 @@ augroup END
 " }}}
 
 " airline {{{
-augroup airline
+augroup vim_airline
 	autocmd!
 	let g:airline#extensions#tabline#enabled = 1
 	" Show just the filename
@@ -330,11 +330,12 @@ augroup END
 " }}}
 " }}}
 
-" add folding for vimscripts
+" add folding for vimscripts {{{
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
+" }}}
 
 " Demandware {{{
 augroup demandware
