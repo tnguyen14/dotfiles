@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
 # Load the shell dotfiles, copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
-if [ ! -f ~/.git-completion.bash ]; then
-	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-fi
-
 for file in ~/.{bash_local,bash_prompt,bash_aliases,private_vars,git-completion.bash,travis/travis.sh}; do
 	[ -r "$file" ] && source "$file"
 done
@@ -21,18 +17,19 @@ export CLICOLOR=1
 # export LSCOLORS=CxFxBxDxCxegedabagacad
 export LSCOLORS=CxFxExDxBxegedabagacad
 
-export EDITOR=/usr/local/bin/vim
+# vim as default
+export EDITOR="vim"
 
 [ -n "$TMUX"  ] && export TERM=screen-256color
 
-# LESS colors
-export LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-export LESS_TERMCAP_md=$(printf "\e[1;31m") \
-export LESS_TERMCAP_me=$(printf "\e[0m") \
-export LESS_TERMCAP_se=$(printf "\e[0m") \
-export LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-export LESS_TERMCAP_ue=$(printf "\e[0m") \
-export LESS_TERMCAP_us=$(printf "\e[1;32m") \
+# highlighting inside manpages and elsewhere
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # end mode
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # Base16 Shell
 if [ ! -d $HOME/.config/base16-shell ]; then
@@ -67,10 +64,19 @@ elif [ $linux ]; then
 	[ -f ~.z.sh ] && . ~/z.sh
 fi
 
-# extend git with hub tools https://github.com/defunkt/hub
-if [[ "$(type -P hub)" ]]; then
-	alias git=hub
-fi
+# Bash history
+# timestamps for later analysis. www.debian-administration.org/users/rossen/weblog/1
+export HISTTIMEFORMAT='%F %T '
+
+# keep history up to date, across sessions, in realtime
+#  http://unix.stackexchange.com/a/48113
+export HISTCONTROL=ignoredups:erasedups         # no duplicate entries
+export HISTSIZE=100000                          # big big history (default is 500)
+export HISTFILESIZE=$HISTSIZE                   # big big history
+which shopt > /dev/null && shopt -s histappend  # append to history, don't overwrite it
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Set up env vars for docker-machine
 # accept an argument as the machine name
@@ -130,13 +136,20 @@ cpp () {
   rsync -WavP --human-readable --progress $1 $2
 }
 
-# If possible, add bash completion for many commands (Linux)
-[ -f /etc/bash_completion ] && source /etc/bash_completion
-
 # Grunt completion
 command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
 # gulp completion
 command -v gulp >/dev/null 2>&1 && eval "$(gulp --completion=bash)"
 
-# Bash completion (installed via Homebrew; source after `brew` is added to PATH)
-command -v brew >/dev/null 2>&1 && [ -r "$(brew --prefix)/etc/bash_completion" ] && source "$(brew --prefix)/etc/bash_completion"
+# grc
+source "`brew --prefix`/etc/grc.bashrc"
+
+if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+	source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+	source /etc/bash_completion;
+fi
+
+if [ ! -f ~/.git-completion.bash ]; then
+	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+fi

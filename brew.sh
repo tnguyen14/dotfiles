@@ -85,4 +85,5 @@ brew cask isntall quicklook-csv
 brew cask install quicklook-json
 brew cask install suspicious-package
 
+# cask cleanup
 brew cask cleanup
