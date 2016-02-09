@@ -5,6 +5,7 @@
   "main": "link.sh",
   "dependencies": {
     "cardinal": "^0.6.0",
+    "diff-so-fancy": "0.1.1",
     "dwupload": "bitbucket:demandware/dwupload",
     "happiness": "^1.0.7",
     "iron-node": "^2.0.3",

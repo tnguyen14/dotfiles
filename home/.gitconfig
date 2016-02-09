@@ -45,6 +45,11 @@
 	diff = auto
 	interactive = auto
 	status = auto
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 
 [color "branch"]
 	current = yellow reverse
@@ -68,6 +73,7 @@
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
 	quotepath = false
 	editor = vim
+	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 	# editor = subl -n -w
 
 [branch "master"]
