@@ -83,20 +83,6 @@ function dm() {
 	eval "$(docker-machine env $machine)"
 }
 
-# Remove a path from $PATH
-# from http://stackoverflow.com/questions/370047/#370255
-function path_remove() {
-	IFS=:
-	# convert it to an array
-	t=($PATH)
-	unset IFS
-	# perform any array operations to remove elements from the array
-	t=(${t[@]%%$1})
-	IFS=:
-	# output the new array
-	echo "${t[*]}"
-}
-
 # https://github.com/herrbischoff/awesome-osx-command-line#show-current-ssid
 function ssid() {
 	airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
