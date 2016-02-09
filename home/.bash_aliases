@@ -9,8 +9,7 @@ alias pyserve='python -m SimpleHTTPServer'
 # Make basic commands verbose
 alias cp='cp -v'
 alias mv='mv -v'
-# Interactive mode for rm
-alias rm='rm -i'
+alias rm='rm -v -i' # remove interactively
 # Always show line numbers for less
 alias less='less -N'
 # Editor shortcut
@@ -22,5 +21,10 @@ alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-da
 alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; killall Finder'
 alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
 # File system usage
-alias dus='df -h'
+alias disk="df -P -kHl"
 alias airport=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport
+# Networking. IP address, dig, DNS
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias dig="dig +nocmd any +multiline +noall +answer"
+# Brew update
+alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew prune; brew doctor"
