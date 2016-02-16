@@ -56,7 +56,7 @@ export PATH
 if [ $unix ]; then
 	. `brew --prefix`/etc/profile.d/z.sh
 elif [ $linux ]; then
-	[ -f ~.z.sh ] && . ~/z.sh
+	[ -f ~/.z.sh ] && . ~/z.sh
 fi
 
 # Bash history
