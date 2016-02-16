@@ -137,7 +137,9 @@ command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
 command -v gulp >/dev/null 2>&1 && eval "$(gulp --completion=bash)"
 
 # grc
-source "`brew --prefix`/etc/grc.bashrc"
+if [ $unix ]; then
+	source "`brew --prefix`/etc/grc.bashrc"
+fi
 
 if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
 	source "$(brew --prefix)/share/bash-completion/bash_completion";
