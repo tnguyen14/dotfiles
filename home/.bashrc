@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # if not running interactively, don't do anything
-if [ -z $PS1 ] && return
+[ -z $PS1 ] && return
 
 # Load the shell dotfiles, copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
 for file in ~/.{bash_local,bash_prompt,bash_aliases,private_vars,git-completion.bash,travis/travis.sh}; do
