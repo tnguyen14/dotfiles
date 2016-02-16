@@ -41,20 +41,12 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 # Go
 export GOPATH=$HOME/go
 
-# Prepend $PATH without duplicates
-function _prepend_path() {
-	if ! $( echo "$PATH" | tr ":" "\n" | grep -qx "$1" ) ; then
-		PATH="$1:$PATH"
-	fi
-}
 # Construct $PATH
 PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
-[ -d $GOPATH ] && _prepend_path "$GOPATH"
-[ -d /usr/local/opt/ruby/bin ] && _prepend_path "/usr/local/opt/ruby/bin"
-command -v rbenv >/dev/null 2>&1 && _prepend_path "$HOME/.rbenv/shims"
-[ -d /usr/local/share/npm/bin ] && _prepend_path "/usr/local/share/npm/bin"
-[ -d $HOME/.dotfiles/node_modules/.bin ] && _prepend_path "$HOME/.dotfiles/node_modules/.bin"
-[ -d $HOME/bin ] && _prepend_path "$HOME/bin"
+[ -d $GOPATH ] && PATH="$GOPATH:$PATH"
+[ -d /usr/local/share/npm/bin ] && PATH="/usr/local/share/npm/bin:$PATH"
+[ -d $HOME/.dotfiles/node_modules/.bin ] && PATH="$HOME/.dotfiles/node_modules/.bin:$PATH"
+[ -d $HOME/bin ] && PATH="$HOME/bin:$PATH"
 export PATH
 
 # support for z.sh
