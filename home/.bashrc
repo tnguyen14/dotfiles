@@ -65,13 +65,19 @@ export HISTTIMEFORMAT='%F %T '
 
 # keep history up to date, across sessions, in realtime
 #  http://unix.stackexchange.com/a/48113
+
 export HISTCONTROL=ignoredups:erasedups         # no duplicate entries
 export HISTSIZE=100000                          # big big history (default is 500)
 export HISTFILESIZE=$HISTSIZE                   # big big history
 which shopt > /dev/null && shopt -s histappend  # append to history, don't overwrite it
 
 # Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# Instead of reload the history right away, only save it so that new session 
+# will have access to recent commands, but arrow-up still works in existing shell
+# http://unix.stackexchange.com/q/1288#comment67052_48116
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Set up env vars for docker-machine
 # accept an argument as the machine name
