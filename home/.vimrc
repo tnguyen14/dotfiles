@@ -39,7 +39,6 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tpope/vim-surround'
 Plugin 'moll/vim-bbye'
-Plugin 'vim-scripts/gitignore'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/gv.vim'
 Plugin 'neovimhaskell/haskell-vim'
@@ -114,13 +113,16 @@ set splitright
 " FastEscape
 " Speed up transition from modes
 if ! has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-    autocmd!
-    au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
-  augroup END
+	set ttimeoutlen=10
+	augroup FastEscape
+		autocmd!
+		au InsertEnter * set timeoutlen=0
+		au InsertLeave * set timeoutlen=1000
+	augroup END
 endif
+
+" wildignore
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "}}}
 
 " Mappings {{{
@@ -194,7 +196,7 @@ augroup END
 " }}}
 
 " vim-jsx {{{
-augroup jsx 
+augroup jsx
 	autocmd!
 	let g:jsx_ext_required = 0
 augroup END
@@ -261,7 +263,7 @@ augroup END
 
 " Syntastic {{{
 function! HasConfig(file, dir)
-    return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+	return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
 endfunction
 
 function! HasConfigJs()
@@ -328,14 +330,17 @@ augroup ctrlp
 	autocmd!
 	" show hidden files
 	let g:ctrlp_show_hidden = 1
+	let g:ctrlp_custom_ignore = {
+		\ 'dir': '\v[\/](node_modules|\.git)'
+		\ }
 augroup END
 " }}}
 " }}}
 
 " add folding for vimscripts {{{
 augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
 augroup END
 " }}}
 
