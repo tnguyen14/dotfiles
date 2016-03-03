@@ -34,6 +34,7 @@
     disableWhenNoJshintrcFileInPath: true
   "markdown-preview":
     useGitHubStyle: true
-  "vim-mode": {}
+  "vim-mode":
+    useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
