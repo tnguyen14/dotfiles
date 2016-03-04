@@ -16,10 +16,6 @@ alias less='less -N'
 alias subl='~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 # Add spacer to Dock
 alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
-# Show/hide desktop icons
-# By @jvlahos https://gist.github.com/jvlahos/6662210
-alias hideicons='defaults write com.apple.finder CreateDesktop -bool false; killall Finder'
-alias showicons='defaults write com.apple.finder CreateDesktop -bool true; killall Finder'
 # File system usage
 alias disk="df -P -kHl"
 alias airport=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport
@@ -28,3 +24,5 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias dig="dig +nocmd any +multiline +noall +answer"
 # Brew update
 alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew prune; brew doctor"
+# refresh bash
+alias refresh='source ~/.bashrc'
