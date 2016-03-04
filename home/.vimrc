@@ -126,126 +126,111 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "}}}
 
 " Mappings {{{
-augroup mappings
-	autocmd!
-	" remap <Leader> key
-	let mapleader = "\<Space>"
+" remap <Leader> key
+let mapleader = "\<Space>"
 
-	" shortcut to escape insert mode
-	inoremap jk <esc>
+" shortcut to escape insert mode
+inoremap jk <esc>
 
-	" Shift tab to insert tab when expandtab is on
-	inoremap <S-Tab> <C-V><Tab>
+" Shift tab to insert tab when expandtab is on
+inoremap <S-Tab> <C-V><Tab>
 
-	" inside parens
-	onoremap p i(
+" inside parens
+onoremap p i(
 
-	" Navigate panes with control
-	nnoremap <C-H> <C-W><C-H>
-	nnoremap <C-J> <C-W><C-J>
-	nnoremap <C-K> <C-W><C-K>
-	nnoremap <C-L> <C-W><C-L>
+" Navigate panes with control
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
 
-	" Faster vsplit resizing (+,-)
-	" split resize can still be achieved with <C-W>+, <C-W>-
-	if bufwinnr(1)
-		nnoremap + <C-W>>
-		nnoremap - <C-W><
-	endif
+" Faster vsplit resizing (+,-)
+" split resize can still be achieved with <C-W>+, <C-W>-
+if bufwinnr(1)
+	nnoremap + <C-W>>
+	nnoremap - <C-W><
+endif
 
-	" shortcut to edit and source .vimrc
-	nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-	nnoremap <leader>sv :source $MYVIMRC<cr>
+" shortcut to edit and source .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
-	" shortcut for going to begining and end of line
-	nnoremap H ^
-	nnoremap L $
+" shortcut for going to begining and end of line
+nnoremap H ^
+nnoremap L $
 
-	" remap : to ; to avoid pressing Shift
-	nnoremap ; :
-	vnoremap ; :
+" remap : to ; to avoid pressing Shift
+nnoremap ; :
+vnoremap ; :
 
-	" Buffer navigation
-	noremap <Leader>] :bnext<CR>
-	noremap <Leader>[ :bprev<CR>
+" Buffer navigation
+noremap <Leader>] :bnext<CR>
+noremap <Leader>[ :bprev<CR>
 
-	" Save and quit buffer
-	noremap <Leader>s :write<CR>
-	noremap <Leader>q :quit<CR>
+" Save and quit buffer
+noremap <Leader>s :write<CR>
+noremap <Leader>q :quit<CR>
 
-	" bbye remap to <Leader>d
-	noremap <Leader>d :Bdelete<CR>
+" bbye remap to <Leader>d
+noremap <Leader>d :Bdelete<CR>
 
-	noremap <Leader>x :x<CR>
+noremap <Leader>x :x<CR>
 
-	" vim-commentary
-	nnoremap <Leader>, :Commentary<CR>
+" vim-commentary
+nnoremap <Leader>, :Commentary<CR>
 
-	" lnext and lprevious
-	nnoremap <Leader>l :lnext<CR>
-	nnoremap <Leader>L :lprevious<CR>
-augroup END
+" lnext and lprevious
+nnoremap <Leader>l :lnext<CR>
+nnoremap <Leader>L :lprevious<CR>
 " }}}
 
 " Plugins {{{
 " vim-gitgutter {{{
-augroup gitgutter
-	autocmd!
-	let g:gitgutter_max_signs = 1000
-augroup END
+let g:gitgutter_max_signs = 1000
 " }}}
 
 " vim-jsx {{{
-augroup jsx
-	autocmd!
-	let g:jsx_ext_required = 0
-augroup END
+let g:jsx_ext_required = 0
 " }}}
 
 " vim multiple cursor {{{
-augroup multiple_cursor
-	autocmd!
-	let g:multi_cursor_use_default_mapping=0
-	let g:multi_cursor_next_key='<C-d>'
-	let g:multi_cursor_prev_key='<C-p>'
-	let g:multi_cursor_skip_key='<C-x>'
-	let g:multi_cursor_quit_key='<Esc>'
-augroup END
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
 " }}}
 
 " airline {{{
-augroup vim_airline
-	autocmd!
-	let g:airline#extensions#tabline#enabled = 1
-	" show just the filename
-	let g:airline#extensions#tabline#fnamemod = ':t'
-	" disable showing a summary of changed hunks under source control
-	let g:airline#extensions#hunks#enabled = 0
-	let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+" show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+" disable showing a summary of changed hunks under source control
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#syntastic#enabled = 1
 
-	let g:airline_theme = 'base16'
-	let g:airline_left_sep = ''
-	let g:airline_left_alt_sep = ''
-	let g:airline_right_sep = ''
-	let g:airline_right_alt_sep = ''
-	if !exists('g:airline_symbols')
-		let g:airline_symbols = {}
-	endif
-	let g:airline_symbols.branch = ''
-	let g:airline#extensions#tabline#left_sep = ''
-	let g:airline#extensions#tabline#left_alt_sep = ''
-augroup END
+let g:airline_theme = 'base16'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
 " }}}
 
 " NERDTree {{{
+let NERDTreeShowHidden = 1
+let NERDTreeMapOpenSplit = '<C-x>'
+let NERDTreeMapOpenVSplit = '<C-v>'
+let NERDTreeMapOpenInTab = '<C-t>'
+" open NERDTree with `Ctrl-n`
+noremap <C-n> :NERDTreeToggle<CR>
 augroup nerdtree
 	autocmd!
-	let NERDTreeShowHidden = 1
-	let NERDTreeMapOpenSplit = '<C-x>'
-	let NERDTreeMapOpenVSplit = '<C-v>'
-	let NERDTreeMapOpenInTab = '<C-t>'
-	" open NERDTree with `Ctrl-n`
-	noremap <C-n> :NERDTreeToggle<CR>
 	" open NERDTree automatically on vim start, even if no file is specified
 	autocmd StdinReadPre * let s:std_in=1
 	autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -253,12 +238,9 @@ augroup END
 " }}}
 "
 " delimitMate {{{
-augroup delimitMate
-	autocmd!
-	" auto expand carriage return <CR>
-	let delimitMate_expand_cr = 2
-	let delimitMate_expand_space = 1
-augroup END
+" auto expand carriage return <CR>
+let delimitMate_expand_cr = 2
+let delimitMate_expand_space = 1
 " }}}
 
 " Syntastic {{{
@@ -268,6 +250,7 @@ endfunction
 
 function! HasConfigJs()
 	let checkers = []
+	echom 'before'
 	if HasConfig('.eslintrc', expand('<amatch>:h'))
 		call add(checkers, 'eslint')
 	endif
@@ -284,56 +267,47 @@ function! HasConfigJs()
 	return checkers
 endfunction
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+
+let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_exec = 'happiness'
+let g:syntastic_javascript_standard_generic = 1
 augroup syntastic
 	autocmd!
-	set statusline+=%#warningmsg#
-	set statusline+=%{SyntasticStatuslineFlag()}
-	set statusline+=%*
-
-	let g:syntastic_always_populate_loc_list = 1
-	let g:syntastic_check_on_open = 1
-	let g:syntastic_check_on_wq = 0
-
-	let g:syntastic_error_symbol = '✗'
-	let g:syntastic_warning_symbol = '⚠'
-
-	let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
-
-	let g:syntastic_javascript_checkers = ['standard']
-	let g:syntastic_javascript_standard_exec = 'happiness'
-	let g:syntastic_javascript_standard_generic = 1
-
 	autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = HasConfigJs()
 augroup END
+	" autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = ['jshint']
 " }}}
 
 " command-t {{{
-augroup command_t
-	autocmd!
-	" make ESC key work for command-t
-	if &term =~ "xterm" || &term =~ "screen"
-		let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-	endif
-augroup END
+" make ESC key work for command-t
+if &term =~ "xterm" || &term =~ "screen"
+	let g:CommandTCancelMap = ['<ESC>', '<C-c>']
+endif
 " }}}
 
 " vim-json {{{
-augroup vim_json
-	autocmd!
-	" Disable JSON quote concealing
-	let g:vim_json_syntax_conceal = 0
-augroup END
+" Disable JSON quote concealing
+let g:vim_json_syntax_conceal = 0
 " }}}
 
 " ctrlp {{{
-augroup ctrlp
-	autocmd!
-	" show hidden files
-	let g:ctrlp_show_hidden = 1
-	let g:ctrlp_custom_ignore = {
-		\ 'dir': '\v[\/](node_modules|\.git)'
-		\ }
-augroup END
+" show hidden files
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+	\ 'dir': '\v[\/](node_modules|\.git)'
+	\ }
 " }}}
 " }}}
 
