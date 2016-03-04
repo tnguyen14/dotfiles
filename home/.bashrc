@@ -66,15 +66,23 @@ export HISTTIMEFORMAT='%F %T '
 # keep history up to date, across sessions, in realtime
 #  http://unix.stackexchange.com/a/48113
 
-export HISTCONTROL=ignoredups:erasedups         # no duplicate entries
-export HISTSIZE=100000                          # big big history (default is 500)
-export HISTFILESIZE=$HISTSIZE                   # big big history
-which shopt > /dev/null && shopt -s histappend  # append to history, don't overwrite it
+# no duplicate entries
+export HISTCONTROL=ignoredups:erasedups
+# big big history (default is 500)
+export HISTSIZE=100000
+# big big history
+export HISTFILESIZE=$HISTSIZE
+# Don't record some commands
+export HISTIGNORE="&:[  ]*:exit:ls:bg:fg:history:clear"
+# append to history, don't overwrite it
+shopt -s histappend
+# Save multi-line commands as one command
+shopt -s cmdhist
 
 # Save and reload the history after each command finishes
 # export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# Instead of reload the history right away, only save it so that new session 
+# Instead of reload the history right away, only save it so that new session
 # will have access to recent commands, but arrow-up still works in existing shell
 # http://unix.stackexchange.com/q/1288#comment67052_48116
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
@@ -112,6 +120,16 @@ function whois() {
 													# strip extra fluff
 	/usr/bin/whois -h whois.internic.net $domain | sed '/NOTICE:/q'
 }
+
+# Better directory navigation
+# Prepend cd to directory names automatically
+shopt -s autocd
+# Correct spelling errors during tab-completion
+shopt -s dirspell
+# Correct spelling errors in arguments supplied to cd
+shopt -s cdspell
+# defines where cd looks for targets
+CDPATH="."
 
 # Create a new directory and enter it
 function md() {
