@@ -7,7 +7,7 @@
     "cardinal": "^0.6.0",
     "diff-so-fancy": "0.2.0",
     "dwupload": "bitbucket:demandware/dwupload",
-    "happiness": "^5.5.0",
+    "happiness": "^6.0.7",
     "iron-node": "^2.0.3",
     "json": "^9.0.3",
     "localtunnel": "^1.8.0",
