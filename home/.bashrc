@@ -3,12 +3,6 @@
 # if not running interactively, don't do anything
 [[ -z $PS1 ]] && return
 
-# Load the shell dotfiles, copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
-for file in ~/.{bash_local,bash_prompt,bash_aliases,private_vars,git-completion.bash,travis/travis.sh}; do
-	[ -r "$file" ] && source "$file"
-done
-unset file
-
 # check for linux
 if [[ "$OSTYPE" =~ ^linux ]]; then
 	linux=1
@@ -174,3 +168,9 @@ fi
 if [ ! -f ~/.git-completion.bash ]; then
 	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 fi
+
+# Load the shell dotfiles, copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
+for file in ~/.{bash_local,bash_prompt,bash_aliases,private_vars,git-completion.bash,travis/travis.sh}; do
+	[ -r "$file" ] && source "$file"
+done
+unset file
