@@ -43,6 +43,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/gv.vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-obsession'
 call vundle#end()
 " }}}
 
