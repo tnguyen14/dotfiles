@@ -73,7 +73,6 @@
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
 	quotepath = false
 	editor = vim
-	pager = diff-so-fancy | less --tabs=1,5 -R
 	# editor = subl -n -w
 
 [branch "master"]
@@ -111,3 +110,6 @@
 	token = !security find-internet-password -a tnguyen14 -s github.com -l 'ghi token' -w
 [help]
 	autocorrect = 10
+[pager]
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
