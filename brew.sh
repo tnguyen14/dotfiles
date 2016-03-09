@@ -51,6 +51,7 @@ brew install cadaver
 brew install jq
 brew install mobile-shell
 brew install keybase
+brew install diff-so-fancy
 
 # Remove outdated versions from the cellar
 brew cleanup
