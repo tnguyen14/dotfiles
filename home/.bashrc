@@ -155,6 +155,20 @@ cpp () {
   rsync -WavP --human-readable --progress $1 $2
 }
 
+# Create a new tmux session with the current dir as the session name
+function tmuxn() {
+	# only do something if there's no argument, otherwise, pass it along 
+	# to the regular tmux command
+	if [ $# -eq 0 ]; then
+		# get dirname without full path
+		local dirname=${PWD##*/}
+		# replace dot in dirname with -
+		tmux new-session \; run-shell "tmux rename-session ${dirname/./-}"
+	else
+		tmux "$@"
+	fi
+}
+
 # Grunt completion
 command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
 # gulp completion
