@@ -111,17 +111,6 @@ set listchars=tab:▸\ ,trail:·,eol:¬,extends:→,nbsp:･
 set splitbelow
 set splitright
 
-" FastEscape
-" Speed up transition from modes
-if ! has('gui_running')
-	set ttimeoutlen=10
-	augroup FastEscape
-		autocmd!
-		au InsertEnter * set timeoutlen=0
-		au InsertLeave * set timeoutlen=1000
-	augroup END
-endif
-
 " wildignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "}}}
