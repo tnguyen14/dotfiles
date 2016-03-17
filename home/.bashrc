@@ -42,7 +42,7 @@ export GOPATH=$HOME/go
 PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
 [ -d $GOPATH ] && PATH="$GOPATH:$PATH"
 [ -d /usr/local/share/npm/bin ] && PATH="/usr/local/share/npm/bin:$PATH"
-[ -d $HOME/.dotfiles/node_modules/.bin ] && PATH="$HOME/.dotfiles/node_modules/.bin:$PATH"
+[ -d $HOME/dotfiles/node_modules/.bin ] && PATH="$HOME/dotfiles/node_modules/.bin:$PATH"
 [ -d $HOME/bin ] && PATH="$HOME/bin:$PATH"
 export PATH
 
