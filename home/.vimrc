@@ -44,6 +44,7 @@ Plugin 'junegunn/gv.vim'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-obsession'
+Plugin 'iamcco/markdown-preview.vim'
 call vundle#end()
 " }}}
 
@@ -299,6 +300,9 @@ let g:ctrlp_custom_ignore = {
 	\ 'dir': '\v[\/](node_modules|\.git)'
 	\ }
 " }}}
+
+" markdown-preview {{{
+let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 " }}}
 
 " add folding for vimscripts {{{
