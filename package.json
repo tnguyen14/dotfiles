@@ -13,7 +13,7 @@
     "modhelp": "^2.2.0",
     "n": "^2.0.2",
     "nodemon": "^1.8.1",
-    "npm-check-updates": "^2.5.5",
+    "npm-check": "^5.1.0",
     "psy": "^1.6.2",
     "rpl": "^0.8.0",
     "selenium-standalone": "^4.9.0",

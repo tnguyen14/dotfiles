@@ -41,7 +41,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'moll/vim-bbye'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/gv.vim'
-Plugin 'neovimhaskell/haskell-vim'
+Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-obsession'
 Plugin 'iamcco/markdown-preview.vim'
@@ -253,7 +253,7 @@ function! HasConfigJs()
 	if HasConfig('.jscsrc', expand('<amatch>:h'))
 		call add(checkers, 'jscs')
 	endif
-	" default to standard (happiness)
+	" default to standard
 	if !len(checkers)
 		call add(checkers, 'standard')
 	endif
@@ -280,7 +280,6 @@ augroup syntastic
 	autocmd!
 	autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = HasConfigJs()
 augroup END
-	" autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = ['jshint']
 " }}}
 
 " command-t {{{
