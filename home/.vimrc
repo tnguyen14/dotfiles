@@ -45,6 +45,7 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-obsession'
 Plugin 'iamcco/markdown-preview.vim'
+Plugin 'kien/rainbow_parentheses.vim'
 call vundle#end()
 " }}}
 
@@ -114,6 +115,9 @@ set splitright
 
 " wildignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+" search highlight
+set hlsearch
 "}}}
 
 " Mappings {{{
@@ -243,7 +247,6 @@ endfunction
 
 function! HasConfigJs()
 	let checkers = []
-	echom 'before'
 	if HasConfig('.eslintrc', expand('<amatch>:h'))
 		call add(checkers, 'eslint')
 	endif
@@ -257,6 +260,7 @@ function! HasConfigJs()
 	if !len(checkers)
 		call add(checkers, 'standard')
 	endif
+	echom checkers[0]
 	return checkers
 endfunction
 
@@ -276,7 +280,7 @@ let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming em
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_standard_exec = 'happiness'
 let g:syntastic_javascript_standard_generic = 1
-augroup syntastic
+augroup syntasticjs
 	autocmd!
 	autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = HasConfigJs()
 augroup END
