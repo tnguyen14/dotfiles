@@ -242,12 +242,13 @@ let delimitMate_expand_space = 1
 
 " Syntastic {{{
 function! HasConfig(file, dir)
-	return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+	return findfile(glob(a:file), escape(a:dir, ' ') . ';') !=# ''
 endfunction
 
 function! HasConfigJs()
 	let checkers = []
-	if HasConfig('.eslintrc', expand('<amatch>:h'))
+	" eslintrc files could have json or yml suffix
+	if HasConfig('.eslintrc.*', expand('<amatch>:h'))
 		call add(checkers, 'eslint')
 	endif
 	if HasConfig('.jshintrc', expand('<amatch>:h'))
@@ -260,7 +261,6 @@ function! HasConfigJs()
 	if !len(checkers)
 		call add(checkers, 'standard')
 	endif
-	echom checkers[0]
 	return checkers
 endfunction
 
