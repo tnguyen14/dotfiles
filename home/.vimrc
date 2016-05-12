@@ -326,4 +326,12 @@ augroup demandware
 augroup END
 " }}}
 
+" Misc {{{
+augroup misc
+	autocmd!
+	" resize windows on terminal size change
+	autocmd VimResized * wincmd =
+augroup END
+" }}}
+
 set secure
