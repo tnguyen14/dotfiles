@@ -69,6 +69,8 @@ set showcmd
 set modeline
 " Show current line and column position in file
 set ruler
+" Highlight column at 80
+set colorcolumn=80
 
 set scrolloff=5
 " Show file title in terminal tab
