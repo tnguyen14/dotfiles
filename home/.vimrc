@@ -344,6 +344,14 @@ augroup misc
 	autocmd!
 	" resize windows on terminal size change
 	autocmd VimResized * wincmd =
+	" don't create swap files for files in the Dropbox folder
+	" taken from https://gist.github.com/frangio/985684
+	autocmd BufNewFile,BufRead *
+		\ if expand('%:~') =~ '^\~/Dropbox' |
+		\   set noswapfile |
+		\ else |
+		\   set swapfile |
+		\ endif
 augroup END
 " }}}
 
