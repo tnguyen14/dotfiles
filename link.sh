@@ -27,8 +27,8 @@ function do_link() {
 function link_file() {
 	if [ -f "$1" ]; then
 		case "$1" in
-			# ignore .swp files
-			*.swp) 
+			# ignore .swp or .DS_Store files
+			*.swp|*.DS_Store) 
 				continue
 				;;
 			*) 
@@ -55,7 +55,7 @@ function link_file() {
 # $2: directory to link to
 function link_dir() {
 	if [ -d "$1" ] && [ -d "$2" ]; then
-		for file in $1/{.,}*; do
+		for file in "$1"/{.,}*; do
 			link_file "$file" "$2"
 		done
 	fi
