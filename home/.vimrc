@@ -11,14 +11,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'othree/html5.vim'
 Plug 'wincent/terminus'
 Plug 'scrooloose/syntastic'
-Plug 'rking/ag.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
@@ -38,6 +36,8 @@ Plug 'ternjs/tern_for_vim'
 Plug 'ajh17/VimCompletesMe'
 Plug 'aklt/plantuml-syntax'
 Plug 'tpope/vim-sensible'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 " }}}
 
@@ -278,16 +278,12 @@ endif
 let g:vim_json_syntax_conceal = 0
 " }}}
 
-" ctrlp {{{
-" show hidden files
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-	\ 'dir': '\v[\/](node_modules|\.git)'
-	\ }
-" }}}
-
 " markdown-preview {{{
 let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+" }}}
+
+" fzf {{{
+nnoremap <C-P> :GitFiles<CR>
 " }}}
 
 " add folding for vimscripts {{{
