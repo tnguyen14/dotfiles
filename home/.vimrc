@@ -59,8 +59,34 @@ cmap w!! w !sudo tee > /dev/null %
 
 syntax on
 
-" File type based indentation
-filetype plugin indent on
+" vim only {{{
+if !has('nvim')
+
+	" File type based indentation
+	filetype plugin indent on
+
+	" Highlight search results as we type
+	set incsearch
+
+	set encoding=utf-8
+
+	" When a file has been detected to have been changed outside of Vim and
+	" it has not been changed inside of Vim, automatically read it again.
+	" When the file has been deleted this is not done.
+	set autoread
+
+	" Tab stuff
+	set smarttab
+	set autoindent
+
+	" search highlight
+	set hlsearch
+
+	" Always display the status line
+	set laststatus=2
+endif
+" }}}
+
 " Show what mode you're currently in
 set showmode
 " Show what commands you're typing
@@ -77,12 +103,8 @@ set scrolloff=5
 set title
 " Show line numbers
 set number
-" Always display the status line
-set laststatus=2
 " Highlight current line
 set cursorline
-" Highlight search results as we type
-set incsearch
 " ignore case when searching...
 set ignorecase
 " ...except if we input a capital letter
@@ -92,18 +114,9 @@ set smartcase
 " http://usevim.com/2012/10/19/vim101-set-hidden/
 set hidden
 
-set encoding=utf-8
-
-" When a file has been detected to have been changed outside of Vim and
-" it has not been changed inside of Vim, automatically read it again.
-" When the file has been deleted this is not done.
-set autoread
-
 " Tab stuff
 set tabstop=4
 set shiftwidth=4
-set smarttab
-set autoindent
 
 " Show invisible characters
 set list
@@ -116,8 +129,6 @@ set splitright
 " wildignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-" search highlight
-set hlsearch
 "}}}
 
 " Mappings {{{
