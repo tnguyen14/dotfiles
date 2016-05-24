@@ -34,6 +34,7 @@ brew install wget --enable-iri
 
 # Install more recent versions of some OS X tools
 brew install macvim --with-override-system-vim
+brew install neovim/neovim/neovim
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
 
@@ -52,6 +53,8 @@ brew install jq
 brew install mobile-shell
 brew install keybase
 brew install diff-so-fancy
+brew install ag
+brew install fzf
 
 # Remove outdated versions from the cellar
 brew cleanup
