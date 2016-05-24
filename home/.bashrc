@@ -15,7 +15,7 @@ export CLICOLOR=1
 export LSCOLORS=CxFxExDxBxegedabagacad
 
 # vim as default
-export EDITOR="vim"
+export EDITOR="nvim"
 
 [ -n "$TMUX"  ] && export TERM=screen-256color
 
