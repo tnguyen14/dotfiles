@@ -54,9 +54,11 @@ function link_file() {
 # $1: directory to link
 # $2: directory to link to
 function link_dir() {
-	for file in $1/{.,}*; do
-		link_file "$file" "$2"
-	done
+	if [ -d "$1" ] && [ -d "$2" ]; then
+		for file in $1/{.,}*; do
+			link_file "$file" "$2"
+		done
+	fi
 }
 e_header "Setting up \$HOME dotfiles..."
 link_dir "$(pwd)/home" "$HOME"
@@ -65,10 +67,4 @@ sublimePath=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 if [ -d "$sublimePath" ]; then
 	e_header "Setting up Sublime Text settings..."
 	link_dir "$(pwd)/sublime" "$sublimePath"
-fi
-
-atomPath=~/.atom
-if [ -d "$atomPath" ]; then
-	e_header "Setting up Atom settings..."
-	link_dir "$(pwd)/atom" "$atomPath"
 fi
