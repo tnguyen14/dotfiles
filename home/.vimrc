@@ -27,7 +27,6 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
 Plugin 'wincent/terminus'
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'rking/ag.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hail2u/vim-css3-syntax'
@@ -44,6 +43,8 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-obsession'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'ternjs/tern_for_vim'
+Plugin 'ajh17/VimCompletesMe'
 call vundle#end()
 " }}}
 
