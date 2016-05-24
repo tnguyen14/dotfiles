@@ -117,12 +117,6 @@ inoremap <S-Tab> <C-V><Tab>
 " inside parens
 onoremap p i(
 
-" Navigate panes with control
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-
 " Faster vsplit resizing (+,-)
 " split resize can still be achieved with <C-W>+, <C-W>-
 if bufwinnr(1)
