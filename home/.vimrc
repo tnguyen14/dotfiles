@@ -1,51 +1,43 @@
-" Vundle {{{
-" http://stackoverflow.com/questions/5845557/in-a-vimrc-is-set-nocompatible-completely-useless
-set nocompatible
-
-filetype off
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-commentary'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'Raimondi/delimitMate'
-Plugin 'Yggdroot/indentLine'
-Plugin 'othree/html5.vim'
-Plugin 'wincent/terminus'
-Plugin 'scrooloose/syntastic'
-Plugin 'rking/ag.vim'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'ap/vim-css-color'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'elzr/vim-json'
-Plugin 'tmux-plugins/vim-tmux'
-Plugin 'tpope/vim-surround'
-Plugin 'moll/vim-bbye'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'junegunn/gv.vim'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-obsession'
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'ajh17/VimCompletesMe'
-call vundle#end()
+" vim-plug {{{ 
+call plug#begin('~/.vim/plugged')
+Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-commentary'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'Raimondi/delimitMate'
+Plug 'Yggdroot/indentLine'
+Plug 'othree/html5.vim'
+Plug 'wincent/terminus'
+Plug 'scrooloose/syntastic'
+Plug 'rking/ag.vim'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
+Plug 'elzr/vim-json'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tpope/vim-surround'
+Plug 'moll/vim-bbye'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/gv.vim'
+Plug 'lambdatoast/elm.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-obsession'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'ternjs/tern_for_vim'
+Plug 'ajh17/VimCompletesMe'
+Plug 'aklt/plantuml-syntax'
+call plug#end()
 " }}}
 
 " Theming {{{
