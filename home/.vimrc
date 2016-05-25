@@ -157,7 +157,7 @@ nnoremap <Leader>l :lnext<CR>
 nnoremap <Leader>L :lprevious<CR>
 " }}}
 
-" Plugins {{{
+" Plugins Settings {{{
 " vim-gitgutter {{{
 let g:gitgutter_max_signs = 1000
 " }}}
@@ -202,8 +202,18 @@ let NERDTreeShowHidden = 1
 let NERDTreeMapOpenSplit = '<C-x>'
 let NERDTreeMapOpenVSplit = '<C-v>'
 let NERDTreeMapOpenInTab = '<C-t>'
+let NERDTreeIgnore = ['\.pyc$', '\.DS_Store$', '\.swp$', '\.swo$']
 " open NERDTree with `Ctrl-n`
 noremap <C-n> :NERDTreeToggle<CR>
+
+" NERDTress File highlighting
+" https://github.com/scrooloose/nerdtree/issues/433#issuecomment-92590696
+" https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
 augroup nerdtree
 	autocmd!
 	" open NERDTree automatically on vim start, even if no file is specified
@@ -211,6 +221,23 @@ augroup nerdtree
 	autocmd StdinReadPre * let s:std_in=1
 	autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree |
 		\ wincmd p | endif
+
+	call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+	call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+	call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+	call NERDTreeHighlightFile('properties', 'yellow', 'none', 'yellow', '#151515')
+	call NERDTreeHighlightFile('rc', 'yellow', 'none', 'yellow', '#151515')
+	call NERDTreeHighlightFile('ignore', 'yellow', 'none', 'yellow', '#151515')
+	call NERDTreeHighlightFile('yml', '177', 'none', '#d787ff', '#151515')
+	call NERDTreeHighlightFile('md', '135', 'none', '#af5fff', '#151515')
+	call NERDTreeHighlightFile('html', '202', 'none', '#ff5f00', '#151515')
+	call NERDTreeHighlightFile('css', '159', 'none', '#afffff', '#151515')
+	call NERDTreeHighlightFile('js', '172', 'none', '#d78700', '#151515')
+	call NERDTreeHighlightFile('php', '027', 'none', '#005fff', '#151515')
+	call NERDTreeHighlightFile('log', '240', 'none', '#585858', '#151515')
+	call NERDTreeHighlightFile('sh', '117', 'none', '#87d7ff', '#151515')
+	call NERDTreeHighlightFile('xml', '158', 'none', '#afffd7', '#151515')
+	call NERDTreeHighlightFile('java', '141', 'none', '$af87ff', '#151515')
 augroup END
 " }}}
 "
@@ -268,13 +295,6 @@ augroup syntasticjs
 augroup END
 " }}}
 
-" command-t {{{
-" make ESC key work for command-t
-if &term =~ "xterm" || &term =~ "screen"
-	let g:CommandTCancelMap = ['<ESC>', '<C-c>']
-endif
-" }}}
-
 " vim-json {{{
 " Disable JSON quote concealing
 let g:vim_json_syntax_conceal = 0
@@ -287,7 +307,8 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 " fzf {{{
 nnoremap <C-P> :GitFiles<CR>
 " }}}
-
+"}}}
+"
 " add folding for vimscripts {{{
 augroup filetype_vim
 	autocmd!

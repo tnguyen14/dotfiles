@@ -17,8 +17,6 @@ export LSCOLORS=CxFxExDxBxegedabagacad
 # vim as default
 export EDITOR="nvim"
 
-[ -n "$TMUX"  ] && export TERM=screen-256color
-
 # highlighting inside manpages and elsewhere
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
