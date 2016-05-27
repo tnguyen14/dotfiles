@@ -306,6 +306,8 @@ let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Go
 
 " fzf {{{
 nnoremap <C-P> :GitFiles<CR>
+nnoremap <C-O> :Files<CR>
+" }}}
 " }}}
 "}}}
 "
