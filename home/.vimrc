@@ -102,6 +102,13 @@ set splitright
 " wildignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
+" ag grep {{{
+if executable('ag')
+    set grepprg=ag\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
+"}}}
+
 "}}}
 
 " Mappings {{{
