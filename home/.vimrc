@@ -217,8 +217,8 @@ noremap <C-n> :NERDTreeToggle<CR>
 " https://github.com/scrooloose/nerdtree/issues/433#issuecomment-92590696
 " https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+	exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+	exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
 augroup nerdtree
@@ -309,6 +309,15 @@ let g:vim_json_syntax_conceal = 0
 
 " markdown-preview {{{
 let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+" }}}
+
+" VimCompletesMe {{{
+augroup vimcompletesme
+	autocmd!
+	" auto close preview window after completion
+	" https://github.com/ajh17/VimCompletesMe/issues/29
+	autocmd InsertLeave * if bufname('%') != "[Command Line]" | pclose | endif
+augroup END
 " }}}
 
 " fzf {{{
