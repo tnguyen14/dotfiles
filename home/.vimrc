@@ -339,6 +339,11 @@ augroup misc
 		\   set swapfile |
 		\ endif
 augroup END
+
+" local (gitignored) settings
+if filereadable(expand('$HOME/local.vim'))
+	source $HOME/local.vim
+endif
 " }}}
 
 set secure

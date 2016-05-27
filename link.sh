@@ -62,9 +62,3 @@ function link_dir() {
 }
 e_header "Setting up \$HOME dotfiles..."
 link_dir "$(pwd)/home" "$HOME"
-
-sublimePath=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-if [ -d "$sublimePath" ]; then
-	e_header "Setting up Sublime Text settings..."
-	link_dir "$(pwd)/sublime" "$sublimePath"
-fi
