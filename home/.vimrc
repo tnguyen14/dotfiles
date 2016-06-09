@@ -104,8 +104,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " ag grep {{{
 if executable('ag')
-    set grepprg=ag\ --vimgrep
-    set grepformat=%f:%l:%c:%m
+	set grepprg=ag\ --vimgrep
+	set grepformat=%f:%l:%c:%m
 endif
 "}}}
 
@@ -324,6 +324,11 @@ augroup END
 nnoremap <C-P> :GitFiles<CR>
 nnoremap <C-O> :Files<CR>
 " }}}
+
+" vim-devicons {{{
+if exists("g:loaded_webdevicons")
+	call webdevicons#refresh()
+endif
 " }}}
 "}}}
 "
