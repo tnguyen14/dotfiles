@@ -1,0 +1,10 @@
+
+nnoremap ; :
+vnoremap ; :
+
+inoremap jk <esc>
+
+set number
+set ignorecase
+set smartcase
+set hlsearch
