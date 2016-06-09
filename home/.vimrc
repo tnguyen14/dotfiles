@@ -118,8 +118,8 @@ let mapleader = "\<Space>"
 " shortcut to escape insert mode
 inoremap jk <esc>
 
-" Shift tab to insert tab when expandtab is on
-inoremap <S-Tab> <C-V><Tab>
+" Meta-tab to insert tab when expandtab is on
+inoremap <M-Tab> <C-V><Tab>
 
 " inside parens
 onoremap p i(
