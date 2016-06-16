@@ -238,6 +238,7 @@ augroup nerdtree
 	call NERDTreeHighlightFile('yml', '177', 'none', '#d787ff', '#151515')
 	call NERDTreeHighlightFile('md', '135', 'none', '#af5fff', '#151515')
 	call NERDTreeHighlightFile('html', '202', 'none', '#ff5f00', '#151515')
+	call NERDTreeHighlightFile('hbs', '203', 'none', '#ff5f5f', '#151515')
 	call NERDTreeHighlightFile('css', '159', 'none', '#afffff', '#151515')
 	call NERDTreeHighlightFile('js', '172', 'none', '#d78700', '#151515')
 	call NERDTreeHighlightFile('php', '027', 'none', '#005fff', '#151515')
