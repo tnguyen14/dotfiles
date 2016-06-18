@@ -60,6 +60,10 @@ brew install ag
 brew install fzf
 
 brew install nodejs
+brew install docker
+brew install python3
+pip3 install --upgrade pip setuptools
+pip3 install neovim
 
 # Remove outdated versions from the cellar
 brew cleanup
