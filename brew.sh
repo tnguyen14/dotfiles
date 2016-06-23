@@ -88,6 +88,8 @@ brew cask install firefoxdeveloperedition
 brew cask install spotify
 brew cask install dropbox
 brew cask install google-drive
+brew cask install 1password
+brew cask install evernote
 
 # quick look https://github.com/sindresorhus/quick-look-plugins
 brew cask install betterzipql
