@@ -38,6 +38,7 @@ Plug 'aklt/plantuml-syntax'
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
 call plug#end()
 " }}}
 
@@ -330,6 +331,13 @@ nnoremap <C-O> :Files<CR>
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
 endif
+" }}}
+"
+" emmet.vim {{{
+augroup emmet
+	autocmd!
+	autocmd BufNewFile,BufRead *.html,*.hbs inoremap <buffer> <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+augroup END
 " }}}
 "}}}
 "
