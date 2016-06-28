@@ -339,6 +339,20 @@ augroup emmet
 	autocmd BufNewFile,BufRead *.html,*.hbs inoremap <buffer> <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 augroup END
 " }}}
+"
+" obsession {{{
+augroup vimobsession
+	autocmd!
+	autocmd VimEnter * nested
+		\ if !argc() && empty(v:this_session) && !&modified|
+		\   if filereadable('Session.vim') |
+		\     source Session.vim |
+		\   elseif |
+		\     Obsession |
+		\   endif |
+		\ endif
+augroup END
+" }}}
 "}}}
 "
 " add folding for vimscripts {{{
