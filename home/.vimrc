@@ -344,10 +344,10 @@ augroup END
 augroup vimobsession
 	autocmd!
 	autocmd VimEnter * nested
-		\ if !argc() && empty(v:this_session) && !&modified|
+		\ if !argc() && empty(v:this_session) && !&modified |
 		\   if filereadable('Session.vim') |
 		\     source Session.vim |
-		\   elseif |
+		\   else |
 		\     Obsession |
 		\   endif |
 		\ endif
