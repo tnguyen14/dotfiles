@@ -5,7 +5,7 @@
   "main": "link.sh",
   "dependencies": {
     "cardinal": "^0.6.0",
-    "happiness": "^6.0.7",
+    "happiness": "^7.1.2",
     "iron-node": "^2.0.3",
     "json": "^9.0.3",
     "localtunnel": "^1.8.0",
