@@ -41,10 +41,13 @@ export GOPATH=$HOME/go
 
 # Construct $PATH
 PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
-[ -d $GOPATH ] && PATH="$GOPATH:$PATH"
-[ -d /usr/local/share/npm/bin ] && PATH="/usr/local/share/npm/bin:$PATH"
-[ -d $HOME/dotfiles/node_modules/.bin ] && PATH="$HOME/dotfiles/node_modules/.bin:$PATH"
-[ -d $HOME/bin ] && PATH="$HOME/bin:$PATH"
+function _prepend_path() {
+	[ -d $1 ] && PATH="$1:$PATH"
+}
+_prepend_path $GOPATH
+_prepend_path "/usr/local/share/npm/bin"
+_prepend_path "$HOME/dotfiles/node_modules/.bin"
+_prepend_path "$HOME/bin"
 export PATH
 
 if [ $unix ]; then
