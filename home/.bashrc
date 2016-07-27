@@ -44,6 +44,7 @@ PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./bin:./node_
 function _prepend_path() {
 	[ -d $1 ] && PATH="$1:$PATH"
 }
+_prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
 _prepend_path $GOPATH
 _prepend_path "/usr/local/share/npm/bin"
 _prepend_path "$HOME/dotfiles/node_modules/.bin"
