@@ -111,6 +111,9 @@ function prompt_command() {
 	local title="$(basename "$PWD")"
 	[ -n "$remote" ] && title="$title \xE2\x80\x94 $HOSTNAME"
 	echo -ne "\033]0;$title"; echo -ne "\007"
+
+	# save history
+	history -a
 }
 
 PROMPT_COMMAND=prompt_command

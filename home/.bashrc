@@ -100,7 +100,8 @@ shopt -s cmdhist
 # Instead of reload the history right away, only save it so that new session
 # will have access to recent commands, but arrow-up still works in existing shell
 # http://unix.stackexchange.com/q/1288#comment67052_48116
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+# export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+# see .bash_prompt
 
 # Set up env vars for docker-machine
 # accept an argument as the machine name
