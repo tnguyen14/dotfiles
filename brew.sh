@@ -10,11 +10,10 @@ brew update
 brew upgrade
 
 # GNU core utilities (those that come with OS X are outdated)
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils --with-default-names
-# GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
-brew install findutils
-brew install gnu-sed
+# GNU `find`, `locate`, `updatedb`, and `xargs`
+brew install findutils --with-default-names
+brew install gnu-sed --with-default-names
 
 # Bash 4
 brew install bash
