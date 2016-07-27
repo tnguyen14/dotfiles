@@ -29,13 +29,6 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 # find hidden files with fzf, and ignore .gitignore
 export FZF_DEFAULT_COMMAND='ag --hidden -U --ignore .git -g ""'
 
-# Base16 Shell
-if [ ! -d $HOME/.config/base16-shell ]; then
-	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-fi
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
 # Go
 export GOPATH=$HOME/go
 
@@ -72,6 +65,14 @@ fi
 if [ -f $bashCompletion ]; then
 	source "$bashCompletion"
 fi
+
+# Base16 Shell
+if [ ! -d $HOME/.config/base16-shell ]; then
+	git clone https://github.com/chriskempson/base16-shell.git $HOME/.config/base16-shell
+fi
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+base16_default-dark
 
 # Bash history
 # timestamps for later analysis. www.debian-administration.org/users/rossen/weblog/1
