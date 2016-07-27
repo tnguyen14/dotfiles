@@ -47,11 +47,26 @@ PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./bin:./node_
 [ -d $HOME/bin ] && PATH="$HOME/bin:$PATH"
 export PATH
 
-# support for z.sh
 if [ $unix ]; then
-	. `brew --prefix`/etc/profile.d/z.sh
+	if which brew > /dev/null; then
+		# support for z.sh
+		zFile="$(brew --prefix)/etc/profile.d/z.sh"
+		grc="$(brew --prefix)/etc/grc.bashrc"
+		bashCompletion="$(brew --prefix)/share/bash-completion/bash_completion"
+	fi
 elif [ $linux ]; then
-	[ -f ~/.z.sh ] && . ~/z.sh
+	zFile="~/z.sh"
+	bashCompletion="/etc/bash_completion"
+fi
+
+if [ -f $zFile ]; then
+	source "$zFile"
+fi
+if [ -f $grc ]; then
+	source "$grc"
+fi
+if [ -f $bashCompletion ]; then
+	source "$bashCompletion"
 fi
 
 # Bash history
@@ -174,17 +189,6 @@ function tmuxn() {
 command -v grunt >/dev/null 2>&1 && eval "$(grunt --completion=bash)"
 # gulp completion
 command -v gulp >/dev/null 2>&1 && eval "$(gulp --completion=bash)"
-
-# grc
-if [ $unix ]; then
-	source "`brew --prefix`/etc/grc.bashrc"
-fi
-
-if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-	source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-	source /etc/bash_completion;
-fi
 
 if [ ! -f ~/.git-completion.bash ]; then
 	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
