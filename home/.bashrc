@@ -200,7 +200,7 @@ if [ ! -f ~/.git-completion.bash ]; then
 fi
 
 # Load the shell dotfiles, copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
-for file in ~/.{bash_local,bash_prompt,bash_aliases,private_vars,git-completion.bash,travis/travis.sh}; do
+for file in ~/.{bash_local,bash_prompt,bash_aliases,git-prompt.sh,git-completion.bash,travis/travis.sh}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
