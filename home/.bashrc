@@ -205,13 +205,7 @@ alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cas
 alias refresh='source ~/.bashrc'
 
 # Sourcing files
-filesToSource=(
-	~/.bash_local
-	~/.bash_prompt
-	~/.git-prompt.sh
-	~/.git-completion.bash
-	~/.travis/travis.sh
-)
+filesToSource=()
 
 if [ $unix ]; then
 	if which brew > /dev/null; then
@@ -224,6 +218,11 @@ elif [ $linux ]; then
 	filesToSource+=(~/z.sh)
 	filesToSource+=(/etc/bash_completion)
 fi
+
+filesToSource+=(~/.bash_local)
+filesToSource+=(~/.git-prompt.sh)
+filesToSource+=(~/.bash_prompt)
+filesToSource+=(~/.git-completion.bash)
 
 for file in "${filesToSource[@]}"; do
 	[ -r "$file" ] && source "$file"
