@@ -47,28 +47,6 @@ _prepend_path "$HOME/dotfiles/node_modules/.bin"
 _prepend_path "$HOME/bin"
 export PATH
 
-if [ $unix ]; then
-	if which brew > /dev/null; then
-		# support for z.sh
-		zFile="$(brew --prefix)/etc/profile.d/z.sh"
-		grc="$(brew --prefix)/etc/grc.bashrc"
-		bashCompletion="$(brew --prefix)/share/bash-completion/bash_completion"
-	fi
-elif [ $linux ]; then
-	zFile="~/z.sh"
-	bashCompletion="/etc/bash_completion"
-fi
-
-if [ -f $zFile ]; then
-	source "$zFile"
-fi
-if [ -f $grc ]; then
-	source "$grc"
-fi
-if [ -f $bashCompletion ]; then
-	source "$bashCompletion"
-fi
-
 # Base16 Shell
 if [ ! -d $HOME/.config/base16-shell ]; then
 	git clone https://github.com/chriskempson/base16-shell.git $HOME/.config/base16-shell
@@ -226,8 +204,28 @@ alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cas
 # refresh bash
 alias refresh='source ~/.bashrc'
 
-# Load the shell dotfiles, copied from https://github.com/mathiasbynens/dotfiles/blob/master/.bash_profile
-for file in ~/.{bash_local,bash_prompt,git-prompt.sh,git-completion.bash,travis/travis.sh}; do
+# Sourcing files
+filesToSource=(
+	~/.bash_local
+	~/.bash_prompt
+	~/.git-prompt.sh
+	~/.git-completion.bash
+	~/.travis/travis.sh
+)
+
+if [ $unix ]; then
+	if which brew > /dev/null; then
+		# support for z.sh
+		filesToSource+=($(brew --prefix)/etc/profile.d/z.sh)
+		filesToSource+=($(brew --prefix)/etc/grc.bashrc)
+		filesToSource+=($(brew --prefix)/share/bash-completion/bash_completion)
+	fi
+elif [ $linux ]; then
+	filesToSource+=(~/z.sh)
+	filesToSource+=(/etc/bash_completion)
+fi
+
+for file in "${filesToSource[@]}"; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
