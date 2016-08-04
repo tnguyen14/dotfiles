@@ -203,6 +203,7 @@ alias dig="dig +nocmd any +multiline +noall +answer"
 alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew prune; brew doctor"
 # refresh bash
 alias refresh='source ~/.bashrc'
+alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
 
 # Sourcing files
 filesToSource=()
