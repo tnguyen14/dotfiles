@@ -247,7 +247,7 @@ augroup nerdtree
 	call NERDTreeHighlightFile('log', '240', 'none', '#585858', '#151515')
 	call NERDTreeHighlightFile('sh', '117', 'none', '#87d7ff', '#151515')
 	call NERDTreeHighlightFile('xml', '158', 'none', '#afffd7', '#151515')
-	call NERDTreeHighlightFile('java', '141', 'none', '$af87ff', '#151515')
+	call NERDTreeHighlightFile('java', '141', 'none', '#af87ff', '#151515')
 augroup END
 " }}}
 "
