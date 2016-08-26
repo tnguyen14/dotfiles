@@ -1,16 +1,16 @@
 "*":
   "accents-ui":
     accentColor:
-      red: 243
-      green: 134
-      blue: 48
       alpha: 1
+      blue: 48
+      green: 134
+      red: 243
     hexColor: "#f38630"
   "atom-ternjs": {}
   core:
     projectHome: "/Users/tnguyen/dev"
     themes: [
-      "accents-ui"
+      "atom-dark-ui"
       "base16-tomorrow-dark-theme"
     ]
   editor:
