@@ -147,6 +147,18 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
+# clean up docker
+function docker_cleanup() {
+	# docker-gc
+	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc
+
+	# https://lebkowski.name/docker-volumes/
+	# remove untagged images
+	docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
+	# remove unused volumes
+	docker volume ls -qf dangling=true | xargs -r docker volume rm
+}
+
 # Copy w/ progress
 cpp () {
   rsync -WavP --human-readable --progress $1 $2
