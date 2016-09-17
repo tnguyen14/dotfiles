@@ -33,9 +33,12 @@ export FZF_DEFAULT_COMMAND='ag --hidden -U --ignore .git -g ""'
 export GOPATH=$HOME/go
 
 # Construct $PATH
-PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:./bin:./node_modules/.bin:.'
+PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin'
 function _prepend_path() {
 	[ -d $1 ] && PATH="$1:$PATH"
+}
+function _append_path() {
+	[ -d $1 ] && PATH="$PATH:$1"
 }
 if which brew > /dev/null; then
 	_prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
@@ -43,8 +46,7 @@ if which brew > /dev/null; then
 fi
 _prepend_path $GOPATH
 _prepend_path "/usr/local/share/npm/bin"
-_prepend_path "$HOME/dotfiles/node_modules/.bin"
-_prepend_path "$HOME/bin"
+PATH="$PATH:$HOME/dotfiles/node_modules/.bin:$HOME/bin:./bin:./node_modules/.bin:."
 export PATH
 
 # Base16 Shell
