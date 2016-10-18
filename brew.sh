@@ -57,6 +57,7 @@ brew install keybase
 brew install diff-so-fancy
 brew install ag
 brew install fzf
+brew install rg
 
 brew install nodejs
 brew install docker

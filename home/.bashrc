@@ -27,7 +27,8 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # find hidden files with fzf, and ignore .gitignore
-export FZF_DEFAULT_COMMAND='ag --hidden -U --ignore .git -g ""'
+# export FZF_DEFAULT_COMMAND='ag --hidden -U --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='rg -uu --files -g !.git -g !node_modules'
 
 # Go
 export GOPATH=$HOME/go
@@ -115,8 +116,8 @@ function whois() {
 	echo "Getting whois record for: $domain …"
 
 	# avoid recursion
-					# this is the best whois server
-													# strip extra fluff
+	# this is the best whois server
+	# strip extra fluff
 	/usr/bin/whois -h whois.internic.net $domain | sed '/NOTICE:/q'
 }
 
@@ -218,6 +219,8 @@ alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cas
 # refresh bash
 alias refresh='source ~/.bashrc'
 alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
+# ripgrep search case-insensitive by default
+alias rg='rg -i'
 
 # Sourcing files
 filesToSource=()
