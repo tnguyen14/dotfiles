@@ -11,7 +11,7 @@ function e_arrow()    { echo -e " \033[1;34m➜\033[0m  $@"; }
 function do_link() {
 	base=$(basename "$1")
 	if [ "$1" -ef "$2/$base" ]; then
-		e_arrow "Skipping $base"
+		e_arrow "Skipping $2/$base"
 	else
 		ln -sfv "$1" "$2/$base"
 		if [ $? == 0 ]; then
@@ -29,7 +29,6 @@ function link_file() {
 		case "$1" in
 			# ignore .swp or .DS_Store files
 			*.swp|*.DS_Store) 
-				continue
 				;;
 			*) 
 				do_link "$1" "$2"
@@ -40,7 +39,6 @@ function link_file() {
 		case "$base" in
 			# skip current or prev directory
 			.|..)
-				continue
 				;;
 			# recursively call link_dir
 			*)
@@ -54,6 +52,10 @@ function link_file() {
 # $1: directory to link
 # $2: directory to link to
 function link_dir() {
+	# if destination dir does not exist
+	if [ ! -d "$2" ]; then
+		mkdir -p "$2"
+	fi
 	if [ -d "$1" ] && [ -d "$2" ]; then
 		for file in "$1"/{.,}*; do
 			link_file "$file" "$2"
