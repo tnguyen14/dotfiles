@@ -16,6 +16,6 @@ for f in $FILES; do
     fi
 done
 for f in $FILES; do
-	str=$(git log -1 --pretty=format:"%C(green)%cr%Creset %x09 %C(cyan)%h%Creset %C(dim black)%s%Creset %C(yellow)(%cn)%Creset" $f)
+	str=$(git log -1 --pretty=format:"%C(green)%cr%Creset %x09 %C(cyan)%h%Creset %C(dim)%s%Creset %C(yellow)(%cn)%Creset" $f)
 	printf "%-${MAXLEN}s -- %s\n" "$f" "$str"
 done
