@@ -23,14 +23,11 @@ Plug 'elzr/vim-json'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-surround'
 Plug 'moll/vim-bbye'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-obsession'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'ajh17/VimCompletesMe'
-Plug 'aklt/plantuml-syntax'
 Plug 'tpope/vim-sensible'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'mattn/emmet-vim'
 call plug#end()
 " }}}
@@ -162,10 +159,6 @@ nnoremap <Leader>L :lprevious<CR>
 " Plugins Settings {{{
 " vim-gitgutter {{{
 let g:gitgutter_max_signs = 1000
-" }}}
-
-" vim-jsx {{{
-let g:jsx_ext_required = 0
 " }}}
 
 " vim multiple cursor {{{
