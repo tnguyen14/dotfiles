@@ -241,6 +241,7 @@ filesToSource+=(~/.bash_local)
 filesToSource+=(~/.git-prompt.sh)
 filesToSource+=(~/.bash_prompt)
 filesToSource+=(~/.git-completion.bash)
+filesToSource+=(~/.fzf.sh)
 
 for file in "${filesToSource[@]}"; do
 	[ -r "$file" ] && source "$file"
