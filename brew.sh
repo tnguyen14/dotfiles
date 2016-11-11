@@ -49,6 +49,12 @@ brew install nmap
 brew install rsync
 brew install httpie
 
+# System monitoring tools
+# https://www.digitalocean.com/community/tutorials/how-to-use-top-netstat-du-other-tools-to-monitor-server-resources
+brew install htop
+brew install nethogs
+brew install ncdu
+
 brew install pianobar
 brew install cadaver
 brew install jq
