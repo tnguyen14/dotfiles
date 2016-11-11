@@ -281,6 +281,8 @@ let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_style_warning_symbol = '≈'
 
 let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
+" remove html/tidy checker from handlebars files, see https://github.com/scrooloose/syntastic/issues/1904
+let g:syntastic_filetype_map = { "html.handlebars": "handlebars"}
 
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_standard_exec = 'happiness'

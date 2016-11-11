@@ -9,6 +9,7 @@
   "atom-ternjs": {}
   core:
     projectHome: "/Users/tnguyen/dev"
+    telemetryConsent: "limited"
     themes: [
       "atom-dark-ui"
       "base16-tomorrow-dark-theme"
