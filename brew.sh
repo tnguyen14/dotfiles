@@ -75,10 +75,9 @@ pip3 install neovim
 brew cleanup
 
 # Brew Cask
-brew tap caskroom/cask
+brew cask
 
 brew cask install alfred
-brew cask alfred link
 brew cask install appcleaner
 brew cask install atom
 brew cask install iterm2
