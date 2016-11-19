@@ -1,7 +1,6 @@
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
@@ -341,6 +340,10 @@ augroup vimobsession
 		\   endif |
 		\ endif
 augroup END
+" }}}
+
+" vim-javascript {{{
+let g:javascript_plugin_jsdoc = 1
 " }}}
 "}}}
 "
