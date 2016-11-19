@@ -27,7 +27,6 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-sensible'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim'
 call plug#end()
 " }}}
 
