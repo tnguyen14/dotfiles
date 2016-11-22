@@ -171,7 +171,19 @@ tmuxn() {
 }
 
 if [ ! -f ~/.git-completion.bash ]; then
-	curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+	curl -Lo ~/.git-completion.bash \
+		https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+fi
+
+# install vim-plug if it is not there
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
+	curl -Lo ~/.vim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+if [ ! -f ~/.config/nvim/autoload/plug.vim ]; then
+	curl -Lo ~/.config/nvim/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Aliases
