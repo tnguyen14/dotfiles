@@ -89,6 +89,7 @@ brew cask install postman
 brew cask install google-chrome
 brew cask install google-chrome-canary
 brew cask install firefoxdeveloperedition
+brew cask install docker
 
 brew cask install spotify
 brew cask install dropbox
