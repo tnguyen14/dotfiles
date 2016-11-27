@@ -55,7 +55,6 @@ brew install htop
 brew install nethogs
 brew install ncdu
 
-brew install pianobar
 brew install cadaver
 brew install jq
 brew install mobile-shell
@@ -64,6 +63,7 @@ brew install diff-so-fancy
 brew install ag
 brew install fzf
 brew install ripgrep
+brew install tldr
 
 brew install nodejs
 brew install docker
