@@ -15,6 +15,8 @@ brew install coreutils --with-default-names
 brew install findutils --with-default-names
 brew install gnu-sed --with-default-names
 
+brew install gcc
+
 # Bash 4
 brew install bash
 echo /usr/local/bin/bash|sudo tee -a /etc/shells
