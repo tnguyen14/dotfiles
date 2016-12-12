@@ -375,6 +375,10 @@ augroup misc
 		\ else |
 		\   set swapfile |
 		\ endif
+
+	" use relative number in normal mode
+	autocmd InsertEnter * :set norelativenumber
+	autocmd InsertLeave * :set relativenumber
 augroup END
 
 " local (gitignored) settings
