@@ -15,7 +15,7 @@
       "base16-tomorrow-dark-theme"
     ]
   editor:
-    fontFamily: "Fira Mono, mono"
+    fontFamily: "SauceCodePro Nerd Font, mono"
     fontSize: 13
     invisibles: {}
     lineHeight: 1.6
