@@ -387,6 +387,9 @@ augroup misc
 	" use relative number in normal mode
 	autocmd InsertEnter * :set norelativenumber
 	autocmd InsertLeave * :set relativenumber
+
+	" crontab
+	autocmd filetype crontab setlocal nobackup nowritebackup
 augroup END
 
 " local (gitignored) settings
