@@ -27,6 +27,8 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-sensible'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'tbabej/taskwiki'
 call plug#end()
 " }}}
 
@@ -234,7 +236,7 @@ augroup nerdtree
 	call NERDTreeHighlightFile('java', '141', 'none', '#af87ff', '#151515')
 augroup END
 " }}}
-"
+
 " delimitMate {{{
 " auto expand carriage return <CR>
 let delimitMate_expand_cr = 2
@@ -270,6 +272,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -343,6 +346,11 @@ augroup END
 
 " vim-javascript {{{
 let g:javascript_plugin_jsdoc = 1
+" }}}
+
+" vimwiki {{{
+let g:vimwiki_list = [{'path': '~/Google\ Drive/Notes',
+                     \ 'syntax': 'markdown', 'ext': '.md'}]
 " }}}
 "}}}
 "
