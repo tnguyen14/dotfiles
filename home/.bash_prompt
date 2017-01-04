@@ -98,8 +98,13 @@ function prompt_command() {
 	GIT_PS1_SHOWUNTRACKEDFILES=1
 	local git=$(__git_ps1 " on %s")
 
+	# show background jobs indicator if any bg job exists
+	local num_bg_jobs=$(jobs | wc -l)
+	local bg_jobs
+	[ $num_bg_jobs -gt 0 ] && bg_jobs="$PURPLE($num_bg_jobs)"
+
 	# Interaction prompt
-	first_line="$timestamp$user_prompt$host_prompt$login_delimiter$emoji$BLUE\w$WHITE$git$RESET"
+	first_line="$timestamp$user_prompt$host_prompt$login_delimiter$emoji$BLUE\w$WHITE$git$bg_jobs$RESET"
 	# Text (commands) inside \[...\] does not impact line length calculation which fixes stange bug when looking through the history
 	second_line="\`if [ $exit_code == 0 ]; then echo \[\$GREEN\]':;'; else echo \[\$RED\]':'\[\$GREEN\]';'; fi\` \[\$RESET\]"
 	export PS1="$first_line\n$second_line"
