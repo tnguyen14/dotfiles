@@ -7,4 +7,5 @@ taskd.trust=ignore hostname
 
 color=on
 
+data.location=~/Google Drive/Notes/Task
 include /usr/local/share/doc/task/rc/dark-256.theme
