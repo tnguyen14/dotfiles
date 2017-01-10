@@ -21,6 +21,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'elzr/vim-json'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-obsession'
 Plug 'iamcco/markdown-preview.vim'
@@ -29,6 +30,7 @@ Plug 'tpope/vim-sensible'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tbabej/taskwiki'
+Plug 'flowtype/vim-flow'
 call plug#end()
 " }}}
 
