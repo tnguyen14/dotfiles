@@ -12,7 +12,10 @@ fi
 
 export CLICOLOR=1
 # export LSCOLORS=CxFxBxDxCxegedabagacad
-export LSCOLORS=CxFxExDxBxegedabagacad
+export LSCOLORS="CxFxExDxBxegedabagacad"
+# for Linux
+# use http://geoff.greer.fm/lscolors/ for translation and preview
+export LS_COLORS="di=1;32:ln=1;35:so=1;34:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
 # vim as default
 export EDITOR="nvim"
@@ -187,6 +190,7 @@ if [ ! -f ~/.config/nvim/autoload/plug.vim ]; then
 fi
 
 # Aliases
+alias ls='ls --color'
 alias ll='ls -alF'
 alias la='ls -A'
 alias dt='cd ~/Desktop'
