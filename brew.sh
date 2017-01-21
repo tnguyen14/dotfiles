@@ -10,7 +10,7 @@ brew update
 brew upgrade
 
 # GNU core utilities (those that come with OS X are outdated)
-brew install coreutils --with-default-names
+brew install coreutils
 # GNU `find`, `locate`, `updatedb`, and `xargs`
 brew install findutils --with-default-names
 brew install gnu-sed --with-default-names
@@ -19,14 +19,15 @@ brew install gcc
 
 # Bash 4
 brew install bash
-echo /usr/local/bin/bash|sudo tee -a /etc/shells
+echo /usr/local/bin/bash | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
 # regular bash-completion package is held back to an older release, so we get latest from versions.
 #   github.com/Homebrew/homebrew/blob/master/Library/Formula/bash-completion.rb#L3-L4
 brew tap homebrew/versions
 brew install bash-completion2
 
-brew install homebrew/completions/brew-cask-completion
+brew tap homebrew/completions
+brew install brew-cask-completion
 
 # generic coloriser http://kassiopeia.juls.savba.sk/~garabik/software/grc.html
 brew install grc
@@ -38,8 +39,10 @@ brew install wget --enable-iri
 brew install macvim --with-override-system-vim
 brew tap neovim/neovim
 brew install neovim
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/screen
+
+brew tap homebrew/dupes
+brew install grep
+brew install screen
 
 # Install other useful binaries
 brew install git
