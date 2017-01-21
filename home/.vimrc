@@ -357,6 +357,10 @@ let g:vimwiki_list = [{'path': '~/Google\ Drive/Notes',
 " Not make all markdown files vimwiki syntax
 let g:vimwiki_global_ext = 0
 " }}}
+
+" vim-flow {{{
+let g:flow#autoclose = 1
+" }}}
 "}}}
 "
 " add folding for vimscripts {{{
