@@ -553,6 +553,12 @@ __git_ps1 ()
 		;;
 	esac
 
+	# pad $p with a space if needed
+	# this is to account for the background job icon that could follow
+	if [ -n "$p" ]; then
+		p="$p "
+	fi
+
 	local untracked_color="$ORANGE"
 	if [ "$u" = "%" ]; then
 		u=" $git_untracked_symbol"
