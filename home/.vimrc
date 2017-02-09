@@ -102,6 +102,10 @@ set splitright
 " wildignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
+" find - look in nested folders
+set path+=..
+set wildmenu
+
 " rg grep {{{
 if executable('rg')
 	set grepprg=rg\ --vimgrep
