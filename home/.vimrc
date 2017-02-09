@@ -1,36 +1,42 @@
 " vim-plug {{{
 call plug#begin('~/.vim/plugged')
+
+" look and feel
 Plug 'chriskempson/base16-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-commentary'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'pangloss/vim-javascript'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mustache/vim-mustache-handlebars'
+
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-Plug 'othree/html5.vim'
+Plug 'moll/vim-bbye'
 Plug 'wincent/terminus'
 Plug 'scrooloose/syntastic'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color'
-Plug 'ryanoasis/vim-devicons'
-Plug 'elzr/vim-json'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'tmux-plugins/vim-tmux'
+
+" languages
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'elzr/vim-json'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'ap/vim-css-color'
+Plug 'flowtype/vim-flow'
+
+" tpope
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'moll/vim-bbye'
-Plug 'tpope/vim-obsession'
-Plug 'iamcco/markdown-preview.vim'
-Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-obsession'
+
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
-Plug 'tbabej/taskwiki'
-Plug 'flowtype/vim-flow'
 call plug#end()
 " }}}
 
@@ -303,15 +309,6 @@ let g:vim_json_syntax_conceal = 0
 
 " markdown-preview {{{
 let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
-" }}}
-
-" VimCompletesMe {{{
-augroup vimcompletesme
-	autocmd!
-	" auto close preview window after completion
-	" https://github.com/ajh17/VimCompletesMe/issues/29
-	autocmd InsertLeave * if bufname('%') != "[Command Line]" | pclose | endif
-augroup END
 " }}}
 
 " fzf {{{
