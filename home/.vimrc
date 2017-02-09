@@ -102,11 +102,29 @@ set splitright
 " wildignore
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-" ag grep {{{
-if executable('ag')
-	set grepprg=ag\ --vimgrep
+" rg grep {{{
+if executable('rg')
+	set grepprg=rg\ --vimgrep
+	" filename:line number:column number:message
 	set grepformat=%f:%l:%c:%m
 endif
+"}}}
+
+" :Find {{{
+" Create a :Find command with ripgrep and fzf
+" see https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.h8394n3c5
+
+"" --column: Show column number
+" --line-number: Show line number
+" --no-heading: Do not show file headings in results
+" --fixed-strings: Search term as a literal string
+" --ignore-case: Case insensitive search
+" --no-ignore: Do not respect .gitignore, etc...
+" --hidden: Search hidden files and folders
+" --follow: Follow symlinks
+" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+" --color: Search color options
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 "}}}
 
 "}}}
