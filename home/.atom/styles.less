@@ -20,13 +20,13 @@ atom-text-editor {
 
 // To style other content in the text editor's shadow DOM, use the ::shadow
 // expression
-atom-text-editor::shadow .cursor {
+atom-text-editor.editor .cursor {
 
 }
 
 @whitespace-color: rgba(255, 255, 255, 0.2);
 // show leading whitespace more prominently
-atom-text-editor::shadow {
+atom-text-editor.editor {
     .leading-whitespace {
         color: @whitespace-color;
         // show tab character like sublime
