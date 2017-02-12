@@ -44,7 +44,7 @@ _prepend_path() {
 _append_path() {
 	[ -d $1 ] && PATH="$PATH:$1"
 }
-if which brew > /dev/null; then
+if which brew > /dev/null 2>&1; then
 	_prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
 	_prepend_path "$(brew --prefix findutils)/libexec/gnubin"
 fi
@@ -219,7 +219,7 @@ alias rg='rg -i'
 filesToSource=()
 
 if [ $unix ]; then
-	if which brew > /dev/null; then
+	if which brew > /dev/null 2>&1; then
 		# support for z.sh
 		filesToSource+=($(brew --prefix)/etc/profile.d/z.sh)
 		filesToSource+=($(brew --prefix)/etc/grc.bashrc)
