@@ -1,4 +1,4 @@
 .DS_Store
 node_modules
-local.vim
-.bash_local
+home/local.vim
+home/.bash_local

@@ -102,11 +102,15 @@ CDPATH="."
 
 # https://github.com/herrbischoff/awesome-osx-command-line#show-current-ssid
 ssid() {
-	airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
+	if [ $unix ]; then
+		airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
+	fi
 }
 # https://github.com/herrbischoff/awesome-osx-command-line#show-wi-fi-network-passwords
 wifipw() {
-	security find-generic-password -D "AirPort network password" -a "$1" -gw
+	if [ $unix ]; then
+		security find-generic-password -D "AirPort network password" -a "$1" -gw
+	fi
 }
 
 # whois a domain or a URL

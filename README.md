@@ -20,6 +20,9 @@
 
 # install npm modules
 :; npm install
+
+# install vim-plug plugins
+:; nvim -E -c "PlugInstall" -c qa
 ```
 
 ### npm packages
