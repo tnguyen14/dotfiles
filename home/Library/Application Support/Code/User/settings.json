@@ -1,8 +1,0 @@
-// Place your settings in this file to overwrite the default settings
-{
-// Editor
-
-    "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 13,
-    "editor.renderWhitespace": "boundary"
-}
