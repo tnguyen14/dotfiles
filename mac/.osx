@@ -17,7 +17,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 defaults write com.apple.Finder AppleShowAllFiles YES
 # Show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
+# Show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+# Show path bar
+defaults write com.apple.finder ShowPathbar -bool true
 # Set current folder as default search scope
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 

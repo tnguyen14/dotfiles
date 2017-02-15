@@ -4,19 +4,19 @@
 ## Usage
 
 ```shell
+# macOS
+# install XCode
 :; xcode-select --install
+# set defaults
+:; ./mac/.osx
+# install binaries and applications with Homebrew
+:; ./mac/brew.sh
 
 :; git clone git@github.com:tnguyen14/dotfiles.git ~/
 :; cd ~/dotfiles
 
 # link dotfiles
 :; link.sh
-
-# set OS X defaults
-:; ./.osx
-
-# install binaries and applications with Homebrew
-:; ./brew.sh
 
 # install npm modules
 :; npm install
