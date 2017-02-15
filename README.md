@@ -8,7 +8,7 @@
 # install XCode
 :; xcode-select --install
 # set defaults
-:; ./mac/.osx
+:; ./mac/.macos
 # install binaries and applications with Homebrew
 :; ./mac/brew.sh
 
