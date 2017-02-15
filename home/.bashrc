@@ -240,3 +240,5 @@ for file in "${filesToSource[@]}"; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

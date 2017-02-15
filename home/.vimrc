@@ -9,11 +9,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
 
 Plug 'Raimondi/delimitMate'
-Plug 'Yggdroot/indentLine'
 Plug 'moll/vim-bbye'
-Plug 'wincent/terminus'
 Plug 'scrooloose/syntastic'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tmux-plugins/vim-tmux'
@@ -35,7 +34,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-obsession'
 
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
@@ -342,13 +342,6 @@ nnoremap <C-O> :Files<CR>
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
 endif
-" }}}
-"
-" emmet.vim {{{
-augroup emmet
-	autocmd!
-	autocmd BufNewFile,BufRead *.html,*.hbs inoremap <buffer> <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-augroup END
 " }}}
 "
 " obsession {{{
