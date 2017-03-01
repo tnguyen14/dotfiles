@@ -1,50 +1,44 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# copied from http://chneukirchen.org/dotfiles/.zshrc
+# see http://chneukirchen.org/blog/archive/2017/02/a-time-proven-zsh-prompt.html
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
+# == PROMPT
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# gitpwd - print %~, limited to $NDIR segments, with inline git branch
+NDIRS=2
+gitpwd() {
+  local -a segs splitprefix; local prefix branch
+  segs=("${(Oas:/:)${(D)PWD}}")
+  segs=("${(@)segs/(#b)(?(#c10))??*(?(#c5))/${(j:\u2026:)match}}")
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+  if gitprefix=$(git rev-parse --show-prefix 2>/dev/null); then
+    splitprefix=("${(s:/:)gitprefix}")
+    if ! branch=$(git symbolic-ref -q --short HEAD); then
+      branch=$(git name-rev --name-only HEAD 2>/dev/null)
+      [[ $branch = *\~* ]] || branch+="~0"    # distinguish detached HEAD
+    fi
+    if (( $#splitprefix > NDIRS )); then
+      print -n "${segs[$#splitprefix]}@$branch "
+    else
+      segs[$#splitprefix]+=@$branch
+    fi
+  fi
 
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+  (( $#segs == NDIRS+1 )) && [[ $segs[-1] == "" ]] && print -n /
+  print "${(j:/:)${(@Oa)segs[1,NDIRS]}}"
+}
 
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+cnprompt6() {
+  case "$TERM" in
+    xterm*|rxvt*)
+      precmd() { [[ -t 1 ]] && print -Pn "\e]0;%m: %~\a" }
+      preexec() { [[ -t 1 ]] && print -n "\e]0;$HOST: ${(q)1//(#m)[$'\000-\037\177-']/${(q)MATCH}}\a" }
+  esac
+  setopt PROMPT_SUBST
+  nbsp=$'\u00A0'
+  PS1='%B%m%(?.. %??)%(1j. %j&.)%b $(gitpwd)%B%(!.%F{red}.%F{yellow})%#${SSH_CONNECTION:+%#}$nbsp%b%f'
+  RPROMPT=''
+}
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+cnprompt6
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-. ~/prompt.zsh
-# added by travis gem
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
