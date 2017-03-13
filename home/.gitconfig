@@ -2,9 +2,6 @@
 	name = Tri Nguyen
 	email = tri@tridnguyen.com
 
-[credential]
-	helper = osxkeychain
-
 [alias]
 	# View the SHA, description, and history graph of the latest 20 commits
 	l = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold blue)<%an> %Cgreen(%cr)%Creset' --abbrev-commit
@@ -88,7 +85,7 @@
 	default = simple
 
 [include]
-	path = ~/.gitconfig_local
+	path = .gitconfig.local
 
 [filter "media"]
 	required = true
