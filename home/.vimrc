@@ -15,7 +15,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'moll/vim-bbye'
 Plug 'scrooloose/syntastic'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tmux-plugins/vim-tmux'
+Plug 'ciaranm/detectindent'
 
 " languages
 Plug 'pangloss/vim-javascript'
@@ -26,6 +26,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'ap/vim-css-color'
 Plug 'flowtype/vim-flow'
+Plug 'tmux-plugins/vim-tmux'
 
 " tpope
 Plug 'tpope/vim-commentary'
@@ -164,6 +165,12 @@ nnoremap L $
 " remap : to ; to avoid pressing Shift
 nnoremap ; :
 vnoremap ; :
+
+" Easier vim split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Buffer navigation
 noremap <Leader>] :bnext<CR>
@@ -404,10 +411,6 @@ augroup misc
 		\ else |
 		\   set swapfile |
 		\ endif
-
-	" use relative number in normal mode
-	autocmd InsertEnter * :set norelativenumber
-	autocmd InsertLeave * :set relativenumber
 
 	" crontab
 	autocmd filetype crontab setlocal nobackup nowritebackup
