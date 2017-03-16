@@ -202,6 +202,7 @@ alias dt='cd ~/Desktop'
 alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v -i' # remove interactively
+alias ln='ln -v'
 # Always show line numbers for less
 alias less='less -N'
 # Add spacer to Dock
