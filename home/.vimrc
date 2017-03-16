@@ -389,15 +389,6 @@ augroup filetype_vim
 augroup END
 " }}}
 
-" Demandware {{{
-augroup demandware
-	autocmd!
-	autocmd BufNewFile,BufRead *.isml setfiletype xml
-	autocmd BufNewFile,BufRead *.isml let g:syntastic_xml_xmllint_quiet_messages = { "regex": ['Extra content', 'Double hyphen', 'Opening and ending tag'] }
-	autocmd BufNewFile,BufRead *.ds set filetype=javascript
-augroup END
-" }}}
-
 " Misc {{{
 augroup misc
 	autocmd!
