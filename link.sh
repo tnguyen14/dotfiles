@@ -6,6 +6,33 @@ function e_success()  { echo -e " \033[1;32m✔\033[0m  $@"; }
 function e_error()    { echo -e " \033[1;31m✖\033[0m  $@"; }
 function e_arrow()    { echo -e " \033[1;34m➜\033[0m  $@"; }
 
+function usage() {
+	cat << EOF
+Usage: link.sh [options]
+
+Options:
+    -h, --help      Show help options
+EOF
+}
+
+# http://stackoverflow.com/questions/402377/using-getopts-in-bash-shell-script-to-get-long-and-short-command-line-options/7680682#7680682
+optspec=":h-:"
+while getopts "$optspec" optchar; do
+	case "${optchar}" in
+		-)
+			case "${OPTARG}" in
+				help)
+					usage
+					exit
+					;;
+			esac;;
+		h)
+			usage
+			exit
+			;;
+	esac
+done
+
 # $1: file
 # $2: directory path to link to
 function do_link() {
