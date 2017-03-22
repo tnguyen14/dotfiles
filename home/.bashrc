@@ -37,7 +37,7 @@ export FZF_DEFAULT_COMMAND='rg -uu --files -g !.git -g !node_modules'
 export GOPATH=$HOME/go
 
 # Construct $PATH
-PATH='/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin'
+PATH="${PATH:-/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin}"
 _prepend_path() {
 	[ -d $1 ] && PATH="$1:$PATH"
 }
@@ -80,15 +80,6 @@ export HISTIGNORE="&:[  ]*:exit:ls:bg:fg:history:clear"
 shopt -s histappend
 # Save multi-line commands as one command
 shopt -s cmdhist
-
-# Save and reload the history after each command finishes
-# export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
-# Instead of reload the history right away, only save it so that new session
-# will have access to recent commands, but arrow-up still works in existing shell
-# http://unix.stackexchange.com/q/1288#comment67052_48116
-# export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-# see .bash_prompt
 
 # Better directory navigation
 # Prepend cd to directory names automatically
