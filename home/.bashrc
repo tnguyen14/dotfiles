@@ -210,6 +210,8 @@ alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cas
 alias refresh='source ~/.bashrc'
 # ripgrep search case-insensitive by default
 alias rg='rg -i'
+# vim lite
+alias viml='vim -u ~/lite.vim'
 
 # Sourcing files
 filesToSource=()
