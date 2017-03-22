@@ -408,8 +408,8 @@ augroup misc
 augroup END
 
 " local (gitignored) settings
-if filereadable(expand('$HOME/local.vim'))
-	source $HOME/local.vim
+if filereadable(expand('$HOME/.local.vim'))
+	source $HOME/.local.vim
 endif
 " }}}
 

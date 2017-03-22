@@ -17,8 +17,8 @@ export LSCOLORS="CxFxExDxBxegedabagacad"
 # use http://geoff.greer.fm/lscolors/ for translation and preview
 export LS_COLORS="di=1;32:ln=1;35:so=1;34:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
-# vim as default
-export EDITOR="nvim"
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
 
 # highlighting inside manpages and elsewhere
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
@@ -211,7 +211,7 @@ alias refresh='source ~/.bashrc'
 # ripgrep search case-insensitive by default
 alias rg='rg -i'
 # vim lite
-alias viml='vim -u ~/lite.vim'
+alias viml='vim -u ~/.lite.vim'
 
 # Sourcing files
 filesToSource=()

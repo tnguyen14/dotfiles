@@ -42,8 +42,8 @@ set pastetoggle=<F11>
 nnoremap ; :
 vnoremap ; :
 
-if filereadable(expand('$HOME/local.vim'))
-	source $HOME/local.vim
+if filereadable(expand('$HOME/.local.vim'))
+	source $HOME/.local.vim
 endif
 
 set secure
