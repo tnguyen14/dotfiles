@@ -287,8 +287,8 @@ endfunction
 
 function! HasConfigJs()
 	let checkers = []
-	" eslintrc files could have json or yml suffix
-	if HasConfig('.eslintrc.*', expand('<amatch>:h'))
+	" eslintrc files could have json or yml suffix, or no suffix
+	if HasConfig('.eslintrc*', expand('<amatch>:h'))
 		call add(checkers, 'eslint')
 	endif
 	if HasConfig('.jshintrc', expand('<amatch>:h'))
