@@ -84,9 +84,6 @@
 [push]
 	default = simple
 
-[include]
-	path = .gitconfig.local
-
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -111,3 +108,7 @@
 [pager]
 	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX
+
+[include]
+	path = .gitconfig.local
+
