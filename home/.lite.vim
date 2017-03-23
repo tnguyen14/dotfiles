@@ -29,7 +29,12 @@ set ignorecase
 set smartcase
 
 set hidden
+
+set tabstop=4
+
 set list
+set showbreak=\\
+set listchars=tab:→\ ,trail:_,eol:¬,extends:>,precedes:<,nbsp:~
 
 set splitbelow
 set splitright

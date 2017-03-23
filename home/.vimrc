@@ -94,7 +94,8 @@ set shiftwidth=4
 
 " Show invisible characters
 set list
-set listchars=tab:▸\ ,trail:·,eol:¬,extends:→,nbsp:･
+set listchars=tab:▸\ ,trail:·,eol:¬,extends:→,precedes:←,nbsp:･
+set showbreak=↪\
 
 " Set split pane direction to be more natural
 set splitbelow
