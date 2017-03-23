@@ -31,6 +31,7 @@ set smartcase
 set hidden
 
 set tabstop=4
+set shiftwidth=4
 
 set list
 set showbreak=\\
@@ -43,6 +44,12 @@ set path+=..
 set wildmenu
 
 set pastetoggle=<F11>
+
+" always show statusline
+set laststatus=2
+" show filename in statusline
+set statusline=%F
+
 
 nnoremap ; :
 vnoremap ; :
