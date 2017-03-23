@@ -101,7 +101,7 @@ function prompt_command() {
 	# show background jobs indicator if any bg job exists
 	local num_bg_jobs=$(jobs | wc -l)
 	local bg_jobs
-	[ $num_bg_jobs -gt 0 ] && bg_jobs="$PURPLE($num_bg_jobs)"
+	[ $num_bg_jobs -gt 0 ] && bg_jobs=" $PURPLE$num_bg_jobs&"
 
 	# Interaction prompt
 	first_line="$timestamp$user_prompt$host_prompt$login_delimiter$emoji$BLUE\w$WHITE$git$bg_jobs$RESET"
