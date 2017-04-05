@@ -5,13 +5,10 @@ filetype indent plugin on
 
 syntax on
 
-colorscheme base16-default-dark
-
 set showmode
 set showcmd
 set ruler
 set colorcolumn=80
-highlight ColorColumn ctermbg=11
 
 set title
 
@@ -53,6 +50,8 @@ set statusline=%F
 
 nnoremap ; :
 vnoremap ; :
+
+let g:vimlite = 1
 
 if filereadable(expand('$HOME/.local.vim'))
 	source $HOME/.local.vim
