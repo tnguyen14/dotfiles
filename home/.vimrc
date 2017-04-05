@@ -406,6 +406,7 @@ augroup misc
 
 	" crontab
 	autocmd filetype crontab setlocal nobackup nowritebackup
+	autocmd BufReadPost * DetectIndent
 augroup END
 
 " local (gitignored) settings
