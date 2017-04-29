@@ -10,9 +10,9 @@
 # install XCode
 :; xcode-select --install
 # set defaults
-:; ./mac/.macos
+:; ./macos/.macos
 # install binaries and applications with Homebrew
-:; ./mac/brew.sh
+:; ./macos/brew.sh
 
 # install vim-plug plugins
 :; nvim -E -c "PlugInstall" -c qa
