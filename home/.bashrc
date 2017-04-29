@@ -162,6 +162,19 @@ cpp () {
   rsync -WavP --human-readable --progress $1 $2
 }
 
+# check if tmux.conf exist, and if tpm is being used
+if [ -f $HOME/.tmux.conf ]; then
+	# find the string within .tmux.conf file
+	grep -Fxq "set -g @plugin 'tmux-plugins/tpm'" $HOME/.tmux.conf
+	# returns 0 if found, 1 if not
+	tpm=$?
+	if [ "$tpm" == 0 ] && [ ! -d $HOME/.tmux/plugins/tpm ]; then
+			mkdir -p $HOME/.tmux/plugins
+			git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+	fi
+	unset tpm
+fi
+
 # Create a new tmux session with the current dir as the session name
 tmuxn() {
 	# only do something if there's no argument, otherwise, pass it along 
