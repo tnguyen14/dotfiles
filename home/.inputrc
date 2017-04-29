@@ -14,9 +14,9 @@ set mark-symlinked-directories on
 "\e[B": history-search-forward
 "\e[A": history-search-backward
 
-# ctrl b, ctrl f for moving on the readline by word
+# ctrl g, ctrl f for moving on the readline by word
 "\C-f": forward-word
-"\C-b": backward-word
+"\C-g": backward-word
 
 # Do not autocomplete hidden files unless the pattern explicitly begins with a dot
 set match-hidden-files off
