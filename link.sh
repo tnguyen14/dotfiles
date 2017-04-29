@@ -123,3 +123,8 @@ function link_dir() {
 }
 e_header "Setting up \$HOME dotfiles..."
 link_dir "$(pwd)/home" "$HOME"
+
+# macos specific stuff
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	link_dir "$(pwd)/macos/home" "$HOME"
+fi
