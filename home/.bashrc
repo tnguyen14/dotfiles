@@ -44,13 +44,21 @@ _prepend_path() {
 _append_path() {
 	[ -d $1 ] && PATH="$PATH:$1"
 }
+
+PATH="$PATH:$HOME/dotfiles/node_modules/.bin:$HOME/bin:./bin:./node_modules/.bin:."
+
 if which brew > /dev/null 2>&1; then
 	_prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
 	_prepend_path "$(brew --prefix findutils)/libexec/gnubin"
 fi
+
+# linuxbrew
+if [ $linux ]; then
+	_prepend_path "$HOME/.linuxbrew/bin"
+fi
+
 _prepend_path $GOPATH
 _prepend_path "/usr/local/share/npm/bin"
-PATH="$PATH:$HOME/dotfiles/node_modules/.bin:$HOME/bin:./bin:./node_modules/.bin:."
 export PATH
 
 # Base16 Shell
