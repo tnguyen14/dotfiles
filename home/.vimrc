@@ -53,6 +53,7 @@ endif
 " regular vim only {{{
 if !has('nvim')
 	set hlsearch
+	set mouse=a
 endif
 " }}}
 "
