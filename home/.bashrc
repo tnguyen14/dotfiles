@@ -54,7 +54,7 @@ fi
 
 # linuxbrew
 if [ $linux ]; then
-	_prepend_path "$HOME/.linuxbrew/bin"
+	_prepend_path "/home/linuxbrew/.linuxbrew/bin"
 fi
 
 _prepend_path $GOPATH
