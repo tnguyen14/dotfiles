@@ -217,22 +217,26 @@ alias rm='rm -v -i' # remove interactively
 alias ln='ln -v'
 # Always show line numbers for less
 alias less='less -N'
-# Add spacer to Dock
-alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
 # File system usage
 alias disk="df -P -kHl"
 # Networking. IP address, dig, DNS
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
 alias dig="dig +nocmd any +multiline +noall +answer"
-# Brew update
-alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew prune; brew doctor"
 # refresh bash
 alias refresh='source ~/.bashrc'
 # ripgrep search case-insensitive by default
 alias rg='rg -i'
 # vim lite
 alias viml='vim -u ~/.lite.vim'
+
+if [ $unix ]; then
+	# Add spacer to Dock
+	alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
+	# Brew update
+	alias brew_update="brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew prune; brew doctor"
+
+fi
 
 # Sourcing files
 filesToSource=()
