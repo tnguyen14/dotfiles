@@ -24,6 +24,7 @@
 	cob = checkout -b
 	b = branch
 	bd = branch -d
+	bD = branch -D
 	cl = clone
 	d = diff
 	dc = diff --cached
@@ -103,9 +104,13 @@
 	token = !security find-internet-password -a tnguyen14 -s github.com -l 'ghi token' -w
 [help]
 	autocorrect = 10
+
 [pager]
 	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX
+[diff-so-fancy]
+	# keep the leading symbols (+ and -) for copying purposes (no color)
+	stripLeadingSymbols = false
 
 [include]
 	path = .gitconfig.local
