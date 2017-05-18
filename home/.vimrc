@@ -37,7 +37,6 @@ Plug 'tpope/vim-obsession'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
 
@@ -369,14 +368,6 @@ augroup END
 
 " vim-javascript {{{
 let g:javascript_plugin_jsdoc = 1
-" }}}
-
-" vimwiki {{{
-let g:vimwiki_list = [{'path': '~/Google\ Drive/Notes',
-                     \ 'syntax': 'markdown', 'ext': '.md'}]
-
-" Not make all markdown files vimwiki syntax
-let g:vimwiki_global_ext = 0
 " }}}
 
 " vim-flow {{{
