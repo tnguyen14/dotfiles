@@ -25,6 +25,7 @@ Plug 'moll/vim-bbye'
 Plug 'scrooloose/syntastic'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ciaranm/detectindent'
+Plug 'ajh17/VimCompletesMe'
 
 " languages
 Plug 'pangloss/vim-javascript'
@@ -382,8 +383,19 @@ let g:javascript_plugin_jsdoc = 1
 " vim-flow {{{
 let g:flow#autoclose = 1
 " }}}
+
+" vimcompletesme {{{
+augroup vimcompletesme
+	autocmd!
+	" auto close preview window after completion
+	" https://github.com/ajh17/VimCompletesMe/issues/29
+	autocmd InsertLeave * if bufname('%') != "[Command Line]" | pclose | endif
+	" use dictionary words for markdown
+	autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
+augroup END
+" }}}
 "}}}
-"
+
 " add folding for vimscripts {{{
 augroup filetype_vim
 	autocmd!
