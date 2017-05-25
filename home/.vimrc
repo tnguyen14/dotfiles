@@ -126,7 +126,7 @@ if executable('rg')
 endif
 "}}}
 
-" :Find {{{
+" :Rg {{{
 " Create a :Find command with ripgrep and fzf
 " see https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.h8394n3c5
 
@@ -140,7 +140,14 @@ endif
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Rg 
+  \   call fzf#vim#grep(
+  \    'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>),
+  \    1, <bang>0)
+
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep('git grep --line-number --ignore-case '.shellescape(<q-args>), 0, <bang>0) 
+
 "}}}
 
 "}}}
