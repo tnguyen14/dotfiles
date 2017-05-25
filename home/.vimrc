@@ -254,7 +254,7 @@ let NERDTreeMapOpenVSplit = '<C-v>'
 let NERDTreeMapOpenInTab = '<C-t>'
 let NERDTreeIgnore = ['\.pyc$', '\.DS_Store$', '\.swp$', '\.swo$']
 " open NERDTree with `Ctrl-n`
-noremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " NERDTress File highlighting
 " https://github.com/scrooloose/nerdtree/issues/433#issuecomment-92590696
