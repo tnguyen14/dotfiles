@@ -407,10 +407,11 @@ augroup END
 " }}}
 "}}}
 
-" add folding for vimscripts {{{
-augroup filetype_vim
+" add folding for different filetypes {{{
+augroup folding
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
+	autocmd FileType javascript setlocal foldmethod=syntax
 augroup END
 " }}}
 
