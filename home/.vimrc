@@ -249,6 +249,10 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 
 " NERDTree {{{
 let NERDTreeShowHidden = 1
+" auto delete the buffer of the file you just deleted with NERDTree
+let NERDTreeAutoDeleteBuffer = 1
+" disable display of the 'Bookmarks' label and 'Press ? for help' text
+let NERDTreeMinimalUI = 1
 let NERDTreeMapOpenSplit = '<C-x>'
 let NERDTreeMapOpenVSplit = '<C-v>'
 let NERDTreeMapOpenInTab = '<C-t>'
