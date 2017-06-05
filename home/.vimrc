@@ -22,7 +22,7 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'Raimondi/delimitMate'
 Plug 'moll/vim-bbye'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ciaranm/detectindent'
 Plug 'ajh17/VimCompletesMe'
@@ -326,9 +326,9 @@ function! HasConfigJs()
 	return checkers
 endfunction
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -347,10 +347,10 @@ let g:syntastic_filetype_map = { "html.handlebars": "handlebars"}
 let g:syntastic_javascript_checkers = ['standard']
 let g:syntastic_javascript_standard_exec = 'happiness'
 let g:syntastic_javascript_standard_generic = 1
-augroup syntasticjs
-	autocmd!
-	autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = HasConfigJs()
-augroup END
+" augroup syntasticjs
+" 	autocmd!
+" 	autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = HasConfigJs()
+" augroup END
 " }}}
 
 " vim-json {{{
@@ -384,28 +384,23 @@ augroup vimobsession
 		\     Obsession |
 		\   endif |
 		\ endif
-augroup END
-" }}}
+                     \ 'syntax': 'markdown', 'ext': '.md'}]
 
-" vim-javascript {{{
-let g:javascript_plugin_jsdoc = 1
+" Not make all markdown files vimwiki syntax
+let g:vimwiki_global_ext = 0
 " }}}
 
 " vim-flow {{{
 let g:flow#autoclose = 1
 " }}}
-
-" vimcompletesme {{{
-augroup vimcompletesme
-	autocmd!
-	" auto close preview window after completion
-	" https://github.com/ajh17/VimCompletesMe/issues/29
-	autocmd InsertLeave * if bufname('%') != "[Command Line]" | pclose | endif
-	" use dictionary words for markdown
-	autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
-augroup END
-" }}}
 "}}}
+"
+"
+" ale {{{
+" navigate to next/ previous error
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" }}}
 
 " add folding for different filetypes {{{
 augroup folding
