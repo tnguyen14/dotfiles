@@ -384,7 +384,6 @@ augroup vimobsession
 		\     Obsession |
 		\   endif |
 		\ endif
-                     \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Not make all markdown files vimwiki syntax
 let g:vimwiki_global_ext = 0
