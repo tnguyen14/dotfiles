@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # if not running interactively, don't do anything
-[[ -z $PS1 ]] && return
+[[ -z $PS1 ]] && export PATH="$PATH:/usr/local/bin" && return
 
 # check for linux
 if [[ "$OSTYPE" =~ ^linux ]]; then
