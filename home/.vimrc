@@ -29,6 +29,7 @@ Plug 'ajh17/VimCompletesMe'
 
 " languages
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
@@ -247,7 +248,7 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 " }}}
 
-" NERDTree {{{
+" NERDTree{{{
 let NERDTreeShowHidden = 1
 " auto delete the buffer of the file you just deleted with NERDTree
 let NERDTreeAutoDeleteBuffer = 1
@@ -384,15 +385,17 @@ augroup vimobsession
 		\     Obsession |
 		\   endif |
 		\ endif
-
-" Not make all markdown files vimwiki syntax
-let g:vimwiki_global_ext = 0
 " }}}
+
 
 " vim-flow {{{
 let g:flow#autoclose = 1
 " }}}
-"}}}
+
+" vim-jsx {{{
+" Enable JSX without requiring .jsx extension
+let g:jsx_ext_required = 0
+" }}}
 "
 "
 " ale {{{
@@ -400,6 +403,7 @@ let g:flow#autoclose = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " }}}
+"}}}
 
 " add folding for different filetypes {{{
 augroup folding
