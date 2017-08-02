@@ -32,7 +32,11 @@ set shiftwidth=4
 
 set list
 set showbreak=\\
-set listchars=tab:→\ ,trail:_,eol:¬,extends:>,precedes:<,nbsp:~
+set listchars=tab:>\ ,trail:_,extends:>,precedes:<,nbsp:~
+" make eol, extends and precedes color gray
+highlight NonText ctermfg=8 guifg=DarkGray
+" make nbsp, tab and trail color gray
+highlight SpecialKey ctermfg=8 guifg=DarkGray
 
 set splitbelow
 set splitright
