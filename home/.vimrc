@@ -14,8 +14,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
@@ -368,12 +366,6 @@ nnoremap <C-P> :GitFiles<CR>
 nnoremap <C-O> :Files<CR>
 " }}}
 
-" vim-devicons {{{
-if exists("g:loaded_webdevicons")
-	call webdevicons#refresh()
-endif
-" }}}
-"
 " obsession {{{
 augroup vimobsession
 	autocmd!
