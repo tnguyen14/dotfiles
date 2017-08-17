@@ -34,6 +34,7 @@
 	delete-history = !bash "$HOME/.config/git/delete-history.sh"
 	create-deploy-branch = !bash "$HOME/.config/git/create-deploy-branch.sh"
 	list = !bash "$HOME/.config/git/list.sh"
+	pushf = push --force-with-lease
 
 [mergetool]
 	keepBackup = true
