@@ -387,6 +387,8 @@ let g:jsx_ext_required = 0
 "
 "
 " ale {{{
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
 " navigate to next/ previous error
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
