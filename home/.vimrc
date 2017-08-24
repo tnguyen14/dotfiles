@@ -244,6 +244,21 @@ endif
 let g:airline_symbols.branch = ''
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
+
+" default is
+" let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'spell', 'capslock', 'xkblayout', 'iminsert'])
+" remove 'mode', as it's already indicated by vim
+let g:airline_section_a = airline#section#create_left(['crypt', 'paste', 'spell', 'capslock', 'xkblayout', 'iminsert'])
+" hide git branch/ hunks info (section b) to give section_c more space
+" it would be great to add the git branch info on NERDTree status line
+" https://github.com/vim-airline/vim-airline/issues/271#issuecomment-305244298
+let g:airline_section_b = ''
+
+" default is 
+" let g:airline_section_z = airline#section#create(['windowswap', 'obsession', '%3p%%'.spc, 'linenr', 'maxlinenr', spc.':%3v'])
+" https://github.com/vim-airline/vim-airline/blob/7813a5491223befd80f798c86802488613908b58/autoload/airline/init.vim
+" removing the percentage
+let g:airline_section_z = airline#section#create(['windowswap', 'obsession', 'linenr', 'maxlinenr', '%3v'])
 " }}}
 
 " NERDTree{{{
