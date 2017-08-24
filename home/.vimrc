@@ -32,7 +32,6 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'iamcco/markdown-preview.vim'
 Plug 'ap/vim-css-color'
 Plug 'flowtype/vim-flow'
 Plug 'tmux-plugins/vim-tmux'
@@ -356,10 +355,6 @@ let g:syntastic_javascript_standard_generic = 1
 " vim-json {{{
 " Disable JSON quote concealing
 let g:vim_json_syntax_conceal = 0
-" }}}
-
-" markdown-preview {{{
-let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 " }}}
 
 " fzf {{{
