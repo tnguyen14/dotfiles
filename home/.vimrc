@@ -117,7 +117,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set path+=..
 set wildmenu
 
-set foldlevel=2
+set foldlevel=5
 " rg grep {{{
 if executable('rg')
 	set grepprg=rg\ --vimgrep
