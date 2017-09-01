@@ -259,6 +259,7 @@ filesToSource+=(~/.bash_prompt)
 filesToSource+=(~/.git-completion.bash)
 filesToSource+=(~/.fzf.bash)
 filesToSource+=(~/.fzf.sh) # custom fzf commands
+filesToSource+=(~/.travis/travis.sh)
 
 for file in "${filesToSource[@]}"; do
 	[ -r "$file" ] && source "$file"
