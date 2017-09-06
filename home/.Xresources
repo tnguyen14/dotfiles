@@ -1,5 +1,5 @@
 XTerm*utf8: 1
-XTerm*faceName: SauceCodePro Nerd Font
+XTerm*faceName: Source Code Pro
 XTerm*faceSize: 10
 
 XTerm*saveLines: 20000
@@ -9,13 +9,14 @@ URxvt.saveLins: 20000
 URxvt.scrollBar: false
 URxvt.scrollStyle: xrvt
 
-URxvt.allow_bold:           true
-URxvt*font:                 xft:Source Code Pro:size=11
-URxvt*imFont:               xft:Source Code Pro:regular:size=11
-URxvt*boldFont:             xft:Source Code Pro:bold:size=11
-URxvt*italicFont:           xft:Source Code Pro:italic:size=11
-URxvt*boldItalicFont:       xft:Source Code Pro:bold:italic:size=11
+URxvt.allow_bold: true
+URxvt*font: xft:Source Code Pro:size=11
+URxvt*imFont: xft:Source Code Pro:regular:size=11
+URxvt*boldFont: xft:Source Code Pro:bold:size=11
+URxvt*italicFont: xft:Source Code Pro:italic:size=11
+URxvt*boldItalicFont: xft:Source Code Pro:bold:italic:size=11
 
+! set spacing to 0 to display special unicode characters
 URxvt*letterSpace: 0
 
 ! icon copied from https://github.com/numixproject/numix-icon-theme-circle
