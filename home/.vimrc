@@ -392,7 +392,8 @@ augroup vimobsession
 
 
 " vim-flow {{{
-let g:flow#autoclose = 1
+" ale will take care of showing error
+let g:flow#showquickfix = 0
 " }}}
 
 " vim-jsx {{{
@@ -402,11 +403,11 @@ let g:jsx_ext_required = 0
 "
 "
 " ale {{{
-let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 " navigate to next/ previous error
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-j> <Plug>(ale_previous_wrap)
+nmap <silent> <C-k> <Plug>(ale_next_wrap)
 " }}}
 "}}}
 
