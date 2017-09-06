@@ -205,6 +205,12 @@ if [ ! -f ~/.config/nvim/autoload/plug.vim ]; then
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+# download base16-default-dark Xresources file from
+# https://github.com/chriskempson/base16-xresources
+if [ ! -f ~/.config/base16-default-dark-256.Xresources ]; then
+	curl -Lo ~/.config/base16-default-dark-256.Xresources \
+		https://raw.githubusercontent.com/chriskempson/base16-xresources/master/xresources/base16-default-dark-256.Xresources
+fi
 # Aliases
 alias ls='ls --color'
 alias ll='ls -alF'
