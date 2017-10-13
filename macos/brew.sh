@@ -34,9 +34,6 @@ brew install bash-completion2
 brew tap homebrew/completions
 brew install brew-cask-completion
 
-# generic coloriser http://kassiopeia.juls.savba.sk/~garabik/software/grc.html
-brew install grc
-
 # Install wget with IRI support
 brew install wget --enable-iri
 
@@ -80,6 +77,9 @@ brew install docker
 brew install python3
 pip3 install --upgrade pip setuptools
 pip3 install neovim
+
+# generic coloriser https://github.com/garabik/grc
+brew install grc
 
 # Remove outdated versions from the cellar
 brew cleanup

@@ -254,6 +254,7 @@ if [ $unix ]; then
 		filesToSource+=($(brew --prefix)/etc/profile.d/z.sh)
 		filesToSource+=($(brew --prefix)/etc/grc.bashrc)
 		filesToSource+=($(brew --prefix)/share/bash-completion/bash_completion)
+		filesToSource+=($(brew --prefix)/etc/grc.bashrc)
 	fi
 elif [ $linux ]; then
 	filesToSource+=(~/z.sh)
