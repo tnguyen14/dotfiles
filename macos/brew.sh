@@ -3,6 +3,11 @@
 # Install command-line tools using Homebrew
 # Inspired by https://github.com/paulirish/dotfiles/blob/master/brew.sh
 
+# install brew first if it is not
+if ! which brew > /dev/null; then
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
 # Make sure we’re using the latest Homebrew
 brew update
 
