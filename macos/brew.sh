@@ -19,6 +19,8 @@ brew install coreutils
 # GNU `find`, `locate`, `updatedb`, and `xargs`
 brew install findutils --with-default-names
 brew install gnu-sed --with-default-names
+brew install grep --with-default-names
+brew install diffutils
 
 brew install gcc
 
@@ -26,25 +28,13 @@ brew install gcc
 brew install bash
 echo /usr/local/bin/bash | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
-# regular bash-completion package is held back to an older release, so we get latest from versions.
-#   github.com/Homebrew/homebrew/blob/master/Library/Formula/bash-completion.rb#L3-L4
-brew tap homebrew/versions
+
 brew install bash-completion2
-
-brew tap homebrew/completions
 brew install brew-cask-completion
-
-# Install wget with IRI support
-brew install wget --enable-iri
 
 # Install more recent versions of some OS X tools
 brew install macvim --with-override-system-vim
-brew tap neovim/neovim
 brew install neovim
-
-brew tap homebrew/dupes
-brew install grep
-brew install screen
 
 # Install other useful binaries
 brew install git
@@ -54,6 +44,7 @@ brew install tmux
 brew install nginx
 brew install nmap
 brew install rsync
+brew install wget
 brew install httpie
 
 # System monitoring tools
@@ -62,12 +53,10 @@ brew install htop
 brew install nethogs
 brew install ncdu
 
-brew install cadaver
 brew install jq
 brew install mobile-shell
 brew install keybase
 brew install diff-so-fancy
-brew install ag
 brew install fzf
 brew install ripgrep
 brew install tldr
@@ -87,7 +76,7 @@ brew cleanup
 # Brew Cask
 brew cask
 
-brew cask install alfred
+brew cask install cerebro
 brew cask install appcleaner
 brew cask install atom
 brew cask install iterm2
