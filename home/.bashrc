@@ -58,6 +58,7 @@ if [ $linux ]; then
 fi
 
 _prepend_path $GOPATH
+_prepend_path "$HOME/.cargo/bin"
 _prepend_path "/usr/local/share/npm/bin"
 export PATH
 
