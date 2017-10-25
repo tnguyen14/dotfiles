@@ -3,9 +3,9 @@
 " Automatically install vim-plug and run PlugInstall if vim-plug not found
 " see https://github.com/junegunn/vim-plug/wiki/faq#automatic-installation
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -22,7 +22,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'moll/vim-bbye'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ciaranm/detectindent'
+Plug 'tpope/vim-sleuth'
 Plug 'ajh17/VimCompletesMe'
 
 " languages
@@ -50,8 +50,8 @@ call plug#end()
 
 " Theming {{{
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+	let base16colorspace=256
+	source ~/.vimrc_background
 endif
 " }}}
 "
@@ -98,7 +98,6 @@ set hidden
 
 " Tab stuff
 set tabstop=4
-set shiftwidth=4
 
 " Show invisible characters
 set list
@@ -139,13 +138,13 @@ endif
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Rg 
-  \   call fzf#vim#grep(
-  \    'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>),
-  \    1, <bang>0)
+command! -bang -nargs=* Rg
+	\ call fzf#vim#grep(
+	\ 'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>),
+	\ 1, <bang>0)
 
 command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep('git grep --line-number --ignore-case '.shellescape(<q-args>), 0, <bang>0) 
+	\ call fzf#vim#grep('git grep --line-number --ignore-case '.shellescape(<q-args>), 0, <bang>0)
 
 "}}}
 
@@ -254,7 +253,7 @@ let g:airline_section_a = airline#section#create_left(['crypt', 'paste', 'spell'
 " https://github.com/vim-airline/vim-airline/issues/271#issuecomment-305244298
 let g:airline_section_b = ''
 
-" default is 
+" default is
 " let g:airline_section_z = airline#section#create(['windowswap', 'obsession', '%3p%%'.spc, 'linenr', 'maxlinenr', spc.':%3v'])
 " https://github.com/vim-airline/vim-airline/blob/7813a5491223befd80f798c86802488613908b58/autoload/airline/init.vim
 " removing the percentage
@@ -435,7 +434,6 @@ augroup misc
 
 	" crontab
 	autocmd filetype crontab setlocal nobackup nowritebackup
-	autocmd BufReadPost * DetectIndent
 augroup END
 
 " local (gitignored) settings
