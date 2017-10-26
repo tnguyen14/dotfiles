@@ -228,6 +228,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 " uniquify buffers names with similar filename, suppressing common parts of paths
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" integrate with ale
+let g:airline#extensions#ale#enabled = 1
 " disable showing a summary of changed hunks under source control
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#syntastic#enabled = 1
