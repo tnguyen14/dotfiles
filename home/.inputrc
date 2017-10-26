@@ -16,7 +16,7 @@ set mark-symlinked-directories on
 
 # ctrl g, ctrl f for moving on the readline by word
 "\C-f": forward-word
-"\C-g": backward-word
+"\C-d": backward-word
 
 # Do not autocomplete hidden files unless the pattern explicitly begins with a dot
 set match-hidden-files off
