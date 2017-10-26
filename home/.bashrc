@@ -45,7 +45,10 @@ _append_path() {
 	[ -d $1 ] && PATH="$PATH:$1"
 }
 
-PATH="$PATH:$HOME/dotfiles/node_modules/.bin:$HOME/bin:./bin:./node_modules/.bin:."
+_prepend_path "$HOME/dotfiles/node_modules/.bin"
+_prepend_path "$HOME/bin"
+_append_path "./bin"
+_append_path "./node_modules/.bin"
 
 if which brew > /dev/null 2>&1; then
 	_prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
