@@ -197,6 +197,8 @@ noremap <Leader>[ :bprev<CR>
 " Save and quit buffer
 noremap <Leader>s :write<CR>
 noremap <Leader>q :quit<CR>
+" Open buffers list
+noremap <Leader>b :Buffers<CR>
 
 " bbye remap to <Leader>d
 noremap <Leader>d :Bdelete<CR>
