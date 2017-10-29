@@ -75,11 +75,12 @@ brew cleanup
 
 # Brew Cask
 brew cask
+brew tap caskroom/versions
 
 brew cask install cerebro
 brew cask install appcleaner
 brew cask install atom
-brew cask install iterm2
+brew cask install iterm2-beta
 brew cask install flux
 brew cask install skyfonts
 brew cask install postman
@@ -94,7 +95,6 @@ brew cask install spotify
 brew cask install dropbox
 brew cask install google-drive
 brew cask install 1password
-brew cask install evernote
 brew cask install imageoptim
 brew cask install slack
 
