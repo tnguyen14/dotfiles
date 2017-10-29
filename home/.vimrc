@@ -33,7 +33,9 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'elzr/vim-json'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ap/vim-css-color'
-Plug 'flowtype/vim-flow'
+" disabling vim-flow until https://github.com/flowtype/vim-flow/issues/49
+" is resolved - currently it opens too many flow processes.
+" Plug 'flowtype/vim-flow'
 Plug 'tmux-plugins/vim-tmux'
 
 " tpope
