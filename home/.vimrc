@@ -22,7 +22,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'moll/vim-bbye'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-sleuth'
 Plug 'ajh17/VimCompletesMe'
 
 " languages
@@ -36,6 +35,7 @@ Plug 'ap/vim-css-color'
 " disabling vim-flow until https://github.com/flowtype/vim-flow/issues/49
 " is resolved - currently it opens too many flow processes.
 " Plug 'flowtype/vim-flow'
+
 Plug 'tmux-plugins/vim-tmux'
 
 " tpope
@@ -44,6 +44,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-eunuch'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -62,10 +64,11 @@ endif
 " regular vim only {{{
 if !has('nvim')
 	set hlsearch
-	set mouse=a
 endif
 " }}}
 "
+set mouse=a
+
 " Allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
 
@@ -259,6 +262,9 @@ let g:airline_section_a = airline#section#create_left(['crypt', 'paste', 'spell'
 " https://github.com/vim-airline/vim-airline/issues/271#issuecomment-305244298
 let g:airline_section_b = ''
 
+" hide file encoding
+" default is let g:airline_section_y = airline#section#create_right(['ffenc'])
+let g:airline_section_y = ''
 " default is
 " let g:airline_section_z = airline#section#create(['windowswap', 'obsession', '%3p%%'.spc, 'linenr', 'maxlinenr', spc.':%3v'])
 " https://github.com/vim-airline/vim-airline/blob/7813a5491223befd80f798c86802488613908b58/autoload/airline/init.vim
