@@ -25,12 +25,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ajh17/VimCompletesMe'
 
 " languages
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'elzr/vim-json'
-Plug 'mustache/vim-mustache-handlebars'
+Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
 " disabling vim-flow until https://github.com/flowtype/vim-flow/issues/49
 " is resolved - currently it opens too many flow processes.
