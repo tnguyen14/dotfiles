@@ -248,6 +248,8 @@ let g:airline_symbols.branch = ''
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 
+" https://github.com/vim-airline/vim-airline/wiki/FAQ#how-can-i-remove-those-angle-at-the-end
+let g:airline_skip_empty_sections = 1
 " default is
 " let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'spell', 'capslock', 'xkblayout', 'iminsert'])
 " remove 'mode', as it's already indicated by vim
