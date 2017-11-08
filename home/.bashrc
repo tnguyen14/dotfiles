@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
 # if not running interactively, don't do anything
-[[ -z $PS1 ]] && export PATH="$PATH:/usr/local/bin" && return
+# [[ -z $PS1 ]] && export PATH="$PATH:/usr/local/bin" && return
+# $- is current shell options
+case $- in
+	*i*) ;;
+	*) export PATH="$PATH:/usr/local/bin" && return;;
+esac
 
 # check for linux
 if [[ "$OSTYPE" =~ ^linux ]]; then
@@ -58,6 +63,7 @@ fi
 # linuxbrew
 if [ $linux ]; then
 	_prepend_path "/home/linuxbrew/.linuxbrew/bin"
+	export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
 fi
 
 _prepend_path $GOPATH
@@ -78,7 +84,7 @@ base16_default-dark
 export HISTTIMEFORMAT='%F %T '
 
 # keep history up to date, across sessions, in realtime
-#  http://unix.stackexchange.com/a/48113
+# http://unix.stackexchange.com/a/48113
 
 # no duplicate entries
 export HISTCONTROL=ignoredups:erasedups
@@ -92,6 +98,10 @@ export HISTIGNORE="&:[  ]*:exit:ls:bg:fg:history:clear"
 shopt -s histappend
 # Save multi-line commands as one command
 shopt -s cmdhist
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
 # Better directory navigation
 # Prepend cd to directory names automatically
@@ -143,10 +153,12 @@ f() {
 # Start an HTTP server from a directory, optionally specifying the port
 serve() {
 	local port="${1:-8000}"
-	open "http://localhost:${port}/"
 	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
 	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+	if [ $unix ]; then
+		open "http://localhost:${port}/"
+	fi
 }
 
 # clean up docker
@@ -163,7 +175,7 @@ docker_cleanup() {
 
 # Copy w/ progress
 cpp () {
-  rsync -WavP --human-readable --progress $1 $2
+	rsync -WavP --human-readable --progress $1 $2
 }
 
 # check if tmux.conf exist, and if tpm is being used
@@ -173,8 +185,8 @@ if [ -f $HOME/.tmux.conf ]; then
 	# returns 0 if found, 1 if not
 	tpm=$?
 	if [ "$tpm" == 0 ] && [ ! -d $HOME/.tmux/plugins/tpm ]; then
-			mkdir -p $HOME/.tmux/plugins
-			git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+		mkdir -p $HOME/.tmux/plugins
+		git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 	fi
 	unset tpm
 fi
@@ -216,9 +228,11 @@ if [ ! -f ~/.config/base16-default-dark-256.Xresources ]; then
 		https://raw.githubusercontent.com/chriskempson/base16-xresources/master/xresources/base16-default-dark-256.Xresources
 fi
 # Aliases
-alias ls='ls --color'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
+alias l='ls -CF'
 alias dt='cd ~/Desktop'
 # Make basic commands verbose
 alias cp='cp -v'
@@ -248,6 +262,10 @@ if [ $unix ]; then
 
 fi
 
+# Add an "alert" alias for long running commands.
+# Use like so: sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 # Sourcing files
 filesToSource=()
 
@@ -276,3 +294,5 @@ for file in "${filesToSource[@]}"; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
+
+# vim: set tabstop=4:
