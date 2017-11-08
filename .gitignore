@@ -2,3 +2,5 @@
 node_modules
 home/local.vim
 home/.bash_local
+arch/.vagrant
+arch/Vagrantfile.local

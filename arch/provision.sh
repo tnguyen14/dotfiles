@@ -19,7 +19,7 @@ gpasswd -a vagrant docker
 su vagrant
 
 # link up dotfiles
-cd ~/dotfiles && ./link.sh
+cd /home/vagrant/dotfiles && ./link.sh
 
 # install vim plugins
 nvim -E -c "PlugInstall" -c qa
