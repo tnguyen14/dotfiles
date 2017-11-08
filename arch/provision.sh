@@ -15,12 +15,13 @@ gpasswd -a vagrant docker
 # will need a reboot after in order for docker to work,
 # see https://wiki.archlinux.org/index.php/Docker
 
+ln -s ~/config/arch/etc/nginx /etc/nginx
+
 # vagrant user stuff
-su vagrant
+su vagrant <<EOF
 
 # link up dotfiles
-cd /home/vagrant/dotfiles && ./link.sh
+cd ~/dotfiles && ./link.sh
 
-# install vim plugins
-nvim -E -c "PlugInstall" -c qa
-
+ln -s ~/config/home/.ssh/config ~/.ssh/config
+EOF

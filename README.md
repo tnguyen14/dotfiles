@@ -13,9 +13,6 @@
 :; ./macos/.macos
 # install binaries and applications with Homebrew
 :; ./macos/brew.sh
-
-# install vim-plug plugins
-:; nvim -E -c "PlugInstall" -c qa
 ```
 
 ### Arch Linux VM
