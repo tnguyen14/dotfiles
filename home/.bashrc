@@ -52,6 +52,7 @@ _append_path() {
 
 _prepend_path "$HOME/dotfiles/node_modules/.bin"
 _prepend_path "$HOME/bin"
+_prepend_path "$HOME/dotfiles/bin"
 _append_path "./bin"
 _append_path "./node_modules/.bin"
 
