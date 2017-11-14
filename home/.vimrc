@@ -170,10 +170,6 @@ if bufwinnr(1)
 	nnoremap - <C-W><
 endif
 
-" shortcut to edit and source .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
 " shortcut for going to begining and end of line
 nnoremap H ^
 nnoremap L $
@@ -216,14 +212,6 @@ nnoremap <Leader>L :lprevious<CR>
 let g:gitgutter_max_signs = 1000
 " }}}
 
-" vim multiple cursor {{{
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-" }}}
-
 " airline {{{
 let g:airline#extensions#tabline#enabled = 1
 " show just the filename
@@ -234,7 +222,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#ale#enabled = 1
 " disable showing a summary of changed hunks under source control
 let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#syntastic#enabled = 1
 
 let g:airline_theme = 'base16'
 let g:airline_left_sep = ''
@@ -324,56 +311,6 @@ let delimitMate_expand_cr = 2
 let delimitMate_expand_space = 1
 " }}}
 
-" Syntastic {{{
-function! HasConfig(file, dir)
-	return findfile(glob(a:file), escape(a:dir, ' ') . ';') !=# ''
-endfunction
-
-function! HasConfigJs()
-	let checkers = []
-	" eslintrc files could have json or yml suffix, or no suffix
-	if HasConfig('.eslintrc*', expand('<amatch>:h'))
-		call add(checkers, 'eslint')
-	endif
-	if HasConfig('.jshintrc', expand('<amatch>:h'))
-		call add(checkers, 'jshint')
-	endif
-	if HasConfig('.jscsrc', expand('<amatch>:h'))
-		call add(checkers, 'jscs')
-	endif
-	" default to standard
-	if !len(checkers)
-		call add(checkers, 'standard')
-	endif
-	return checkers
-endfunction
-
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '∆'
-let g:syntastic_style_error_symbol = '✠'
-let g:syntastic_style_warning_symbol = '≈'
-
-let g:syntastic_html_tidy_ignore_errors = ["proprietary attribute", "trimming empty <", "unescaped &" , "lacks \"action", "is not recognized!", "discarding unexpected"]
-" remove html/tidy checker from handlebars files, see https://github.com/scrooloose/syntastic/issues/1904
-let g:syntastic_filetype_map = { "html.handlebars": "handlebars"}
-
-let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_javascript_standard_exec = 'happiness'
-let g:syntastic_javascript_standard_generic = 1
-" augroup syntasticjs
-" 	autocmd!
-" 	autocmd BufNewFile,BufReadPre *.js let b:syntastic_checkers = HasConfigJs()
-" augroup END
-" }}}
 
 " vim-json {{{
 " Disable JSON quote concealing
