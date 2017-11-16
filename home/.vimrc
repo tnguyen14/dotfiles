@@ -44,14 +44,17 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 call plug#end()
 " }}}
 
 " Theming {{{
-if filereadable(expand("~/.vimrc_background"))
-	let base16colorspace=256
-	source ~/.vimrc_background
-endif
+" if filereadable(expand("~/.vimrc_background"))
+" 	let base16colorspace=256
+" 	source ~/.vimrc_background
+" endif
+let t_Co=256
+colorscheme onehalfdark
 " }}}
 "
 " Settings {{{
@@ -223,7 +226,8 @@ let g:airline#extensions#ale#enabled = 1
 " disable showing a summary of changed hunks under source control
 let g:airline#extensions#hunks#enabled = 0
 
-let g:airline_theme = 'base16'
+" let g:airline_theme = 'base16'
+let g:airline_theme = 'onehalfdark'
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
