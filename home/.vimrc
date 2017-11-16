@@ -143,7 +143,7 @@ command! -bang -nargs=* Rg
 	\ 'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>),
 	\ 1, <bang>0)
 
-command! -bang -nargs=* GGrep
+command! -bang -nargs=* Gg
 	\ call fzf#vim#grep('git grep --line-number --ignore-case '.shellescape(<q-args>), 0, <bang>0)
 
 "}}}
