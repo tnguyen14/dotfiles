@@ -16,3 +16,4 @@ pacman -S --noconfirm docker docker-compose
 
 # dev
 pacman -S --noconfirm tmux neovim diff-so-fancy ripgrep
+pacman -S certbot-nginx
