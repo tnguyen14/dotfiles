@@ -73,12 +73,12 @@ function do_link() {
 	# try to backup first, and if unsuccessful, skip
 	do_backup "$2" "$base"
 	if [ $? -ne 0 ]; then
-		e_arrow "Backuo failed. Skipping $base"
+		e_arrow "Backup failed. Skipping $base"
 		return 1
 	fi
 	ln -sfv "$1" "$2/$base"
 	if [ $? -eq 0 ]; then
-		e_success "Linked $base"
+		e_success "Linked $2/$base"
 	else
 		e_error "Failed to link $base to $2"
 	fi
@@ -119,8 +119,10 @@ function link_dir() {
 		mkdir -p "$2"
 	fi
 	if [ -d "$1" ] && [ -d "$2" ]; then
-		for file in "$1"/{.,}*; do
-			link_file "$file" "$2"
+	# use ${var%/} to remove trailing slash
+	# see https://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion
+		for file in "${1%/}"/{.,}*; do
+			link_file "$file" "${2%/}"
 		done
 	fi
 }
