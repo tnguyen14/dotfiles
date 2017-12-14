@@ -9,7 +9,9 @@ function e_reset()    { echo -e "\033[0m"; }
 
 function usage() {
 	cat << EOF
-Usage: link.sh [options]
+Usage: link [options] src_dir target_dir
+
+Linking directory
 
 Options:
     -h, --help      Show help options
@@ -65,13 +67,13 @@ function do_link() {
 	base=$(basename "$1")
 	# if the file already hard links to the same file, skip it
 	if [ "$1" -ef "$2/$base" ]; then
-		e_arrow "Skipping $2/$base"
+		e_arrow "Skipping '$2/$base' because file already exists and is the same"
 		return
 	fi
 	# try to backup first, and if unsuccessful, skip
 	do_backup "$2" "$base"
 	if [ $? -ne 0 ]; then
-		e_arrow "Skipping $base"
+		e_arrow "Backuo failed. Skipping $base"
 		return 1
 	fi
 	ln -sfv "$1" "$2/$base"
@@ -88,9 +90,9 @@ function link_file() {
 	if [ -f "$1" ]; then
 		case "$1" in
 			# ignore .swp or .DS_Store files
-			*.swp|*.DS_Store) 
+			*.swp|*.DS_Store)
 				;;
-			*) 
+			*)
 				do_link "$1" "$2"
 				;;
 		esac
@@ -122,12 +124,7 @@ function link_dir() {
 		done
 	fi
 }
-e_header "Setting up \$HOME dotfiles..."
-link_dir "$(pwd)/home" "$HOME"
 
-# macos specific stuff
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-	link_dir "$(pwd)/macos/home" "$HOME"
-fi
+link_dir "$@"
 
 e_reset
