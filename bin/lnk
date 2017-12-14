@@ -49,8 +49,8 @@ function do_backup() {
 	if [ $backup -eq 0 ]; then
 		return
 	fi
-	mkdir -p "$1"/.backup
 	if [ -f "$1/$base" ] && [ ! -L "$1/$base" ]; then
+		mkdir -p "$1"/.backup
 		mv "$1/$2" "$1"/.backup/
 		if [ $? -eq 0 ]; then
 			e_success "Backed up $2 to $1/.backup/"
