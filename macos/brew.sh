@@ -54,7 +54,7 @@ brew install nethogs
 brew install ncdu
 
 brew install jq
-brew install mobile-shell
+brew install mosh
 brew install keybase
 brew install diff-so-fancy
 brew install fzf
