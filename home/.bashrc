@@ -70,6 +70,10 @@ fi
 _prepend_path $GOPATH
 _prepend_path "$HOME/.cargo/bin"
 _prepend_path "/usr/local/share/npm/bin"
+
+if which ruby > /dev/null 2>&1; then
+	PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+fi
 export PATH
 
 # Base16 Shell
