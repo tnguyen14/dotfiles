@@ -15,5 +15,6 @@ npm i -g n
 pacman -S --noconfirm docker docker-compose
 
 # dev
-pacman -S --noconfirm tmux neovim diff-so-fancy ripgrep
-pacman -S certbot-nginx
+pacman -S --noconfirm tmux neovim diff-so-fancy ripgrep mosh
+pacman -S --noconfirm make gcc
+pacman -S --noconfirm certbot-nginx
