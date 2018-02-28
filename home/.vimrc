@@ -164,7 +164,7 @@ inoremap <M-Tab> <C-V><Tab>
 onoremap p i(
 
 " Faster vsplit resizing (+,-)
-" split resize can still be achieved with <C-W>+, <C-W>-
+" horizontal split resize can still be achieved with <C-W>+, <C-W>-, <C-W> [n] +
 if bufwinnr(1)
 	nnoremap + <C-W>>
 	nnoremap - <C-W><
@@ -345,8 +345,7 @@ let g:flow#showquickfix = 0
 " Enable JSX without requiring .jsx extension
 let g:jsx_ext_required = 0
 " }}}
-"
-"
+
 " ale {{{
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
@@ -381,6 +380,15 @@ augroup misc
 	" crontab
 	autocmd filetype crontab setlocal nobackup nowritebackup
 augroup END
+
+set errorformat+=%f[%l\\,%c]:\ %m,%m
+
+function! s:todo()
+	lexpr system('cat TODO')
+	lwindow
+endfunction
+
+command Todo call s:todo()
 
 " local (gitignored) settings
 if filereadable(expand('$HOME/.local.vim'))
