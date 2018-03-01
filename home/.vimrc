@@ -27,6 +27,7 @@ Plug 'ajh17/VimCompletesMe'
 " languages
 Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
+Plug 'JamshedVesuna/vim-markdown-preview'
 " disabling vim-flow until https://github.com/flowtype/vim-flow/issues/49
 " is resolved - currently it opens too many flow processes.
 " Plug 'flowtype/vim-flow'
@@ -353,6 +354,13 @@ let g:ale_lint_on_insert_leave = 1
 nmap <silent> <C-j> <Plug>(ale_previous_wrap)
 nmap <silent> <C-k> <Plug>(ale_next_wrap)
 " }}}
+
+" vim-markdown-preview {{{
+let vim_markdown_preview_github=1
+let vim_markdown_preview_toggle=2
+let vim_markdown_preview_hotkey='<C-m>'
+" }}}
+
 "}}}
 
 " add folding for different filetypes {{{
