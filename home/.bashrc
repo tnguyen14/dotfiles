@@ -228,7 +228,6 @@ if [ ! -f ~/.config/base16-default-dark-256.Xresources ]; then
 		https://raw.githubusercontent.com/chriskempson/base16-xresources/master/xresources/base16-default-dark-256.Xresources
 fi
 # Aliases
-alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
