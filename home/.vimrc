@@ -318,6 +318,12 @@ let delimitMate_expand_space = 1
 let g:vim_json_syntax_conceal = 0
 " }}}
 
+" vim-markdown {{{
+" Disable Markdown syntax concealing
+" https://github.com/plasticboy/vim-markdown#syntax-concealing
+let g:vim_markdown_conceal = 0
+" }}}
+
 " fzf {{{
 nnoremap <C-P> :GitFiles<CR>
 nnoremap <C-O> :Files<CR>
