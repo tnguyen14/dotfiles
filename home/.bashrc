@@ -42,38 +42,46 @@ export FZF_DEFAULT_COMMAND='rg -uu --files -g !.git -g !node_modules'
 export GOPATH=$HOME/go
 
 # Construct $PATH
-PATH="${PATH:-/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin}"
-_prepend_path() {
-	[ -d $1 ] && PATH="$1:$PATH"
-}
-_append_path() {
-	[ -d $1 ] && PATH="$PATH:$1"
+pathmunge () {
+	if [ ! -e $1 ]; then return; fi
+	if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
+		if [ "$2" = "after" ] ; then
+			PATH=$PATH:$1
+		else
+			PATH=$1:$PATH
+		fi
+	fi
 }
 
-_prepend_path "$HOME/dotfiles/node_modules/.bin"
-_prepend_path "$HOME/bin"
-_prepend_path "$HOME/dotfiles/bin"
-_append_path "./bin"
-_append_path "./node_modules/.bin"
+pathmunge /sbin
+pathmunge /usr/sbin
+pathmunge /usr/local/sbin
+pathmunge /bin
+pathmunge /usr/bin
+pathmunge /usr/local/bin
+
+pathmunge "$HOME/dotfiles/node_modules/.bin"
+pathmunge "$HOME/bin"
+pathmunge "$HOME/dotfiles/bin"
+pathmunge ./bin "after"
+pathmunge ./node_modules/.bin "after"
 
 if which brew > /dev/null 2>&1; then
-	_prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
-	_prepend_path "$(brew --prefix findutils)/libexec/gnubin"
+	pathmunge "$(brew --prefix coreutils)/libexec/gnubin"
+	pathmunge "$(brew --prefix findutils)/libexec/gnubin"
+	pathmunge "$(brew --prefix python)/libexec/bin"
 fi
 
 # linuxbrew
 if [ $linux ]; then
-	_prepend_path "/home/linuxbrew/.linuxbrew/bin"
+	pathmunge "/home/linuxbrew/.linuxbrew/bin"
 	export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
 fi
 
-_prepend_path $GOPATH
-_prepend_path "$HOME/.cargo/bin"
-_prepend_path "/usr/local/share/npm/bin"
+pathmunge $GOPATH
+pathmunge "$HOME/.cargo/bin"
+pathmunge "/usr/local/share/npm/bin"
 
-if which ruby > /dev/null 2>&1; then
-	PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-fi
 export PATH
 
 # Base16 Shell
