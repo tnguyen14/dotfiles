@@ -262,13 +262,11 @@ filesToSource=()
 if [ $unix ]; then
 	if which brew > /dev/null 2>&1; then
 		# support for z.sh
-		filesToSource+=($(brew --prefix)/etc/profile.d/z.sh)
 		filesToSource+=($(brew --prefix)/etc/grc.bashrc)
 		filesToSource+=($(brew --prefix)/share/bash-completion/bash_completion)
 		filesToSource+=($(brew --prefix)/etc/grc.bashrc)
 	fi
 elif [ $linux ]; then
-	filesToSource+=(~/z.sh)
 	filesToSource+=(/etc/bash_completion)
 fi
 
