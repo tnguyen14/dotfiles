@@ -209,6 +209,11 @@ if [ ! -f ~/.config/base16-default-dark-256.Xresources ]; then
 		https://raw.githubusercontent.com/chriskempson/base16-xresources/master/xresources/base16-default-dark-256.Xresources
 fi
 
+if [ ! -f ~/z.sh ]; then
+	curl -Lo ~/z.sh \
+		https://raw.githubusercontent.com/rupa/z/master/z.sh
+fi
+
 # Aliases
 alias grep='grep --color=auto'
 alias ll='ls -alF'
@@ -274,6 +279,7 @@ filesToSource+=(~/.git-completion.bash)
 filesToSource+=(~/.fzf.bash)
 filesToSource+=(~/.fzf.sh) # custom fzf commands
 filesToSource+=(~/.travis/travis.sh)
+filesToSource+=(~/z.sh)
 
 for file in "${filesToSource[@]}"; do
 	[ -r "$file" ] && source "$file"
