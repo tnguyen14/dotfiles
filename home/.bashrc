@@ -126,19 +126,6 @@ shopt -s cdspell
 # defines where cd looks for targets
 CDPATH="."
 
-# https://github.com/herrbischoff/awesome-osx-command-line#show-current-ssid
-ssid() {
-	if [ $unix ]; then
-		airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'
-	fi
-}
-# https://github.com/herrbischoff/awesome-osx-command-line#show-wi-fi-network-passwords
-wifipw() {
-	if [ $unix ]; then
-		security find-generic-password -D "AirPort network password" -a "$1" -gw
-	fi
-}
-
 # whois a domain or a URL
 whois() {
 	local domain=$(echo "$1" | awk -F/ '{print $3}') # get domain from URL
@@ -199,20 +186,6 @@ if [ -f $HOME/.tmux.conf ]; then
 	unset tpm
 fi
 
-# Create a new tmux session with the current dir as the session name
-tmuxn() {
-	# only do something if there's no argument, otherwise, pass it along 
-	# to the regular tmux command
-	if [ $# -eq 0 ]; then
-		# get dirname without full path
-		local dirname=${PWD##*/}
-		# replace dot in dirname with -
-		tmux new-session \; run-shell "tmux rename-session ${dirname/./-}"
-	else
-		tmux "$@"
-	fi
-}
-
 if [ ! -f ~/.git-completion.bash ]; then
 	curl -Lo ~/.git-completion.bash \
 		https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
@@ -235,6 +208,7 @@ if [ ! -f ~/.config/base16-default-dark-256.Xresources ]; then
 	curl -Lo ~/.config/base16-default-dark-256.Xresources \
 		https://raw.githubusercontent.com/chriskempson/base16-xresources/master/xresources/base16-default-dark-256.Xresources
 fi
+
 # Aliases
 alias grep='grep --color=auto'
 alias ll='ls -alF'
@@ -272,6 +246,10 @@ fi
 # Add an "alert" alias for long running commands.
 # Use like so: sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# notify-send is only available on ubuntu; notify is cross platform
+# see https://github.com/mikaelbr/node-notifier
+alias notify='notify -i "$([ $? = 0 ] && echo terminal || echo error)" -t "Terminal Notification" -m "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Sourcing files
 filesToSource=()
