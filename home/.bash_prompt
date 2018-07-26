@@ -99,7 +99,7 @@ function prompt_command() {
 	local git=$(__git_ps1 " on %s")
 
 	# show background jobs indicator if any bg job exists
-	local num_bg_jobs=$(jobs | wc -l)
+	local num_bg_jobs=$(jobs | wc -l | xargs) # pipe to xargs to trim whitespace
 	local bg_jobs
 	[ $num_bg_jobs -gt 0 ] && bg_jobs=" $PURPLE$num_bg_jobs&"
 
