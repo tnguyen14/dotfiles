@@ -68,9 +68,20 @@ set laststatus=2
 " show filename in statusline
 set statusline=%F
 
-
 nnoremap ; :
 vnoremap ; :
+
+" remap <Leader> key
+let mapleader = "\<Space>"
+
+" Buffer navigation
+noremap <Leader>] :bnext<CR>
+noremap <Leader>[ :bprev<CR>
+noremap <Leader>b :buffers<CR>
+" Close buffer without closing split/ window
+" close Location windows, if exist, switch to the previous view buffer, and
+" then close the last switched buffer.
+noremap <Leader>d :lclose<bar>b#<bar>bd #<CR>
 
 let g:vimlite = 1
 
