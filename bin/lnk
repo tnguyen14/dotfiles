@@ -9,17 +9,25 @@ function e_reset()    { echo -e "\033[0m"; }
 
 function usage() {
 	cat << EOF
-Usage: link [options] src_dir target_dir
+Usage: lnk [options] src_dir target_dir
 
-Linking directory
+Linking directory.
+If a file has the prefix "cp$", it will be copied instead of symlinked.
 
 Options:
     -h, --help      Show help options
-    --nobackup      Skip backup
+    --no-backup      Skip backup
+    --no-overwrite  Do not overwrite
 EOF
 }
 
 backup=1
+overwrite=1
+
+if [ -z $1 ]; then
+	usage
+	exit
+fi
 
 # http://stackoverflow.com/questions/402377/using-getopts-in-bash-shell-script-to-get-long-and-short-command-line-options/7680682#7680682
 optspec=":h-:"
@@ -27,12 +35,15 @@ while getopts "$optspec" optchar; do
 	case "${optchar}" in
 		-)
 			case "${OPTARG}" in
-				nobackup)
+				no-backup)
 					backup=0
 					;;
 				help)
 					usage
 					exit
+					;;
+				no-overwrite)
+					overwrite=0
 					;;
 			esac;;
 		h)
@@ -65,8 +76,18 @@ function do_backup() {
 # $2: directory path to link to
 function do_link() {
 	base=$(basename "$1")
-	# if the file already hard links to the same file, skip it
-	if [ "$1" -ef "$2/$base" ]; then
+	# default action is symlink
+	action="ln -s"
+	# if files has the copyPrefix, switch to cp action instead
+	copyPrefix="cp$"
+	if [[ $base = "$copyPrefix"* ]]; then
+		action="cp"
+		# remove the copyPrefix from destination filename
+		base="${base/$copyPrefix/}"
+	fi
+
+	# if the src and destination files are the same, skipping
+	if cmp --silent "$1" "$2/$base"; then
 		e_arrow "Skipping '$2/$base' because file already exists and is the same"
 		return
 	fi
@@ -76,11 +97,18 @@ function do_link() {
 		e_arrow "Backup failed. Skipping $base"
 		return 1
 	fi
-	ln -sfv "$1" "$2/$base"
+
+	args="-v"
+	if [ $overwrite -eq 1 ]; then
+		args="$args -f"
+	fi
+
+	$action $args "$1" "$2/$base"
+
 	if [ $? -eq 0 ]; then
-		e_success "Linked $2/$base"
+		e_success "Successfully $action to $2/$base from $1"
 	else
-		e_error "Failed to link $base to $2"
+		e_error "Failed to create $2/$base from $1"
 	fi
 }
 # link file
