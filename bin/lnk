@@ -12,7 +12,7 @@ function usage() {
 Usage: lnk [options] src_dir target_dir
 
 Linking directory.
-If a file has the prefix "cp$", it will be copied instead of symlinked.
+If a file has the prefix "cp~", it will be copied instead of symlinked.
 
 Options:
     -h, --help      Show help options
@@ -79,7 +79,7 @@ function do_link() {
 	# default action is symlink
 	action="ln -s"
 	# if files has the copyPrefix, switch to cp action instead
-	copyPrefix="cp$"
+	copyPrefix="cp~"
 	if [[ $base = "$copyPrefix"* ]]; then
 		action="cp"
 		# remove the copyPrefix from destination filename
