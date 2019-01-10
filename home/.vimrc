@@ -60,18 +60,18 @@ endif
 " regular vim only {{{
 if !has('nvim')
 	set hlsearch
+
+	" Enable mouse mode working past 220th column
+	" https://stackoverflow.com/questions/7000960/in-vim-why-doesnt-my-mouse-work-past-the-220th-column
+	if has("mouse_sgr")
+		set ttymouse=sgr
+	else
+		set ttymouse=xterm2
+	end
 endif
 " }}}
 "
 set mouse=a
-
-" Enable mouse mode working past 220th column
-" https://stackoverflow.com/questions/7000960/in-vim-why-doesnt-my-mouse-work-past-the-220th-column
-if has("mouse_sgr")
-	set ttymouse=sgr
-else
-	set ttymouse=xterm2
-end
 
 " Allow saving of files as sudo when forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
