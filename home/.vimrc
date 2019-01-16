@@ -366,9 +366,22 @@ let g:jsx_ext_required = 0
 " ale {{{
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+let g:ale_completion_enabled = 1
 " navigate to next/ previous error
 nmap <silent> <C-j> <Plug>(ale_previous_wrap)
 nmap <silent> <C-k> <Plug>(ale_next_wrap)
+
+" :help ale_linters
+let g:ale_linters = {
+			\'python': ['pycodestyle']
+			\}
+
+let g:ale_fixers = {
+			\'python': ['black'],
+			\'javascript': ['prettier']
+			\}
+
+let g:ale_python_black_options = '-l 80'
 " }}}
 
 " vim-markdown-preview {{{
