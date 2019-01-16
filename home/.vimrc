@@ -193,6 +193,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"Reload buffer
+nnoremap <Leader>e :e!<CR>
 " Buffer navigation
 noremap <Leader>] :bnext<CR>
 noremap <Leader>[ :bprev<CR>
@@ -280,7 +282,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 
 " NERDTress File highlighting
 " https://github.com/scrooloose/nerdtree/issues/433#issuecomment-92590696
-" https://upload.wikimedia.org/wikipedia/en/1/15/Xterm_256color_chart.svg
+" https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 	exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
 	exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
