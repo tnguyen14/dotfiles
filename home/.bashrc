@@ -237,8 +237,6 @@ alias dig="dig +nocmd any +multiline +noall +answer"
 alias refresh='source ~/.bashrc'
 # ripgrep search case-insensitive by default
 alias rg='rg -i'
-# vim lite
-alias viml='vim -u ~/.lite.vim'
 
 if [ $unix ]; then
 	# Add spacer to Dock
