@@ -60,9 +60,9 @@ pathmunge /bin
 pathmunge /usr/bin
 pathmunge /usr/local/bin
 
-pathmunge "$HOME/dotfiles/node_modules/.bin"
+pathmunge "$HOME/github/tnguyen14/dotfiles/node_modules/.bin"
 pathmunge "$HOME/bin"
-pathmunge "$HOME/dotfiles/bin"
+pathmunge "$HOME/github/tnguyen14/dotfiles/bin"
 pathmunge ./bin "after"
 pathmunge ./node_modules/.bin "after"
 
