@@ -238,6 +238,10 @@ alias refresh='source ~/.bashrc'
 # ripgrep search case-insensitive by default
 alias rg='rg -i'
 
+if which sensible-editor > /dev/null 2>&1; then
+	alias e='sensible-editor'
+fi
+
 if [ $unix ]; then
 	# Add spacer to Dock
 	alias spacer="defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type=\"spacer-tile\";}' && killall Dock"
