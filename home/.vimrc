@@ -23,6 +23,7 @@ Plug 'moll/vim-bbye'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ajh17/VimCompletesMe'
+" Plug 'terryma/vim-multiple-cursors'
 
 " languages
 Plug 'sheerun/vim-polyglot'
@@ -402,6 +403,9 @@ let vim_markdown_preview_github=1
 let vim_markdown_preview_hotkey='<C-m>'
 " }}}
 
+" vim-multiple-cursors {{{
+let g:multi_cursor_start_word_key = '<C-d>'
+" }}}
 "}}}
 
 " add folding for different filetypes {{{
