@@ -133,30 +133,6 @@ if executable('rg')
 endif
 "}}}
 
-" :Rg {{{
-" Create a :Find command with ripgrep and fzf
-" see https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.h8394n3c5
-
-"" --column: Show column number
-" --line-number: Show line number
-" --no-heading: Do not show file headings in results
-" --fixed-strings: Search term as a literal string
-" --ignore-case: Case insensitive search
-" --no-ignore: Do not respect .gitignore, etc...
-" --hidden: Search hidden files and folders
-" --follow: Follow symlinks
-" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-" --color: Search color options
-command! -bang -nargs=* Rg
-	\ call fzf#vim#grep(
-	\ 'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>),
-	\ 1, <bang>0)
-
-command! -bang -nargs=* Gg
-	\ call fzf#vim#grep('git grep --line-number --ignore-case '.shellescape(<q-args>), 0, <bang>0)
-
-"}}}
-
 "}}}
 
 " Mappings {{{
@@ -202,8 +178,6 @@ noremap <Leader>[ :bprev<CR>
 " Save and quit buffer
 noremap <Leader>s :write<CR>
 noremap <Leader>q :quit<CR>
-" Open buffers list
-noremap <Leader>b :Buffers<CR>
 
 " bbye remap to <Leader>d
 noremap <Leader>d :Bdelete<CR>
@@ -335,8 +309,47 @@ let g:vim_markdown_conceal = 0
 " }}}
 
 " fzf {{{
-nnoremap <C-P> :GitFiles<CR>
-nnoremap <C-O> :Files<CR>
+" :Rg
+" Create a :Find command with ripgrep and fzf
+" see https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.h8394n3c5
+
+"" --column: Show column number
+" --line-number: Show line number
+" --no-heading: Do not show file headings in results
+" --fixed-strings: Search term as a literal string
+" --ignore-case: Case insensitive search
+" --no-ignore: Do not respect .gitignore, etc...
+" --hidden: Search hidden files and folders
+" --follow: Follow symlinks
+" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+" --color: Search color options
+command! -bang -nargs=* Rg
+	\ call fzf#vim#grep(
+	\   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>), 1,
+	\   <bang>0 ? fzf#vim#with_preview('up:60%')
+	\           : fzf#vim#with_preview('right:50%:hidden', '?'),
+	\   <bang>0)
+
+command! -bang -nargs=* Gg
+	\ call fzf#vim#grep(
+	\   'git grep --line-number --ignore-case '.shellescape(<q-args>), 0,
+	\   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+	\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=? GitFiles
+	\ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>p :GitFiles<CR>
+" Open commits list
+noremap <Leader>c :Commits<CR>
+" Open buffers list
+noremap <Leader>b :Buffers<CR>
 " }}}
 
 " obsession {{{
