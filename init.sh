@@ -1,1 +1,1 @@
-./bin/lnk "$(pwd)/home" "$HOME"
+./home/bin/lnk "$(pwd)/home" "$HOME"
