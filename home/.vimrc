@@ -447,7 +447,7 @@ function! s:todo()
 	lwindow
 endfunction
 
-command Todo call s:todo()
+command! Todo call s:todo()
 
 " local (gitignored) settings
 if filereadable(expand('$HOME/.local.vim'))
