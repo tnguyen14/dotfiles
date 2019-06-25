@@ -23,6 +23,7 @@ Plug 'moll/vim-bbye'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ajh17/VimCompletesMe'
+Plug 'mbbill/undotree'
 " Plug 'terryma/vim-multiple-cursors'
 
 " languages
