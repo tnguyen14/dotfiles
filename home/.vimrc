@@ -132,6 +132,11 @@ if executable('rg')
 	" filename:line number:column number:message
 	set grepformat=%f:%l:%c:%m
 endif
+
+if has("persistent_undo")
+	set undodir=/tmp
+	set undofile
+endif
 "}}}
 
 "}}}
