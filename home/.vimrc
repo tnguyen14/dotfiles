@@ -29,7 +29,6 @@ Plug 'mbbill/undotree'
 " languages
 Plug 'sheerun/vim-polyglot'
 Plug 'ap/vim-css-color'
-Plug 'JamshedVesuna/vim-markdown-preview'
 " disabling vim-flow until https://github.com/flowtype/vim-flow/issues/49
 " is resolved - currently it opens too many flow processes.
 " Plug 'flowtype/vim-flow'
@@ -313,6 +312,7 @@ let g:vim_json_syntax_conceal = 0
 " Disable Markdown syntax concealing
 " https://github.com/plasticboy/vim-markdown#syntax-concealing
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 " }}}
 
 " fzf {{{
