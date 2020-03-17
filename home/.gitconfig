@@ -33,6 +33,9 @@
 	size-report = !bash "$HOME/.config/git/size-report.sh"
 	delete-history = !bash "$HOME/.config/git/delete-history.sh"
 	create-deploy-branch = !bash "$HOME/.config/git/create-deploy-branch.sh"
+	# cleaning scripts as inspired by https://dev.to/erykpiast/two-bash-scripts-i-cannot-live-without-when-working-with-git-44a1
+	clean-untracked-safely = !bash "$HOME/.config/git/clean-untracked-safely.sh"
+	clean-local-branches = !bash "$HOME/.config/git/clean-local-branches.sh"
 	list = !bash "$HOME/.config/git/list.sh"
 	pushf = push --force-with-lease
 
