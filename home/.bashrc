@@ -3,6 +3,7 @@
 # if not running interactively, don't do anything
 # [[ -z $PS1 ]] && export PATH="$PATH:/usr/local/bin" && return
 # $- is current shell options
+
 case $- in
 	*i*) ;;
 	*) export PATH="$PATH:/usr/local/bin" && return;;

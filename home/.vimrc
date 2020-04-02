@@ -398,7 +398,8 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 			\'python': ['black'],
-			\'javascript': ['prettier']
+			\'javascript': ['prettier'],
+			\'ruby': ['rubocop'],
 			\}
 
 let g:ale_python_black_options = '-l 80'
