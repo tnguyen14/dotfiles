@@ -25,6 +25,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ajh17/VimCompletesMe'
 Plug 'mbbill/undotree'
 " Plug 'terryma/vim-multiple-cursors'
+Plug 'machakann/vim-highlightedyank'
 
 " languages
 Plug 'sheerun/vim-polyglot'
