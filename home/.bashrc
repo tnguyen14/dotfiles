@@ -217,7 +217,7 @@ fi
 
 # Aliases
 alias grep='grep --color=auto'
-alias ll='ls -alF'
+alias ll='ls --color -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 alias dt='cd ~/Desktop'
