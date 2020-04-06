@@ -44,8 +44,8 @@ export GOPATH=$HOME/go
 
 # Construct $PATH
 pathmunge () {
-	if [ ! -e $1 ]; then return; fi
-	if ! echo $PATH | egrep -q "(^|:)$1($|:)" ; then
+	if [ ! -e "$1" ]; then return; fi
+	if ! echo "$PATH" | grep -qE "(^|:)$1($|:)" ; then
 		if [ "$2" = "after" ] ; then
 			PATH=$PATH:$1
 		else
@@ -67,7 +67,7 @@ pathmunge "$HOME/github/tnguyen14/dotfiles/bin"
 pathmunge ./bin "after"
 pathmunge ./node_modules/.bin "after"
 
-if which brew > /dev/null 2>&1; then
+if command -v brew > /dev/null 2>&1; then
 	pathmunge "$(brew --prefix coreutils)/libexec/gnubin"
 	pathmunge "$(brew --prefix findutils)/libexec/gnubin"
 	pathmunge "$(brew --prefix python)/libexec/bin"
@@ -79,18 +79,18 @@ if [ $linux ]; then
 	export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
 fi
 
-pathmunge $GOPATH
+pathmunge "$GOPATH"
 pathmunge "$HOME/.cargo/bin"
 pathmunge "/usr/local/share/npm/bin"
 
 export PATH
 
 # Base16 Shell
-if [ ! -d $HOME/.config/base16-shell ]; then
-	git clone https://github.com/chriskempson/base16-shell.git $HOME/.config/base16-shell
+if [ ! -d "$HOME/.config/base16-shell" ]; then
+	git clone https://github.com/chriskempson/base16-shell.git "$HOME/.config/base16-shell"
 fi
 BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 base16_default-dark
 
 # Bash history
@@ -129,8 +129,9 @@ CDPATH="."
 
 # whois a domain or a URL
 whois() {
-	local domain=$(echo "$1" | awk -F/ '{print $3}') # get domain from URL
-	if [ -z $domain ] ; then
+	local domain
+	domain=$(echo "$1" | awk -F/ '{print $3}') # get domain from URL
+	if [ -z "$domain" ] ; then
 		domain=$1
 	fi
 	echo "Getting whois record for: $domain …"
@@ -138,12 +139,12 @@ whois() {
 	# avoid recursion
 	# this is the best whois server
 	# strip extra fluff
-	/usr/bin/whois -h whois.internic.net $domain | sed '/NOTICE:/q'
+	/usr/bin/whois -h whois.internic.net "$domain" | sed '/NOTICE:/q'
 }
 
 # Create a new directory and enter it
 md() {
-	mkdir -p "$@" && cd "$@"
+	mkdir -p "$@" && cd "$@" || return
 }
 
 # find shorthand
@@ -171,18 +172,18 @@ function docker_cleanup {
 
 # Copy w/ progress
 cpp () {
-	rsync -WavP --human-readable --progress $1 $2
+	rsync -WavP --human-readable --progress "$1" "$2"
 }
 
 # check if tmux.conf exist, and if tpm is being used
-if [ -f $HOME/.tmux.conf ]; then
+if [ -f "$HOME/.tmux.conf" ]; then
 	# find the string within .tmux.conf file
-	grep -Fxq "set -g @plugin 'tmux-plugins/tpm'" $HOME/.tmux.conf
+	grep -Fxq "set -g @plugin 'tmux-plugins/tpm'" "$HOME/.tmux.conf"
 	# returns 0 if found, 1 if not
 	tpm=$?
-	if [ "$tpm" == 0 ] && [ ! -d $HOME/.tmux/plugins/tpm ]; then
-		mkdir -p $HOME/.tmux/plugins
-		git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+	if [ "$tpm" == 0 ] && [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+		mkdir -p "$HOME/.tmux/plugins"
+		git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 	fi
 	unset tpm
 fi
@@ -239,7 +240,7 @@ alias refresh='source ~/.bashrc'
 # ripgrep search case-insensitive by default
 alias rg='rg -i'
 
-if which sensible-editor > /dev/null 2>&1; then
+if command -v sensible-editor > /dev/null 2>&1; then
 	alias e='sensible-editor'
 fi
 
@@ -263,10 +264,12 @@ alias notify='notify -i "$([ $? = 0 ] && echo terminal || echo error)" -t "Termi
 filesToSource=()
 
 if [ $unix ]; then
-	if which brew > /dev/null 2>&1; then
-		# support for z.sh
+	if command -v brew > /dev/null 2>&1; then
+		# shellcheck disable=SC2207
 		filesToSource+=($(brew --prefix)/etc/grc.bashrc)
+		# shellcheck disable=SC2207
 		filesToSource+=($(brew --prefix)/share/bash-completion/bash_completion)
+		# shellcheck disable=SC2207
 		filesToSource+=($(brew --prefix)/etc/grc.bashrc)
 	fi
 elif [ $linux ]; then
@@ -283,6 +286,8 @@ filesToSource+=(~/.travis/travis.sh)
 filesToSource+=(~/z.sh)
 
 for file in "${filesToSource[@]}"; do
+	# https://github.com/koalaman/shellcheck/wiki/SC1090
+	# shellcheck source=/dev/null
 	[ -r "$file" ] && source "$file"
 done
 unset file
