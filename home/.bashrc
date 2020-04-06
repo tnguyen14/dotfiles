@@ -152,17 +152,6 @@ f() {
 	find . -name "$1" 2>&1 | grep -v 'Permission denied'
 }
 
-# Start an HTTP server from a directory, optionally specifying the port
-serve() {
-	local port="${1:-8000}"
-	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
-	if [ $unix ]; then
-		open "http://localhost:${port}/"
-	fi
-}
-
 # clean up docker
 function docker_cleanup {
 	# docker-gc
