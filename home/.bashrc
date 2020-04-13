@@ -164,6 +164,12 @@ cpp () {
 	rsync -WavP --human-readable --progress "$1" "$2"
 }
 
+# override the reset function to also restore color
+reset () {
+	reset
+	eval "$($BASE16_SHELL/profile_helper.sh)"
+}
+
 # check if tmux.conf exist, and if tpm is being used
 if [ -f "$HOME/.tmux.conf" ]; then
 	# find the string within .tmux.conf file
