@@ -61,11 +61,13 @@ pathmunge /bin
 pathmunge /usr/bin
 pathmunge /usr/local/bin
 
+pathmunge "$HOME/.cargo/bin"
 pathmunge "$HOME/github/tnguyen14/dotfiles/node_modules/.bin"
 pathmunge "$HOME/bin"
 pathmunge "$HOME/github/tnguyen14/dotfiles/bin"
-pathmunge ./bin "after"
-pathmunge ./node_modules/.bin "after"
+# allow local bins to override
+pathmunge ./node_modules/.bin
+pathmunge ./bin
 
 if command -v brew > /dev/null 2>&1; then
 	pathmunge "$(brew --prefix coreutils)/libexec/gnubin"
@@ -82,6 +84,7 @@ fi
 pathmunge "$GOPATH"
 pathmunge "$HOME/.cargo/bin"
 pathmunge "/usr/local/share/npm/bin"
+pathmunge "$HOME/.local/bin" # pip install location
 
 export PATH
 
