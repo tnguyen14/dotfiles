@@ -118,7 +118,7 @@ function link_file() {
 	if [ -f "$1" ]; then
 		case "$1" in
 			# ignore .swp or .DS_Store files
-			*.swp|*.DS_Store)
+			*.swp|*.DS_Store|Session.vim)
 				;;
 			*)
 				do_link "$1" "$2"
