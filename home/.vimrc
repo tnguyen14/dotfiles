@@ -26,6 +26,7 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'mbbill/undotree'
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'machakann/vim-highlightedyank'
+Plug 'powerman/vim-plugin-AnsiEsc'
 
 " languages
 Plug 'sheerun/vim-polyglot'
