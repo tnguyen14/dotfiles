@@ -168,7 +168,7 @@ cpp () {
 }
 
 # override the reset function to also restore color
-reset () {
+_reset () {
 	reset
 	eval "$($BASE16_SHELL/profile_helper.sh)"
 }
