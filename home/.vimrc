@@ -389,6 +389,7 @@ let g:jsx_ext_required = 0
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 1000
 " navigate to next/ previous error
 nmap <silent> <C-j> <Plug>(ale_previous_wrap)
 nmap <silent> <C-k> <Plug>(ale_next_wrap)
