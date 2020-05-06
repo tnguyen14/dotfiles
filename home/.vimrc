@@ -198,6 +198,11 @@ nnoremap <Leader>, :Commentary<CR>
 " lnext and lprevious
 nnoremap <Leader>l :lnext<CR>
 nnoremap <Leader>L :lprevious<CR>
+
+" copy to/ from tmp file
+vmap <Leader>y :w! /tmp/vim<CR>
+nmap <Leader>p :r! cat /tmp/vim<CR>
+
 " }}}
 
 " Plugins Settings {{{
