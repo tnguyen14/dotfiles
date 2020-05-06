@@ -156,7 +156,7 @@ f() {
 }
 
 # clean up docker
-function docker_cleanup {
+docker_cleanup () {
 	# docker-gc
 	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc \
 		-e FORCE_IMAGE_REMOVAL=1 -e REMOVE_VOLUMES=1 spotify/docker-gc
@@ -171,6 +171,11 @@ cpp () {
 _reset () {
 	reset
 	eval "$($BASE16_SHELL/profile_helper.sh)"
+}
+
+view_tls () {
+	local DOMAIN=$1
+	openssl s_client -showcerts -servername $DOMAIN -connect $DOMAIN:443
 }
 
 # check if tmux.conf exist, and if tpm is being used
