@@ -347,7 +347,7 @@ command! -bang -nargs=* Rg
 
 command! -bang -nargs=* Gg
 	\ call fzf#vim#grep(
-	\   'git grep --line-number --ignore-case '.shellescape(<q-args>), 0,
+	\   'git grep --line-number --ignore-case --color=always '.shellescape(<q-args>), 0,
 	\   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 
 command! -bang -nargs=? -complete=dir Files
