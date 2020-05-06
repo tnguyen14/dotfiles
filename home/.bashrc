@@ -110,7 +110,7 @@ export HISTSIZE=100000
 # big big history
 export HISTFILESIZE=$HISTSIZE
 # Don't record some commands
-export HISTIGNORE="&:[  ]*:exit:ls:bg:fg:history:clear:reset"
+export HISTIGNORE="&:[  ]*:exit:ls:bg:fg:history:clear:reset:_reset"
 # append to history, don't overwrite it
 shopt -s histappend
 # Save multi-line commands as one command
