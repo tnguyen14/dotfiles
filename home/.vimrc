@@ -359,8 +359,8 @@ command! -bang -nargs=? GitFiles
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
-nnoremap <C-p> :Files<CR>
-nnoremap <Leader>p :GitFiles<CR>
+nnoremap <C-f> :Files<CR>
+nnoremap <C-p> :GitFiles<CR>
 " Open commits list
 noremap <Leader>c :Commits<CR>
 " Open buffers list
