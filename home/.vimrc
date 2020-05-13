@@ -325,7 +325,7 @@ let g:vim_markdown_conceal_code_blocks = 0
 
 " fzf {{{
 " :Rg
-" Create a :Find command with ripgrep and fzf
+" Create a :Rg command with ripgrep and fzf
 " see https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.h8394n3c5
 
 "" --column: Show column number
@@ -338,9 +338,13 @@ let g:vim_markdown_conceal_code_blocks = 0
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
+
+" remove --no-ignore because most of the time I do want to respect ignore
+" but remove shellescape so the --no-ignore flag, and any other flag
+" can be passed in https://github.com/junegunn/fzf.vim/issues/838
 command! -bang -nargs=* Rg
 	\ call fzf#vim#grep(
-	\   'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>), 1,
+	\   'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color=always '.<q-args>, 1,
 	\   <bang>0 ? fzf#vim#with_preview('up:60%')
 	\           : fzf#vim#with_preview('right:50%:hidden', '?'),
 	\   <bang>0)
