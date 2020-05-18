@@ -48,6 +48,8 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+Plug 'Shougo/deol.nvim'
 call plug#end()
 " }}}
 
@@ -196,8 +198,17 @@ noremap <Leader>x :x<CR>
 nnoremap <Leader>, :Commentary<CR>
 
 " lnext and lprevious
-nnoremap <Leader>l :lnext<CR>
-nnoremap <Leader>L :lprevious<CR>
+nnoremap <Leader>j :lnext<CR>
+nnoremap <Leader>k :lprevious<CR>
+
+" deol (escape terminal buffer)
+" https://github.com/Shougo/deol.nvim/issues/17
+if !has('nvim')
+	tnoremap   <ESC>       <C-w>N
+	tnoremap   <ESC><ESC>  <C-w>N
+else
+	tnoremap <ESC> <C-\><C-n>
+endif
 
 " copy to/ from tmp file
 vmap <Leader>y :w! /tmp/vim<CR>
@@ -426,6 +437,7 @@ let vim_markdown_preview_hotkey='<C-m>'
 " vim-multiple-cursors {{{
 let g:multi_cursor_start_word_key = '<C-d>'
 " }}}
+
 "}}}
 
 " add folding for different filetypes {{{
