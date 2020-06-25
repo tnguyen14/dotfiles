@@ -49,6 +49,9 @@ Session.vim
 
 # project specific files
 TODO
+temp.py
+temp.js
+temp.go
 
 vim-markdown-preview.html
 
