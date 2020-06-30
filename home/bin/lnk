@@ -155,6 +155,7 @@ function link_dir() {
 	fi
 }
 
+e_header "Linking dir $1 to $2"
 link_dir "$@"
 
 e_reset

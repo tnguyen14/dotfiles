@@ -173,9 +173,23 @@ _reset () {
 	eval "$($BASE16_SHELL/profile_helper.sh)"
 }
 
+# view tls info, pass in domain as first argument
 view_tls () {
 	local DOMAIN=$1
 	openssl s_client -showcerts -servername $DOMAIN -connect $DOMAIN:443
+}
+
+# apply config changes
+apply_config() {
+	if [ -z "$CONFIG_MACHINE_NAME" ]; then
+		echo "\$CONFIG_MACHINE_NAME variable is not set. Bailing."
+		return 1
+	fi
+	if [ -z "$CONFIG_PATH" ]; then
+		echo "\$CONFIG_PATH variable is not set. Bailing."
+		return 1
+	fi
+	lnk "$CONFIG_PATH/$CONFIG_MACHINE_NAME" /
 }
 
 # check if tmux.conf exist, and if tpm is being used
