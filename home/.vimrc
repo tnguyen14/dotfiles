@@ -79,7 +79,7 @@ endif
 set mouse=a
 
 " Allow saving of files as sudo when forgot to start vim using sudo
-cmap w!! w !sudo tee > /dev/null %
+cnoremap w!! execute 'write !sudo tee % >/dev/null' <bar> edit!
 
 syntax on
 
