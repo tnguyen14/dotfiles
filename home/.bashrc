@@ -251,7 +251,7 @@ alias disk="df -P -kHl"
 # Networking. IP address, dig, DNS
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
-alias dig="dig +nocmd any +multiline +noall +answer"
+alias digg="dig +nocmd any +multiline +noall +answer"
 # refresh bash
 alias refresh='source ~/.bashrc'
 # ripgrep search case-insensitive by default
