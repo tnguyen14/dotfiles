@@ -48,6 +48,7 @@
 	diff = auto
 	interactive = auto
 	status = auto
+	ui = true
 [color "diff-highlight"]
 	oldNormal = red bold
 	oldHighlight = red bold 52
