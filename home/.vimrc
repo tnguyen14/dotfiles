@@ -417,7 +417,7 @@ nmap <silent> <C-k> <Plug>(ale_next_wrap)
 
 " :help ale_linters
 let g:ale_linters = {
-			\'python': ['pycodestyle']
+			\'python': ['pycodestyle', 'mypy', 'pylint']
 			\}
 
 let g:ale_fixers = {
