@@ -337,28 +337,24 @@ let g:vim_markdown_conceal_code_blocks = 0
 " fzf {{{
 " :Rg
 " Create a :Rg command with ripgrep and fzf
-" see https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2#.h8394n3c5
+" https://github.com/junegunn/fzf.vim#example-advanced-ripgrep-integration
 
 "" --column: Show column number
 " --line-number: Show line number
 " --no-heading: Do not show file headings in results
-" --fixed-strings: Search term as a literal string
-" --ignore-case: Case insensitive search
-" --no-ignore: Do not respect .gitignore, etc...
+" --color: Search color options
 " --hidden: Search hidden files and folders
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-" --color: Search color options
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --follow --glob "!.git/*" -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
 
-" remove --no-ignore because most of the time I do want to respect ignore
-" but remove shellescape so the --no-ignore flag, and any other flag
-" can be passed in https://github.com/junegunn/fzf.vim/issues/838
-command! -bang -nargs=* Rg
-	\ call fzf#vim#grep(
-	\   'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color=always '.<q-args>, 1,
-	\   <bang>0 ? fzf#vim#with_preview('up:60%')
-	\           : fzf#vim#with_preview('right:50%:hidden', '?'),
-	\   <bang>0)
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 command! -bang -nargs=* Gg
 	\ call fzf#vim#grep(
