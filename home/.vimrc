@@ -480,7 +480,7 @@ let g:netrw_liststyle=3
 " defx {{{
 
 "copied from :help defx-examples
-autocmd FileType defx call s:de_my_settings()
+autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
