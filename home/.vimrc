@@ -296,11 +296,13 @@ endfunction
 
 augroup nerdtree
 	autocmd!
+
 	" open NERDTree automatically on vim start, even if no file is specified
 	" focus back on main window after
-	autocmd StdinReadPre * let s:std_in=1
-	autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree |
-		\ wincmd p | endif
+
+	" autocmd StdinReadPre * let s:std_in=1
+	" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree |
+	" 	\ wincmd p | endif
 
 	call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
 	call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
