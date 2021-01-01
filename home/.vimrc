@@ -56,8 +56,6 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-Plug 'Shougo/deol.nvim'
 call plug#end()
 " }}}
 
@@ -208,15 +206,6 @@ nnoremap <Leader>, :Commentary<CR>
 " lnext and lprevious
 nnoremap <Leader>j :lnext<CR>
 nnoremap <Leader>k :lprevious<CR>
-
-" deol (escape terminal buffer)
-" https://github.com/Shougo/deol.nvim/issues/17
-if !has('nvim')
-	tnoremap   <ESC>       <C-w>N
-	tnoremap   <ESC><ESC>  <C-w>N
-else
-	tnoremap <ESC> <C-\><C-n>
-endif
 
 " copy to/ from tmp file
 vmap <Leader>y :w! /tmp/vim<CR>
