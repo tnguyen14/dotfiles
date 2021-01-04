@@ -157,9 +157,9 @@ f() {
 
 # clean up docker
 docker_cleanup () {
-	# docker-gc
-	docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc \
-		-e FORCE_IMAGE_REMOVAL=1 -e REMOVE_VOLUMES=1 spotify/docker-gc
+	docker container prune -f --filter "until=24h"
+	docker volume prune -f
+	docker image prune -af --filter "until=24h"
 }
 
 # Copy w/ progress
