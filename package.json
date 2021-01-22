@@ -6,8 +6,7 @@
   "dependencies": {
     "diff-so-fancy": "^0.11.4",
     "n": "^2.0.2",
-    "tldr": "^3.3.2",
-    "whoiam": "0.0.13"
+    "tldr": "^3.3.6"
   },
   "devDependencies": {},
   "scripts": {
