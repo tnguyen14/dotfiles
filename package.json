@@ -4,9 +4,8 @@
   "description": "Tri's personal dotfiles",
   "main": "link.sh",
   "dependencies": {
-    "diff-so-fancy": "^0.11.4",
-    "n": "^2.0.2",
-    "tldr": "^3.3.6"
+    "diff-so-fancy": "^1.3.0",
+    "tldr": "^3.3.7"
   },
   "devDependencies": {},
   "scripts": {
