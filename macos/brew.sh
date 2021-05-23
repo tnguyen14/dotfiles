@@ -17,9 +17,9 @@ brew upgrade
 # GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 # GNU `find`, `locate`, `updatedb`, and `xargs`
-brew install findutils --with-default-names
-brew install gnu-sed --with-default-names
-brew install grep --with-default-names
+brew install findutils
+brew install gnu-sed
+brew install grep
 brew install diffutils
 
 brew install gcc
@@ -33,7 +33,7 @@ brew install bash-completion2
 brew install brew-cask-completion
 
 # Install more recent versions of some OS X tools
-brew install macvim --with-override-system-vim
+brew install macvim
 brew install neovim
 
 # Install other useful binaries
@@ -72,43 +72,3 @@ brew install grc
 
 # Remove outdated versions from the cellar
 brew cleanup
-
-# Brew Cask
-brew cask
-brew tap caskroom/versions
-
-brew cask install cerebro
-brew cask install appcleaner
-brew cask install atom
-brew cask install iterm2-beta
-brew cask install flux
-brew cask install skyfonts
-brew cask install postman
-
-# browsers
-brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install firefoxdeveloperedition
-brew cask install docker
-
-brew cask install spotify
-brew cask install dropbox
-brew cask install google-drive
-brew cask install 1password
-brew cask install imageoptim
-brew cask install slack
-
-# quick look https://github.com/sindresorhus/quick-look-plugins
-brew cask install betterzipql
-brew cask install qlcolorcode
-brew cask install qlimagesize
-brew cask install webpquicklook
-brew cask install qlmarkdown
-brew cask install qlprettypatch
-brew cask install qlstephen
-brew cask install quicklook-csv
-brew cask install quicklook-json
-brew cask install suspicious-package
-
-# cask cleanup
-brew cask cleanup
