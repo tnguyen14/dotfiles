@@ -16,11 +16,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'Shougo/defx.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -222,18 +222,6 @@ let g:airline#extensions#ale#enabled = 1
 " disable showing a summary of changed hunks under source control
 let g:airline#extensions#hunks#enabled = 0
 
-let g:airline_theme = 'base16'
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-
 " https://github.com/vim-airline/vim-airline/wiki/FAQ#how-can-i-remove-those-angle-at-the-end
 let g:airline_skip_empty_sections = 1
 " default is
@@ -253,6 +241,21 @@ let g:airline_section_y = ''
 " https://github.com/vim-airline/vim-airline/blob/7813a5491223befd80f798c86802488613908b58/autoload/airline/init.vim
 " removing the percentage
 let g:airline_section_z = airline#section#create(['windowswap', 'obsession', 'linenr', 'maxlinenr', '%3v'])
+
+function! AirlineUI()
+	let g:airline_theme = 'base16'
+	let g:airline_left_sep = ''
+	let g:airline_left_alt_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_alt_sep = ''
+	if !exists('g:airline_symbols')
+		let g:airline_symbols = {}
+	endif
+	let g:airline_symbols.branch = ''
+	let g:airline#extensions#tabline#left_sep = ''
+	let g:airline#extensions#tabline#left_alt_sep = ''
+endfunction
+" call g:AirlineUI()
 " }}}
 
 " NERDTree{{{
@@ -339,19 +342,19 @@ let g:vim_markdown_conceal_code_blocks = 0
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --follow --glob "!.git/*" -- %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case --hidden --follow --glob "!.git/*" -- %s || true'
+	let initial_command = printf(command_fmt, shellescape(a:query))
+	let reload_command = printf(command_fmt, '{q}')
+	let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 
 command! -bang -nargs=* Gg
 	\ call fzf#vim#grep(
-	\   'git grep --line-number --ignore-case --color=always '.shellescape(<q-args>), 0,
-	\   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+	\	 'git grep --line-number --ignore-case --color=always '.shellescape(<q-args>), 0,
+	\	 { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 
 command! -bang -nargs=? -complete=dir Files
 	\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -375,11 +378,11 @@ augroup vimobsession
 	autocmd!
 	autocmd VimEnter * nested
 		\ if !argc() && empty(v:this_session) && !&modified |
-		\   if filereadable('Session.vim') |
-		\     source Session.vim |
-		\   else |
-		\     Obsession |
-		\   endif |
+		\	 if filereadable('Session.vim') |
+		\		 source Session.vim |
+		\	 else |
+		\		 Obsession |
+		\	 endif |
 		\ endif
 " }}}
 
@@ -445,9 +448,9 @@ augroup misc
 	" taken from https://gist.github.com/frangio/985684
 	autocmd BufNewFile,BufRead *
 		\ if expand('%:~') =~ '^\~/Dropbox' |
-		\   set noswapfile |
+		\	 set noswapfile |
 		\ else |
-		\   set swapfile |
+		\	 set swapfile |
 		\ endif
 
 	" crontab
@@ -464,68 +467,68 @@ let g:netrw_liststyle=3
 "copied from :help defx-examples
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
-  " Define mappings
-  nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> c
-  \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> m
-  \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> p
-  \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> l
-  \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> E
-  \ defx#do_action('open', 'vsplit')
-  nnoremap <silent><buffer><expr> P
-  \ defx#do_action('preview')
-  nnoremap <silent><buffer><expr> o
-  \ defx#do_action('open_tree', 'toggle')
-  nnoremap <silent><buffer><expr> K
-  \ defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> N
-  \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> M
-  \ defx#do_action('new_multiple_files')
-  nnoremap <silent><buffer><expr> C
-  \ defx#do_action('toggle_columns',
-  \                'mark:indent:icon:filename:type:size:time')
-  nnoremap <silent><buffer><expr> S
-  \ defx#do_action('toggle_sort', 'time')
-  nnoremap <silent><buffer><expr> d
-  \ defx#do_action('remove')
-  nnoremap <silent><buffer><expr> r
-  \ defx#do_action('rename')
-  nnoremap <silent><buffer><expr> !
-  \ defx#do_action('execute_command')
-  nnoremap <silent><buffer><expr> x
-  \ defx#do_action('execute_system')
-  nnoremap <silent><buffer><expr> yy
-  \ defx#do_action('yank_path')
-  nnoremap <silent><buffer><expr> .
-  \ defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> ;
-  \ defx#do_action('repeat')
-  nnoremap <silent><buffer><expr> h
-  \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> ~
-  \ defx#do_action('cd')
-  nnoremap <silent><buffer><expr> q
-  \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <Space>
-  \ defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> *
-  \ defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> j
-  \ line('.') == line('$') ? 'gg' : 'j'
-  nnoremap <silent><buffer><expr> k
-  \ line('.') == 1 ? 'G' : 'k'
-  nnoremap <silent><buffer><expr> <C-l>
-  \ defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> <C-g>
-  \ defx#do_action('print')
-  nnoremap <silent><buffer><expr> cd
-  \ defx#do_action('change_vim_cwd')
+	" Define mappings
+	nnoremap <silent><buffer><expr> <CR>
+	\ defx#do_action('open')
+	nnoremap <silent><buffer><expr> c
+	\ defx#do_action('copy')
+	nnoremap <silent><buffer><expr> m
+	\ defx#do_action('move')
+	nnoremap <silent><buffer><expr> p
+	\ defx#do_action('paste')
+	nnoremap <silent><buffer><expr> l
+	\ defx#do_action('open')
+	nnoremap <silent><buffer><expr> E
+	\ defx#do_action('open', 'vsplit')
+	nnoremap <silent><buffer><expr> P
+	\ defx#do_action('preview')
+	nnoremap <silent><buffer><expr> o
+	\ defx#do_action('open_tree', 'toggle')
+	nnoremap <silent><buffer><expr> K
+	\ defx#do_action('new_directory')
+	nnoremap <silent><buffer><expr> N
+	\ defx#do_action('new_file')
+	nnoremap <silent><buffer><expr> M
+	\ defx#do_action('new_multiple_files')
+	nnoremap <silent><buffer><expr> C
+	\ defx#do_action('toggle_columns',
+	\								'mark:indent:icon:filename:type:size:time')
+	nnoremap <silent><buffer><expr> S
+	\ defx#do_action('toggle_sort', 'time')
+	nnoremap <silent><buffer><expr> d
+	\ defx#do_action('remove')
+	nnoremap <silent><buffer><expr> r
+	\ defx#do_action('rename')
+	nnoremap <silent><buffer><expr> !
+	\ defx#do_action('execute_command')
+	nnoremap <silent><buffer><expr> x
+	\ defx#do_action('execute_system')
+	nnoremap <silent><buffer><expr> yy
+	\ defx#do_action('yank_path')
+	nnoremap <silent><buffer><expr> .
+	\ defx#do_action('toggle_ignored_files')
+	nnoremap <silent><buffer><expr> ;
+	\ defx#do_action('repeat')
+	nnoremap <silent><buffer><expr> h
+	\ defx#do_action('cd', ['..'])
+	nnoremap <silent><buffer><expr> ~
+	\ defx#do_action('cd')
+	nnoremap <silent><buffer><expr> q
+	\ defx#do_action('quit')
+	nnoremap <silent><buffer><expr> <Space>
+	\ defx#do_action('toggle_select') . 'j'
+	nnoremap <silent><buffer><expr> *
+	\ defx#do_action('toggle_select_all')
+	nnoremap <silent><buffer><expr> j
+	\ line('.') == line('$') ? 'gg' : 'j'
+	nnoremap <silent><buffer><expr> k
+	\ line('.') == 1 ? 'G' : 'k'
+	nnoremap <silent><buffer><expr> <C-l>
+	\ defx#do_action('redraw')
+	nnoremap <silent><buffer><expr> <C-g>
+	\ defx#do_action('print')
+	nnoremap <silent><buffer><expr> cd
+	\ defx#do_action('change_vim_cwd')
 endfunction
 
 nnoremap <Leader>f :Defx<CR>
