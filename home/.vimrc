@@ -59,13 +59,6 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 " }}}
 
-" Theming {{{
-if filereadable(expand("~/.vimrc_background"))
-	let base16colorspace=256
-	source ~/.vimrc_background
-endif
-" }}}
-"
 " Settings {{{
 
 " regular vim only {{{
@@ -535,7 +528,8 @@ function! s:defx_my_settings() abort
   \ defx#do_action('change_vim_cwd')
 endfunction
 
-nnoremap <Leader>f :Defx -split=floating<CR>
+nnoremap <Leader>f :Defx<CR>
+nnoremap <Leader>g :Defx -split=floating<CR>
 " }}}
 
 function! s:todo()
