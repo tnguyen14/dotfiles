@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 
 " look and feel
 Plug 'chriskempson/base16-vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
@@ -58,6 +59,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 " }}}
+
+colorscheme onehalfdark
 
 " Settings {{{
 
