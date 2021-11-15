@@ -60,7 +60,8 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 " }}}
 
-colorscheme onehalfdark
+let base16colorspace=256
+colorscheme base16-default-dark
 
 " Settings {{{
 
