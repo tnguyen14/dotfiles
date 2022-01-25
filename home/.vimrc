@@ -418,6 +418,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 			\'python': ['black'],
 			\'javascript': ['prettier', 'eslint'],
+			\'typescript': ['prettier', 'eslint'],
 			\'typescriptreact': ['prettier', 'eslint'],
 			\'ruby': ['rubocop'],
 			\}
