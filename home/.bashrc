@@ -54,12 +54,12 @@ pathmunge () {
 	fi
 }
 
-pathmunge /sbin
-pathmunge /usr/sbin
+pathmunge /usr/sbin "after"
+pathmunge /usr/bin "after"
+pathmunge /sbin "after"
+pathmunge /bin "after"
 pathmunge /usr/local/sbin
 pathmunge /usr/local/bin
-pathmunge /usr/bin
-pathmunge /bin
 
 pathmunge "$HOME/.cargo/bin"
 pathmunge "$HOME/github/tnguyen14/dotfiles/node_modules/.bin"
