@@ -57,13 +57,14 @@ pathmunge () {
 pathmunge /sbin
 pathmunge /usr/sbin
 pathmunge /usr/local/sbin
-pathmunge /bin
-pathmunge /usr/bin
 pathmunge /usr/local/bin
+pathmunge /usr/bin
+pathmunge /bin
 
 pathmunge "$HOME/.cargo/bin"
 pathmunge "$HOME/github/tnguyen14/dotfiles/node_modules/.bin"
 pathmunge "$HOME/bin"
+pathmunge "$HOME/.local/bin"
 pathmunge "$HOME/github/tnguyen14/dotfiles/bin"
 pathmunge "$HOME/github/so-fancy/diff-so-fancy"
 # allow local bins to override
