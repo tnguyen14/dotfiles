@@ -412,16 +412,18 @@ nmap <silent> <C-k> <Plug>(ale_next_wrap)
 
 " :help ale_linters
 let g:ale_linters = {
-			\'python': ['pycodestyle', 'mypy', 'pylint']
-			\}
+	\'python': ['pycodestyle', 'mypy', 'pylint'],
+	\'json': ['jq', 'jsonlint', 'spectral'],
+	\}
+" remove eslint from json, as it requires eslint-json-plugin
 
 let g:ale_fixers = {
-			\'python': ['black'],
-			\'javascript': ['prettier', 'eslint'],
-			\'typescript': ['prettier', 'eslint'],
-			\'typescriptreact': ['prettier', 'eslint'],
-			\'ruby': ['rubocop'],
-			\}
+	\'python': ['black'],
+	\'javascript': ['prettier', 'eslint'],
+	\'typescript': ['prettier', 'eslint'],
+	\'typescriptreact': ['prettier', 'eslint'],
+	\'ruby': ['rubocop'],
+	\}
 
 let g:ale_python_black_options = '-l 80'
 " }}}
