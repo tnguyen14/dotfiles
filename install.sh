@@ -1,2 +1,2 @@
 #!/bin/sh
-./home/bin/lnk "$(pwd)/home" "$HOME"
+$(dirname -- $0)/home/bin/lnk "$(dirname -- $0)/home" "$HOME"
