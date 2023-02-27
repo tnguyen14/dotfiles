@@ -32,7 +32,7 @@ Make sure the directory `~/Dropbox/dev/arch/etc` exists before starting the VM.
 ```shell
 # link everything in `home` to `~`
 :; cd ~/dotfiles
-:; sh init.sh
+:; sh install.sh
 
 ```
 
