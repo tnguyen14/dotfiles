@@ -16,3 +16,6 @@ if ! command -v tmux &> /dev/null; then
   ./configure
   make && sudo make install
 fi
+
+# install vim plugins
+nvim +PlugInstall +qall
