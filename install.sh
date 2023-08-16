@@ -3,5 +3,3 @@
 dir=$(dirname -- "$( readlink -f -- "$0";  )";)
 
 $dir/home/bin/lnk "$dir/home" "$HOME"
-
-npm install
