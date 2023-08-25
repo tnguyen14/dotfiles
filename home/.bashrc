@@ -43,7 +43,7 @@ export FZF_DEFAULT_COMMAND='rg -uu --files -g !.git -g !node_modules'
 export GOPATH=$HOME/go
 
 # so-fancy
-if [ ! -d "$HOME/so-fancy/diff-so-fancy" ]; then
+if [ ! -d "$HOME/github/so-fancy/diff-so-fancy" ]; then
 	mkdir -p "$HOME/github/so-fancy"
 	git clone https://github.com/so-fancy/diff-so-fancy.git "$HOME/github/so-fancy/diff-so-fancy"
 fi
