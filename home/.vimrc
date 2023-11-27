@@ -57,6 +57,8 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+Plug 'github/copilot.vim'
 call plug#end()
 " }}}
 
