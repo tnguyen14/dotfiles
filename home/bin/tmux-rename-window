@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tmux rename-window "$(basename "$(tmux display -p -F '#{pane_current_path}')")"
