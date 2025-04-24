@@ -140,3 +140,7 @@
 	newHighlight = green bold 22
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
+[url "bbgithub:"]
+	insteadof = https://bbgithub.dev.bloomberg.com/
