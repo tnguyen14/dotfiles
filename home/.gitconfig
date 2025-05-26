@@ -24,7 +24,7 @@
 	cob = checkout -b
 	b = branch
 	bd = branch -d
-	bD = branch -D
+	bdd = branch -D
 	cl = clone
 	d = diff
 	dc = diff --cached
