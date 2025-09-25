@@ -77,6 +77,7 @@
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
 	quotepath = false
 	editor = "vim"
+	autocrlf = input
 
 [branch "master"]
 	# Use `origin` as the default remote on the `master` branch in all cases
