@@ -62,8 +62,10 @@ Plug 'github/copilot.vim'
 call plug#end()
 " }}}
 
-let base16colorspace=256
 colorscheme base16-default-dark
+if has('termguicolors')
+	set termguicolors
+endif
 
 " Settings {{{
 
