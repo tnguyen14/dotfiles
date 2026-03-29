@@ -310,6 +310,7 @@ filesToSource+=(~/.fzf.sh) # custom fzf commands
 filesToSource+=(~/.travis/travis.sh)
 filesToSource+=(~/z.sh)
 filesToSource+=(~/.cargo/env)
+filesToSource+=(~/google-cloud-sdk/path.bash.inc)
 
 for file in "${filesToSource[@]}"; do
 	# https://github.com/koalaman/shellcheck/wiki/SC1090
