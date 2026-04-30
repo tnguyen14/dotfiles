@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # if not running interactively, don't do anything
-# [[ -z $PS1 ]] && export PATH="$PATH:/usr/local/bin" && return
 # $- is current shell options
 
 case $- in
@@ -89,8 +88,7 @@ if [ $linux ]; then
 	export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
 fi
 
-pathmunge "$GOPATH"
-pathmunge "$HOME/.cargo/bin"
+pathmunge "$GOPATH/bin"
 pathmunge "/usr/local/share/npm/bin"
 pathmunge "$HOME/.local/bin" # pip install location
 
@@ -318,5 +316,10 @@ for file in "${filesToSource[@]}"; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
+
+# auto-launch tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ -z "$NO_TMUX" ]; then
+	tmux new-session -t default || tmux new-session -s default
+fi
 
 # vim: set tabstop=4:
