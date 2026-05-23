@@ -6,6 +6,3 @@ $dir/home/bin/lnk "$dir/home" "$HOME"
 
 # source bashrc once to set up
 source "$HOME/.bashrc"
-
-# install vim plugins
-nvim +PlugInstall +qall
