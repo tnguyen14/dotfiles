@@ -319,7 +319,11 @@ unset file
 
 # auto-launch tmux
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ -z "$NO_TMUX" ]; then
-	tmux new-session -t default \; new-window || tmux new-session -s default
+	if tmux has-session -t default 2>/dev/null; then
+		tmux new-session -t default \; new-window
+	else
+		tmux new-session -s default
+	fi
 fi
 
 # vim: set tabstop=4:
