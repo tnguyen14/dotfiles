@@ -145,3 +145,5 @@
 	defaultBranch = main
 [url "bbgithub:"]
 	insteadof = https://bbgithub.dev.bloomberg.com/
+[credential]
+	helper = store
