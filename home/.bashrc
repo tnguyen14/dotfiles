@@ -319,9 +319,14 @@ unset file
 
 # auto-launch tmux
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ -z "$NO_TMUX" ]; then
-	if tmux has-session -t default 2>/dev/null; then
+	if [ -n "$(tmux list-clients 2>/dev/null)" ]; then
+		# a tab is already attached -> join with a new window
 		tmux new-session -t default \; new-window
+	elif tmux has-session -t default 2>/dev/null; then
+		# first tab, server persisted from a previous launch -> join without adding a window
+		tmux new-session -t default
 	else
+		# nothing running -> fresh session
 		tmux new-session -s default
 	fi
 fi
