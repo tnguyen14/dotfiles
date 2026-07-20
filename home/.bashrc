@@ -317,12 +317,49 @@ for file in "${filesToSource[@]}"; do
 done
 unset file
 
-# auto-launch tmux
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ -z "$NO_TMUX" ]; then
-	if [ -n "$(tmux list-clients 2>/dev/null)" ]; then
-		# a tab is already attached -> join with a new window
+# auto-launch tmux when opening terminal app
+#
+# On WSL with systemd=true (see /etc/wsl.conf), the distro boots a persistent
+# /bin/login console session that never exits. That shell also sources .bashrc,
+# so without a guard it auto-launches tmux and grabs a window, leaving the first
+# real Windows Terminal window showing 2 tmux windows.
+running_on_wsl=false
+grep -qiE 'microsoft|wsl' /proc/sys/kernel/osrelease 2>/dev/null && running_on_wsl=true
+
+# Windows Terminal tabs come in through the WSL interop relay,
+# parent process is not "login", so we can exclude the systemd console session
+# by its parent being "login". On non-WSL consoles, a *normal* interactive
+# shell also has "login" as its parent and should still start tmux.
+is_wsl_systemd_console=false
+if [ "$running_on_wsl" = true ] && [ "$(ps -o comm= -p "$PPID" 2>/dev/null)" = "login" ]; then
+	is_wsl_systemd_console=true
+fi
+
+tmux_installed=false
+command -v tmux &> /dev/null && tmux_installed=true
+
+shell_is_interactive=false
+[ -n "$PS1" ] && shell_is_interactive=true
+
+already_inside_tmux=false
+[ -n "$TMUX" ] && already_inside_tmux=true
+
+tmux_opt_out=false
+[ -n "$NO_TMUX" ] && tmux_opt_out=true
+
+if [ "$tmux_installed" = true ] && [ "$shell_is_interactive" = true ] \
+	&& [ "$already_inside_tmux" = false ] && [ "$tmux_opt_out" = false ] \
+	&& [ "$is_wsl_systemd_console" = false ]; then
+	tmux_client_attached=false
+	[ -n "$(tmux list-clients 2>/dev/null)" ] && tmux_client_attached=true
+
+	tmux_session_exists=false
+	tmux has-session -t default 2>/dev/null && tmux_session_exists=true
+
+	if [ "$tmux_client_attached" = true ]; then
+		# a tab is already open -> join with a new window
 		tmux new-session -t default \; new-window
-	elif tmux has-session -t default 2>/dev/null; then
+	elif [ "$tmux_session_exists" = true ]; then
 		# first tab, server persisted from a previous launch -> join without adding a window
 		tmux new-session -t default
 	else
@@ -330,5 +367,9 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ -z "$NO_
 		tmux new-session -s default
 	fi
 fi
+
+unset running_on_wsl is_wsl_systemd_console tmux_installed \
+	shell_is_interactive already_inside_tmux tmux_opt_out \
+	tmux_client_attached tmux_session_exists
 
 # vim: set tabstop=4:
